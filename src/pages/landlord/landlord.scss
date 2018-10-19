@@ -1,0 +1,85 @@
+page-landlord {
+    .content{
+        // background: linear-gradient(to right, #cb2d3e, #ef473a); 
+     
+    }
+
+    
+        
+            //background: linear-gradient(to right, #cb2d3e, #ef473a); 
+        
+        
+        #profile{
+            background: #f4f4f4 !important;
+          
+        
+            ion-list, ion-list-header, ion-item{
+                background: none !important;
+            }
+        
+            ion-card{
+                border: none !important;
+               
+            }
+        
+            ion-input {
+                border-bottom: 2px solid black;
+            }
+
+            
+            
+
+        }
+
+        ion-item{
+            width: 100%;
+            padding: 5%;
+        
+
+            background-image: linear-gradient( rgba(238, 221, 221, 0.5),#f5deb3 ); 
+        }
+
+        .tutorial-page {
+            height: 100%;
+        
+            .toolbar-background {
+              background:#f4f4f4;
+            //   background-image: linear-gradient( rgba(165, 42, 42, 0.5),#f5deb3 ); 
+              border-color: transparent;
+              
+            }
+            ion-item{
+                width: 100%;
+                padding: 5%;
+                color: black;
+                background-image: linear-gradient( rgba(238, 221, 221, 0.5),#f5deb3 ); 
+            }
+            .slide-zoom {
+              height: 100%;
+              margin-top: 30%;
+             
+            }
+          
+            
+          
+          }
+        
+    
+}
+
+ion-header, ion-segment, ion-segment-button{
+    color: #990033 !important;
+    border-color: #669a2f;
+} 
+
+ion-header, ion-segment, ion-segment-button{
+    color: #990033 !important;
+    border-color: #669a2f;
+} 
+
+.form{
+    ion-item,ion-input,ion-label{
+    background: #f4f4f4;
+    }
+}
+

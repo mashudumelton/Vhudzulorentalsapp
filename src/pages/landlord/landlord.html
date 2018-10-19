@@ -1,0 +1,306 @@
+<!--
+  Generated template for the LandlordPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-toolbar color = toolbar>
+
+      <h3 style="color: white; text-align: center;">FLAT FINDER</h3>
+      <ion-fab top right>
+          <button ion-fab color = "secondary" (click)= "signOut()" style = "background: #990033; color: white"><ion-icon name = "ios-power-outline"></ion-icon>
+         </button>
+      </ion-fab>
+      <ion-segment [(ngModel)]="icons" color=toolbar>
+
+      </ion-segment>
+
+     
+    </ion-toolbar>
+
+    <ion-segment [(ngModel)]="selectedSegment" color="primary" (ionChange)="onSegmentChanged($event)">
+      <ion-segment-button value="flats">
+        Flats
+      </ion-segment-button>
+
+      <ion-segment-button value="myFlats">
+        My Flats
+      </ion-segment-button>
+      <ion-segment-button value="bookings">
+        Bookings
+      </ion-segment-button>
+
+      <ion-segment-button value="myBookings">
+          My Bookings
+        </ion-segment-button>
+
+      <ion-segment-button value="profile">
+        Profile
+      </ion-segment-button>
+    </ion-segment>
+
+   
+  </ion-header>
+
+
+<ion-content class="content" padding>
+
+    <ion-fab bottom right *ngIf = "viewAdd == 0" >
+        <button ion-fab round color = "secondary" (click)= "toAdd()" style = "background: #990033; color: white"><ion-icon name = "add"></ion-icon>
+       </button>
+      </ion-fab>
+    <ion-scroll scrollY="true" scrollY="true" style="width: 100%; height: 100%">
+
+
+
+
+
+
+  <!-- Segment in content -->
+
+
+  <ion-slides #mySlider (ionSlideDidChange)="onSlideChanged($event)">
+    <ion-slide *ngFor="let slide of slides">
+      <div *ngIf="slideNo == 1">
+   
+        <ion-item *ngFor="let flat of allFlats" (click)="getFlatDetails(flat)" style="background: #f4f4f4" >
+    
+          <ion-avatar item-start>
+            <img src="{{flat?.downloadUrl}}" height="100" width="100" />
+          </ion-avatar>
+          <h2 style="color: black;">{{flat?.flatname}}</h2>
+          <h3 style="color: black;">Rate: R{{flat?.price}} P/M</h3>
+          <p>Address: {{flat?.address}}</p>
+
+
+          <button ion-button clear item-end (click)="getMyFlats(flat)" style="color: #990033">VIEW</button>
+            
+
+        </ion-item>
+        
+      </div>
+
+      <div *ngIf="slideNo == 2">
+      <ion-list *ngIf = "appear" (click)="getMyFlats()">
+          <ion-item *ngFor="let flat of myFlats"   style="background: #f4f4f4">
+    
+              <ion-avatar item-start>
+                <img src="{{flat?.downloadUrl}}" height="100" width="100" />
+              </ion-avatar>
+              <h2 style="color: black;">{{flat?.flatname}}</h2>
+              <h3 style="color: black;">Rate: R{{flat?.price}} P/M</h3>
+              <p style="color: black;">Address: {{flat?.address}}</p>
+
+              <button ion-button clear item-end (click)="removeFlat(flat)" style="color: #990033">DELETE</button>
+            </ion-item>
+
+            
+
+
+            
+
+        
+      </ion-list>
+          
+        
+
+       <div class="form"*ngIf = "viewAdd == 1">
+          <ion-grid (click)="uploadPic()">
+              <ion-row >
+       
+                
+                <ion-col>
+            
+                 <ion-icon  name="ios-image-outline" style="font-size: 80px;" ></ion-icon>
+                 
+                </ion-col>
+              
+              </ion-row>
+            </ion-grid>
+            <br>
+          <h6 style="text-align: center">Provide Flat Details</h6>
+
+          <ion-item >
+              <ion-input Name="flatName" [(ngModel)]="flatName" type="text" placeholder="Flat Name"></ion-input>
+            </ion-item>
+            <ion-item >
+              <ion-input Name=" description" [(ngModel)]="description" type="text" placeholder="Description..."></ion-input>
+            </ion-item>
+            <ion-item >
+                <ion-input Name="Address" [(ngModel)]="address" type="text" placeholder="Address"></ion-input>
+              </ion-item>
+      
+      
+              <ion-item >
+                  <ion-input Name="Price" [(ngModel)]="price" type="number" placeholder="Price"></ion-input>
+                  
+                </ion-item>
+                <ion-item (click)="takePicture()">
+                  <ion-label >Upload</ion-label>
+                  <button ion-button icon-only (click)="takePicture()">  <ion-icon ios="ios-images" md="md-images"></ion-icon></button>
+                    
+                </ion-item>
+
+                <button ion-button round full (click)="uploadFlatToFirebase()" style = "background: #990033"><ion-icon name = "add">
+                </ion-icon>&nbsp;ADD FLAT</button>
+               
+      </div>
+               
+      </div>
+     
+
+
+      <div *ngIf="slideNo == 3">
+          <ion-card *ngFor="let bookings of bookedFlats" style="background: #f4f4f4; text-align: left;" >
+   
+      
+              <h2 style="color: black;">Name: {{bookings?.flatName}}</h2>
+              
+              <p>Booked By: {{bookings?.clientName}} {{bookings?.clientSurname}}</p>
+              <p>Date Booked: {{bookings?.date}}</p>
+              <p>Time: {{bookings?.time}}</p>
+         
+              
+        </ion-card>
+
+
+
+      </div>
+
+      <div *ngIf="slideNo == 4">
+        
+          <ion-card *ngFor="let bookings of myBookings" style="background: #f4f4f4; text-align: left;" >
+          
+              <h2 style="color: black;">Name: {{bookings?.flatName}}</h2>
+              <h3 style="color: black;">Address: {{bookings?.address}}</h3>
+              <p>Date Booked: {{bookings?.date}}</p>
+              <p>Time: {{bookings?.time}}</p>
+              <p>Landlord Name: {{bookings?.landlordName}}</p>
+              <p>Landlord Surname: {{bookings?.landlordSurname}}</p>
+              <p>Landlord ContactNo: {{bookings?.landLordContactNo}}</p>
+              <p>Landlord email: {{bookings?.landlordEmail}}</p>
+  
+  
+           
+           
+  
+           
+              
+            </ion-card>
+          
+    
+        </div>
+
+
+      <div *ngIf="slideNo == 5">
+        <ion-card id="profile">
+
+          <ion-card-content no-line>
+
+            <ion-item>
+              <ion-label stacked>
+                <ion-icon name="person"></ion-icon>&nbsp;First Name
+              </ion-label>
+              <ion-input type="text" [(ngModel)]="firstname"></ion-input>
+            </ion-item>
+
+            <!-- <ion-item *ngIf="users.controls.fname.invalid && users.controls.fname.dirty"> -->
+            <!-- <p>Please enter valid name</p> -->
+            <!-- </ion-item> -->
+
+            <ion-item>
+              <ion-label stacked>
+                <ion-icon name="person"></ion-icon>&nbsp;Last Name
+              </ion-label>
+              <ion-input type="text" [(ngModel)]="lastname"></ion-input>
+            </ion-item>
+
+            <!-- <ion-item *ngIf="users.controls.lname.invalid && users.controls.lname.dirty"> -->
+            <!-- <p>Please enter valid name</p> -->
+            <!-- </ion-item> -->
+
+
+            <ion-item>
+              <ion-label stacked>
+                <ion-icon name="ios-phone-portrait"></ion-icon>&nbsp;Contact No.
+              </ion-label>
+              <ion-input type="number" [(ngModel)]="contactNum"></ion-input>
+            </ion-item>
+
+            <!-- <ion-item *ngIf="users.controls.contactNo.invalid && users.controls.contactNo.dirty"> -->
+            <!-- <p>Please enter valid contact number</p> -->
+            <!-- </ion-item> -->
+
+            <ion-item>
+              <ion-label stacked>
+                <ion-icon name="mail"></ion-icon>&nbsp;Email
+              </ion-label>
+              <ion-input type="email" [(ngModel)]="eMail"></ion-input>
+            </ion-item>
+
+            <!-- <ion-item *ngIf="users.controls.email.invalid && users.controls.email.dirty"> -->
+            <!-- <p>Please enter valid email address</p> -->
+            <!-- </ion-item> -->
+
+            <ion-item>
+              <ion-label stacked>
+                <ion-icon name="lock"></ion-icon>&nbsp;Password
+              </ion-label>
+              <ion-input type="password" [(ngModel)]="passWord"></ion-input>
+            </ion-item>
+
+            <!-- <ion-item *ngIf="users.controls.password.invalid && users.controls.password.dirty"> -->
+            <!-- <p>Your password is too short</p> -->
+            <!-- </ion-item> -->
+
+
+
+
+            <button ion-button (click)="updateProfile()" style="background: #990033;">UPDATE</button>
+          </ion-card-content>
+
+        </ion-card>
+
+
+      </div>
+
+
+    </ion-slide>
+  </ion-slides>
+
+  <!--!> <ion-header>
+                                <ion-toolbar>
+                                  <ion-segment [(ngModel)]="icons" color="secondary">
+                                   
+                                  </ion-segment>
+                
+                                </ion-toolbar>
+                
+                                <ion-segment [(ngModel)]="relationship" color="primary" (ionChange)="segmentChanged($event)">
+                                  <ion-segment-button value="flats">
+                
+                                         Flats
+                              </ion-segment-button>
+                                  <ion-segment-button value="profile">
+                                        Profile
+                                  </ion-segment-button>
+                                  <ion-segment-button value="bookings">
+                                        Bookings
+                                      </ion-segment-button>
+                                </ion-segment>
+                              </ion-header>
+                              
+                                   <--! Segment in content !-->
+
+
+
+
+
+
+
+
+</ion-scroll>
+
+
+</ion-content>

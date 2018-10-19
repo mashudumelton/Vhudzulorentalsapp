@@ -1,0 +1,70 @@
+page-client {
+// .content{
+//     background: linear-gradient(to right, #cb2d3e, #ef473a); 
+//     ion-header{
+//         background: linear-gradient(to right, #cb2d3e, #ef473a);
+    
+      
+
+//     }
+
+
+
+    
+
+
+#profile{
+    background: #f4f4f4 !important;
+
+    ion-list, ion-list-header, ion-item{
+        background: none !important;
+    }
+
+    ion-card{
+        border: none !important;
+    }
+
+    ion-input {
+        border-bottom: 2px solid black;
+    }
+
+    ion-item{
+        width: 100%;
+        padding: 5%;
+    
+
+        background-image: linear-gradient( rgba(238, 221, 221, 0.5),#f5deb3 ); 
+    }
+
+}
+
+ion-item{
+    width: 100%;
+    padding: 5%;
+
+
+    background-image: linear-gradient( rgba(238, 221, 221, 0.5),#f5deb3 ); 
+}
+
+
+
+
+
+}
+
+ion-header, ion-segment, ion-segment-button{
+    color: #990033 !important;
+    border-color: #669a2f;
+} 
+
+
+
+
+   
+
+
+
+
+
+
+
