@@ -59,6 +59,7 @@ export class LandlordPage {
   description;
   address;
   price;
+  extra;
 
 
   //Users that booked
@@ -71,7 +72,7 @@ export class LandlordPage {
   myBookings = [];
 
   flatList = [];
-
+ 
   myFlats = [];
   allFlats = [];
 
@@ -182,24 +183,24 @@ firebase.database().ref('/Flats/' ).on('value', (snapshot) =>
 
 
   onSegmentChanged(segmentButton) {
-    //console.log("Segment changed to", segmentButton.value);
-  //   const selectedIndex = this.slides.findIndex((slide) => {
-  //     return slide.id === segmentButton.value;
-  //   });
-  //   this.slider.slideTo(selectedIndex);
-  // }
+    console.log("Segment changed to", segmentButton.value);
+    const selectedIndex = this.slides.findIndex((slide) => {
+      return slide.id === segmentButton.value;
+    });
+    this.slider.slideTo(selectedIndex);
+  }
   
-  // onSlideChanged(slider) {
-  //   //console.log('Slide changed');
-  //   const currentSlide = this.slides[slider.getActiveIndex()];
-  //   this.selectedSegment = currentSlide.id;
+  onSlideChanged(slider) {
+    //console.log('Slide changed');
+    const currentSlide = this.slides[slider.getActiveIndex()];
+    this.selectedSegment = currentSlide.id;
   
-  //   if(currentSlide.id == "flats"){
-  //     this.slideNo = 1;
+    if(currentSlide.id == "flats"){
+      this.slideNo = 1;
 
-  //     //console.log("This is slide 1");
-  //   }else if(currentSlide.id == "profile"){
-  //     this.slideNo = 5;
+      //console.log("This is slide 1");
+    }else if(currentSlide.id == "profile"){
+      this.slideNo = 5;
   
       this.useriD = firebase.auth().currentUser.uid;
       
@@ -219,21 +220,21 @@ firebase.database().ref('/Flats/' ).on('value', (snapshot) =>
           }   
    )
       
-  //   }else  if(currentSlide.id == "myBookings"){
-  //     this.slideNo = 4;
-  //     this.BookedFlats();
-  //     //console.log("This is slide 3");
-  //   }else  if(currentSlide.id == "myFlats"){
-  //   this.slideNo = 2;
-  //   this.appear = 1;
-  //   this.viewAdd = 0;
-  //   this.getMyFlats();
-  //   //console.log("This is slide 3");
-  // }
-  // else  if(currentSlide.id == "bookings"){
-  //   this.slideNo = 3;
-  //   this.BookingsByMe();
-  // }
+    }else  if(currentSlide.id == "myBookings"){
+      this.slideNo = 4;
+      this.BookedFlats();
+      //console.log("This is slide 3");
+    }else  if(currentSlide.id == "myFlats"){
+    this.slideNo = 2;
+    this.appear = 1;
+    this.viewAdd = 0;
+    this.getMyFlats();
+    //console.log("This is slide 3");
+  }
+  else  if(currentSlide.id == "bookings"){
+    this.slideNo = 3;
+    this.BookingsByMe();
+  }
   
   }
 
@@ -381,8 +382,9 @@ firebase.database().ref('/Flats/' ).on('value', (snapshot) =>
         storageRef.getDownloadURL().then((url) => {
           this.fire.downloadUrl = url;
           console.log(url);
+          
           //this.firebaseUploads.push({downloadUrl: url,Admin_Authentication_UID :this.userObj[0].authentication_UID,EventName:this.eventName,eventVenue:this.eventVenue, EventDate: this.eventDate,EventTime: this.eventTime, EventCategory: this.category});
-          firebase.database().ref('/Flats/').push({landID:this.useriD,contactNo:this.contactNum,landlordName:this.firstname,downloadUrl: this.fire.downloadUrl,flatname:this.flatName, description:this.description,address:this.address, price: this.price});
+          firebase.database().ref('/Flats/').push({landID:this.useriD,contactNo:this.contactNum,landlordName:this.firstname,downloadUrl: this.fire.downloadUrl,flatname:this.flatName, description:this.description,address:this.address, price: this.price,extra:this.extra});
           
           //this.flatList.push({landID:this.useriD,contactNo:this.contactNum,landlordName:this.firstname,downloadUrl: this.fire.downloadUrl,flatname:this.flatname, description:this.description,address:this.address, price: this.price})
           alert("Flat has successfully been uploaded!")
