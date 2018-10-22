@@ -482,14 +482,13 @@ firebase.database().ref('/Flats/' ).on('value', (snapshot) =>
   
     
   signOut(){
-    firebase.auth().signOut().then(function() {
-      // Sign-out successful.
-      this.navCtrl.setRoot("WelcomePage");
-    }).catch(function(error) {
-      // An error happened.
-    });
+   var provider = new firebase.auth.GoogleAuthProvider();
+  firebase.auth().signOut().then(User =>{
+    this.navCtrl.push("WelcomePage");
+  });
 
-  }
+
+ }
 
   removeFlat(flat){
     // this.myBookings = [];

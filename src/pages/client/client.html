@@ -8,6 +8,11 @@
       
     <ion-toolbar color = toolbar>
         <h3 style="color: white; text-align: center;">FLAT FINDER</h3>
+        <ion-fab top right>
+            <button ion-fab color = "secondary" (click)= "signOut()" style = "background: #990033; color: white"><ion-icon name = "ios-power-outline"></ion-icon>
+           </button>
+        </ion-fab>
+        
       <ion-segment [(ngModel)]="icons" color="secondary" >
         
       </ion-segment>
