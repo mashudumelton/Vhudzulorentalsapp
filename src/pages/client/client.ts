@@ -90,7 +90,7 @@ export class ClientPage {
             //Adding Item to itemsList
               
             
-            this.allFlats.push({landID: snap.val().landID,contactNo:snap.val().contactNo,downloadUrl:snap.val().downloadUrl,flatname: snap.val().flatname, description:snap.val().description,address: snap.val().address, price : snap.val().price, key : snap.key});;
+            this.allFlats.push({landID: snap.val().landID,contactNo:snap.val().contactNo,downloadUrl:snap.val().downloadUrl,flatname: snap.val().flatname, description:snap.val().description,address: snap.val().address, price : snap.val().price, province:snap.val().province, city:snap.val().city, key : snap.key});;
             console.log("All Flats: ", this.allFlats);
             
           // firebase.database().ref('/Flats/').push({landID:this.landID,contactNo:this.contactNo,fname:this.fname,downloadUrl: this.fire.downloadUrl,flatname:this.flatName, description:this.description,Address:this.Address, Price: this.Price});
@@ -279,7 +279,7 @@ getFlatDetails(flat:any){
      
     
     
-    this.flatList.push({landID:snap.val().landID,contactNo:snap.val().contactNo,downloadUrl:snap.val().downloadUrl,flatname: snap.val().flatname, description:snap.val().description,Address: snap.val().Address, Price : snap.val().Price,_key : snap.val()._key});
+    this.flatList.push({landID:snap.val().landID,contactNo:snap.val().contactNo,downloadUrl:snap.val().downloadUrl,flatname: snap.val().flatname, description:snap.val().description,Address: snap.val().Address,province: snap.val().province,city: snap.val().city, Price : snap.val().Price,_key : snap.val()._key});
 
 
    // firebase.database().ref('/Flats/').push({landID:this.landID,contactNo:this.contactNo,fname:this.fname,downloadUrl: this.fire.downloadUrl,flatname:this.flatName, description:this.description,Address:this.Address, Price: this.Price});

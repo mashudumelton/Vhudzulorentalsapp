@@ -24,10 +24,10 @@
 
     <ion-segment [(ngModel)]="selectedSegment" (ionChange)="onSegmentChanged($event)" style="border:0;">
       <ion-segment-button value="flats">
-        FLATS
+        Available Flat
       </ion-segment-button>
       <ion-segment-button value="profile">
-        PROFILE
+        My Profile
       </ion-segment-button>
       <ion-segment-button value="bookings">
         BOOKINGS
@@ -58,6 +58,8 @@
                 <h2 style="color: black;">{{flat?.flatname}}</h2>
                 <h3 style="color: black;">Rate: R{{flat?.price}} P/M</h3>
                 <p>Address: {{flat?.address}}</p>
+                <p>Address: {{flat?.province}}</p>
+                <p>Address: {{flat?.city}}</p>
       
       
                 <button ion-button clear item-end (click)="getFlatDetails(flat)" style="color: #990033">VIEW</button>

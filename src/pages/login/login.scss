@@ -10,15 +10,7 @@ page-login {
         background: #f4f4f4;
         border-radius: 5px;
     }
-    // a, 
-    // ion-card-header.card-header{
-    //     color: white!important;
-        
-    //         letter-spacing: 3px;
-    //         line-height: 1px;
-            
-    
-    // }
+
     .list > .item-block:first-child{
         border: medium none;
     }
@@ -59,9 +51,9 @@ page-login {
     
     }
     .scroll-content{
-        align-content: center;
+         align-content: center;
         display: flex;
-        flex-direction: column;
+        //  flex-direction: column;
         justify-content: center;
         text-align: center;
     }

@@ -5,9 +5,11 @@
   Ionic pages and navigation.
 -->
 <ion-header>
+    
         <ion-buttons left>
-                <button ion-button icon-only  style="color: #990033; background: #f4f4f4" (click)="ViewPage(ViewPage)">
-                    <ion-icon name="arrow-back"></ion-icon>
+                <button style="background-color: rgb(36, 100, 100)"
+                ion-button  (click)="ViewPage(ViewPage)">
+                    Back
                 </button>
             </ion-buttons>
 
@@ -44,7 +46,7 @@
               
                       </ion-item>
 
-                      <button ion-button round full  color="toolbar" (click)="logins()" >LOGIN</button>
+                      <button ion-button round full  color="toolbar" (click)="logins()" [disabled]="login.invalid"  >LOGIN</button>
                   <button ion-button round full  color= google (click)="loginWithGoogle()" > <ion-icon name="logo-google">&nbsp;&nbsp;LOG IN WITH GOOGLE</ion-icon></button><br>
                   <a (click)="reset()" style = "color:black">Forgot Password?</a><br>
                   <a (click) = "showCheckbox()" style = "color:black">Don't have an account?</a>

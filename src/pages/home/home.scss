@@ -1,13 +1,49 @@
 page-home {
-     .content{
-        background-color:white; /* For browsers that do not support gradients */
-           background-image: linear-gradient( rgba(165, 42, 42, 0.5),#f5deb3 ); /* Standard syntax (must be last) */
- }
-    img {
-        border-radius: 50%;
-        padding: 5%;
-        margin-bottom: 0%;
-        margin-top: -30%;
+//      .content{
+//         background-color:white; /* For browsers that do not support gradients */
+//            background-image: linear-gradient( rgba(165, 42, 42, 0.5),#f5deb3 ); /* Standard syntax (must be last) */
+//  }
+//     img {
+//         border-radius: 50%;
+//         padding: 5%;
+//         margin-bottom: 0%;
+//         margin-top: -30%;
+//     }
+
+
+
+    
+    .wrapper-home{
+        background-image: url(../../assets/imgs/Capture.PNG);
+        background-size: cover;
+        background-repeat: no-repeat;
+       margin-left: auto;
+    margin-right: auto;
+
+
+
+        display: grid;
+        height: 100%;
+         grid-template-rows: 75% auto;
+        //  background-color: darkslategrey;
+    
+       
+
+        .bottom-view{
+           
+            margin: auto;
+            text-align: center;
+             color:rgb(27, 18, 31);
+            // color: rgb(36, 100, 100);
+            width: 100%;
+            padding: 10px;
+            
+            .button{
+                width: 80%;
+                 background-color:rgb(36, 100, 100);
+                 color: white;
+            }
+        }
     }
     
 }

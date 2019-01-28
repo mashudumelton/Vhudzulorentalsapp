@@ -83,13 +83,13 @@ if(this.role === "Tenants")
   showCheckbox() {
     let alert = this.alertCtrl.create();
     alert.setMessage(' ');
-    alert.setTitle('What are you looking for? ');
+    alert.setTitle('Register As The Following? ');
  
  
  
     alert.addButton({
  
-      text: 'I am looking for Tenants',
+      text: 'Landlord',
  
       handler: data => {
         this.testRadioOpen = false;
@@ -101,7 +101,7 @@ if(this.role === "Tenants")
  
     alert.addButton({
  
-      text: 'I am looking for a Flat',
+      text: 'Student',
       
  
       handler: data => {
@@ -112,15 +112,7 @@ if(this.role === "Tenants")
         this.navCtrl.setRoot("SignupPage",{role:this.role});
       
       }});
-    //alert.addButton('Cancel');
-  /*  alert.addButton({
-      text: 'OK',
-      handler: data => {
-        this.testRadioOpen = false;
-        this.testRadioResult = data;
-        this.navCtrl.setRoot("SignupPage");
-      }
-    });*/
+ 
     alert.present();
  }
  showCheckboxLogin() {
@@ -143,7 +135,7 @@ if(this.role === "Tenants")
 
   alert.addButton({
 
-    text: 'Looker',
+    text: 'Student',
 
     handler: data => {
       this.testRadioOpen = false;
@@ -220,15 +212,7 @@ if(this.role === "Tenants")
           this.navCtrl.setRoot("LoginPage")
         
         }});
-      //alert.addButton('Cancel');
-    /*  alert.addButton({
-        text: 'OK',
-        handler: data => {
-          this.testRadioOpen = false;
-          this.testRadioResult = data;
-          this.navCtrl.setRoot("SignupPage");
-        }
-      });*/
+
       alert.present();
    }
    getImage(){
@@ -300,4 +284,55 @@ addFlat(){
     this.navCtrl.push("LoginPage");
   }
 }
+
+
+// search($event) {
+        
+//   this.searchResults = [];
+//   this.searchUrls = [];
+  
+  
+
+//   //|| this.items[i].bid.merchandise.name.toLowerCase() == this.myInput.toLowerCase()
+
+//   for(let i = 0 ; i < this.items.length ; i++){
+   
+//     if(this.items[i].bid.merchandise.name.toLowerCase() === this.myInput.toLowerCase()  ){
+//       this.searchResults.push(this.items[i]);
+
+//       this.searchUrls.push( 
+//         {
+//           imageUri : this.items[i].bid.merchandise.imageUri
+//         }
+//       );        
+//     }
+//   }
+
+
+//   if(this.searchResults.length > 0){
+//     console.log("theres results");
+    
+//     this.items = [];
+//     this.imgObjUri = [];
+//     this.items = this.searchResults;
+//     this.imgObjUri = this.searchUrls;
+              
+    
+//     this.presentToast("Now showing " +  this.myInput);
+//     this.myInput = "";
+//   }else{
+//     this.presentToast(this.myInput + " not found");
+
+//   } 
+  
+// }
+
+// onClear($event){
+
+//   console.log("cancel");
+//   this.myInput = "";
+//   this.retrieveData();
+// }
+
+
 }

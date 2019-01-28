@@ -11,13 +11,21 @@ page-signup {
        padding: 20px;
 
     }
+    // .scroll-content{
+    //     align-content: center;
+    //     display: flex;
+    //     flex-direction: column;
+    //     justify-content: center;
+    //     text-align: center;
+    // }
+
     .scroll-content{
         align-content: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-    }
+       display: flex;
+       //  flex-direction: column;
+       justify-content: center;
+       text-align: center;
+   }
     p{
         color: blue ;
         font-family: cursive;
@@ -32,7 +40,7 @@ page-signup {
     
     a, p,
     ion-card-header.card-header{
-        color: #990033 !important;
+        color:rgb(36, 100, 100);
         
             letter-spacing: 3px;
             line-height: 2px;
@@ -42,7 +50,7 @@ page-signup {
 
     ion-buttons, button{
         
-        color: #990033;
+        color: rgb(36, 100, 100);
     }
 
 

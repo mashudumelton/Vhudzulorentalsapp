@@ -24,6 +24,8 @@ export class AdvertisePage {
   description;
   Address;
   Price;
+  city;
+  province
   // category;
   // eventVenue;
   selectedImage: string;
@@ -107,7 +109,7 @@ export class AdvertisePage {
           this.fire.downloadUrl = url;
           console.log(url);
           //this.firebaseUploads.push({downloadUrl: url,Admin_Authentication_UID :this.userObj[0].authentication_UID,EventName:this.eventName,eventVenue:this.eventVenue, EventDate: this.eventDate,EventTime: this.eventTime, EventCategory: this.category});
-          firebase.database().ref('/Flats/').push({landID:this.landID,contactNo:this.contactNo,fname:this.fname,downloadUrl: this.fire.downloadUrl,flatname:this.flatName, description:this.description,Address:this.Address, Price: this.Price});
+          firebase.database().ref('/Flats/').push({landID:this.landID,contactNo:this.contactNo,fname:this.fname,downloadUrl: this.fire.downloadUrl,flatname:this.flatName, description:this.description,Address:this.Address, Price: this.Price, Province: this.province, City: this.city});
           alert("successfully uploaded!!")
           this.navCtrl.setRoot("WelcomePage");
 

@@ -11,6 +11,7 @@
                     <ion-icon name="arrow-back"></ion-icon>
                 </button>
             </ion-buttons>
+            
 
   </ion-header>
   
@@ -18,13 +19,13 @@
   <ion-content class="content">
           <ion-list>
           <ion-item>
-            <ion-label floating>Booking Info</ion-label>
-            <ion-input type="date" [(ngModel)]="bookingDate" value="{{value}}"></ion-input>
+            <ion-label placeholder="Date" floating>Booking Info</ion-label>
+            <ion-input type="date"  [(ngModel)]="bookingDate" value="{{value}}"></ion-input>
           </ion-item>
       
           <ion-item>
-            <ion-label floating>Booking Info</ion-label>
-            <ion-input type="time" [(ngModel)]="time" value="{{value}}"></ion-input>
+            <ion-label floating placeholder="Time">Booking Info</ion-label>
+            <ion-input type="time"  [(ngModel)]="time" value="{{value}}"></ion-input>
           </ion-item>
       </ion-list>
       <button ion-button full (click)="update(bookingDate,time)">Update</button>

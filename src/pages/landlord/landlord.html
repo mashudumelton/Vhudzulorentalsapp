@@ -1,13 +1,8 @@
-<!--
-  Generated template for the LandlordPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
+<!-- 
 <ion-header>
     <ion-toolbar color = toolbar>
 
-      <h3 style="color: white; text-align: center;">FLAT FINDER</h3>
+      <h3 style="color: white; text-align: center;">Vhudzulo Rentals</h3>
       <ion-fab top right>
           <button ion-fab color = "secondary" (click)= "signOut()" style = "background: #990033; color: white"><ion-icon name = "ios-power-outline"></ion-icon>
          </button>
@@ -47,16 +42,6 @@
 <ion-content class="content" padding>
 
     
-    
-
-
-
-
-
-
-  <!-- Segment in content -->
-
-
   <ion-slides #mySlider (ionSlideDidChange)="onSlideChanged($event)">
     <ion-slide *ngFor="let slide of slides">
       <div *ngIf="slideNo == 1">
@@ -69,7 +54,8 @@
           <h2 style="color: black;">{{flat?.flatname}}</h2>
           <h3 style="color: black;">Rate: R{{flat?.price}} P/M</h3>
           <p>Address: {{flat?.address}}</p>
-
+          <p style="color: black;">Province: {{flat?.province}}</p>
+          <p style="color: black;">City: {{flat?.city}}</p>
 
           <button ion-button clear item-end (click)="getMyFlats(flat)" style="color: #990033">VIEW</button>
             
@@ -88,6 +74,9 @@
               <h2 style="color: black;">{{flat?.flatname}}</h2>
               <h3 style="color: black;">Rate: R{{flat?.price}} P/M</h3>
               <p style="color: black;">Address: {{flat?.address}}</p>
+              <p style="color: black;">Province: {{flat?.province}}</p>
+              <p style="color: black;">City: {{flat?.city}}</p>
+
 
               <button ion-button clear item-end (click)="removeFlat(flat)" style="color: #990033">DELETE</button>
             </ion-item>
@@ -106,22 +95,7 @@
         
 
        <div class="form"*ngIf = "viewAdd == 1" style="height: 100%;margin-left: 5px;margin-right: 5px;">
-         
-          <!-- <ion-grid (click)="uploadPic()">
-              <ion-row >
-       
-                
-                <ion-col>
-            
-                 <ion-icon  name="ios-image-outline" style="font-size: 80px;" ></ion-icon>
-                 
-                </ion-col>
-              
-              </ion-row>
-              <ion-row>
-               
-              </ion-row>
-            </ion-grid> -->
+      
             
           
             <h6 style="text-align: center">Provide Flat Details</h6>
@@ -135,36 +109,51 @@
                                                             
                
                 <ion-option  value="bedroom" selected="true" >1 BedRoom</ion-option>
-                                             
+                <ion-option  value="bedroom2" selected="true" >2 BedRoom</ion-option>                      
                                   
               </ion-select>
               
             </ion-item>
-              <ion-list radio-group [(ngModel)]="extra">
-        <ion-label>Extra</ion-label>
+             
+            <ion-list radio-group [(ngModel)]="extra">
+                <ion-label floating>Room Type</ion-label>
         <div style="display: flex; flex-direction:row">
       
-      <ion-item>
-        <ion-label>Bed</ion-label>            
-        <ion-radio  value="bed" checked="true"  ></ion-radio>
-      </ion-item>
-      
-      
-      <ion-item>
-          <ion-label>Stove</ion-label>
-          <ion-radio value="stove" ></ion-radio>
-      </ion-item>
+   
        
-        
-        <ion-item>
-            <ion-label>Table</ion-label>
-            <ion-radio value="table" ></ion-radio>
-          </ion-item>
-          </div>
-
+      <ion-item class="clear">
          
+          <ion-select >
+            <ion-option value="bed">Double</ion-option>
+            <ion-option value="stove">Single</ion-option>
+
+          </div>
+          </ion-list>
+         
+
+
+          <ion-item class="clear">
+              <ion-label floating>Province</ion-label>
+              <ion-select [(ngModel)]="province" >
+                <ion-option value="lim">Limpopo</ion-option>
+                <ion-option value="gau">Gauteng</ion-option>
+                <ion-option value="free">Free State</ion-option>
+                <ion-option value="kwa">Kwazulu Natal</ion-option>
+                <ion-option value="mpu">Mpumalanga</ion-option>
+                <ion-option value="cap">Cape Town</ion-option>
+                <ion-option value="nort">North West</ion-option>
+                <ion-option value="eas">Eastern Cape</ion-option>
+                <ion-option value="wes">Western Cape</ion-option>
+              
+              </ion-select>
+              </ion-item>
+
+
+              <ion-item >
+                  <ion-input Name="city" [(ngModel)]="city" type="text" placeholder="Enter Your City"></ion-input>
+                </ion-item>
           
-    </ion-list>
+    
             <ion-item >
                 <ion-input Name="Address" [(ngModel)]="address" type="text" placeholder="Address"></ion-input>
               </ion-item>
@@ -187,9 +176,9 @@
                   <ion-option value="1800">R1800</ion-option>
                   
 
-                  
-                  
+                
                 </ion-select>
+
               </ion-item>
                 <ion-item (click)="takePicture()">
                   <ion-label >Upload</ion-label>
@@ -241,6 +230,401 @@
               
                   
                   <button item-end  color = "secondary" (click)= "deleteBooking(book)"  style = "background: #990033; color: white">DELETE &nbsp;<ion-icon name = "ios-trash-outline" end></ion-icon>
+                  </button>
+
+                </div>     
+           
+            </ion-card>
+          
+    
+        </div>
+
+
+      <div *ngIf="slideNo == 5">
+        <ion-card id="profile">
+
+          <ion-card-content no-line>
+
+            <ion-item>
+              <ion-label stacked>
+                <ion-icon name="person"></ion-icon>&nbsp;First Name
+              </ion-label>
+              <ion-input type="text" [(ngModel)]="firstname"></ion-input>
+            </ion-item>
+
+
+            <ion-item>
+              <ion-label stacked>
+                <ion-icon name="person"></ion-icon>&nbsp;Last Name
+              </ion-label>
+              <ion-input type="text" [(ngModel)]="lastname"></ion-input>
+            </ion-item>
+
+           
+
+
+            <ion-item>
+              <ion-label stacked>
+                <ion-icon name="ios-phone-portrait"></ion-icon>&nbsp;Contact No.
+              </ion-label>
+              <ion-input type="number" [(ngModel)]="contactNum"></ion-input>
+            </ion-item>
+
+
+            <ion-item>
+              <ion-label stacked>
+                <ion-icon name="mail"></ion-icon>&nbsp;Email
+              </ion-label>
+              <ion-input type="email" [(ngModel)]="eMail"></ion-input>
+            </ion-item>
+
+      
+
+            <ion-item>
+              <ion-label stacked>
+                <ion-icon name="lock"></ion-icon>&nbsp;Password
+              </ion-label>
+              <ion-input type="password" [(ngModel)]="passWord"></ion-input>
+            </ion-item>
+
+            
+
+
+
+
+            <button ion-button (click)="updateProfile()" style="background: #990033;">UPDATE</button>
+          </ion-card-content>
+
+        </ion-card>
+
+
+      </div>
+
+
+    </ion-slide>
+  </ion-slides>
+
+</ion-content> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ion-header>
+    <ion-toolbar color = toolbar>
+
+         <ion-fab top left>
+            <!-- <button ion-button icon-only  clear medium style = "background:white;" (click) ="showCheckboxLogin()">
+                <ion-icon name = "person"></ion-icon>
+              </button> -->
+              <ion-segment class="mash" [(ngModel)]="selectedSegment" color="toolbar" (ionChange)="onSegmentChanged($event)">
+
+              <ion-segment-button value="profile">
+                  MY PROFILE
+                </ion-segment-button>
+              </ion-segment>
+
+        </ion-fab>
+
+        <h3 style="color: white; text-align: center;">Vhudzulo Rentals</h3>
+
+      <ion-fab top right>
+          <button ion-button icon-only  clear medium (click)= "signOut()" style = "background:transparent;">
+            <ion-icon name = "ios-power-outline"></ion-icon>
+         </button>
+      </ion-fab>
+
+      <ion-segment [(ngModel)]="icons" color=toolbar>
+
+      </ion-segment>
+
+     
+    </ion-toolbar>
+
+    <!-- <ion-segment [(ngModel)]="selectedSegment" color="primary" (ionChange)="onSegmentChanged($event)">
+      <ion-segment-button value="flats">
+        Flats
+      </ion-segment-button>
+
+      <ion-segment-button value="myFlats">
+        My Flats
+      </ion-segment-button>
+      <ion-segment-button value="bookings">
+        Bookings
+      </ion-segment-button>
+
+      <ion-segment-button value="myBookings">
+          My Bookings
+        </ion-segment-button>
+
+      <ion-segment-button value="profile">
+        Profile
+      </ion-segment-button>
+    </ion-segment> -->
+
+   
+  </ion-header>
+
+
+<ion-content class="content" padding>
+    <ion-segment class="mash" [(ngModel)]="selectedSegment" color="toolbar" (ionChange)="onSegmentChanged($event)">
+        <ion-segment-button value="flats">
+          FLAT
+        </ion-segment-button>
+  
+        <ion-segment-button value="myFlats">
+          ADD FLAT
+        </ion-segment-button>
+        <ion-segment-button value="bookings">
+          BOOKINGS
+        </ion-segment-button>
+  
+        <ion-segment-button value="myBookings">
+            MY BOOKINGS
+          </ion-segment-button>
+  <!-- 
+        <ion-segment-button value="profile">
+          MY PROFILE
+        </ion-segment-button> -->
+      </ion-segment>
+    
+    
+
+
+
+
+
+
+  <!-- Segment in content -->
+
+
+  <ion-slides #mySlider (ionSlideDidChange)="onSlideChanged($event)">
+    <ion-slide *ngFor="let slide of slides">
+      <div *ngIf="slideNo == 1">
+   
+        <ion-item *ngFor="let flat of allFlats" (click)="getFlatDetails(flat)" style="background: #f4f4f4" >
+    
+          <ion-avatar item-start>
+            <img src="{{flat?.downloadUrl}}" height="100" width="100" />
+          </ion-avatar>
+          <h2 style="color: black;">{{flat?.flatname}}</h2>
+          <h3 style="color: black;">Rate: R{{flat?.price}} P/M</h3>
+          <p>Address: {{flat?.address}}</p>
+          <p style="color: black;">Province: {{flat?.province}}</p>
+          <p style="color: black;">City: {{flat?.city}}</p>
+
+          <button ion-button clear item-end (click)="getMyFlats(flat)" style="color: #990033">VIEW</button>
+            
+
+        </ion-item>
+        
+      </div>
+
+      <div *ngIf="slideNo == 2">
+      <ion-list *ngIf = "appear" (click)="getMyFlats()">
+          <ion-item *ngFor="let flat of myFlats"   style="background: #f4f4f4">
+    
+              <ion-avatar item-start>
+                <img src="{{flat?.downloadUrl}}" height="100" width="100" />
+              </ion-avatar>
+              <h2 style="color: black;">{{flat?.flatname}}</h2>
+              <h3 style="color: black;">Rate: R{{flat?.price}} P/M</h3>
+              <p style="color: black;">Address: {{flat?.address}}</p>
+              <p style="color: black;">Province: {{flat?.province}}</p>
+              <p style="color: black;">City: {{flat?.city}}</p>
+              <button ion-button clear item-end (click)="removeFlat(flat)" style="color: #990033">DELETE</button>
+            </ion-item>
+
+            
+
+
+            
+            <ion-fab bottom right *ngIf = "viewAdd == 0" >
+              <button ion-fab round color = "secondary" (click)= "toAdd()" style = "background: #990033; color: white"><ion-icon name = "add"></ion-icon>
+             </button>
+            </ion-fab>
+        
+      </ion-list>
+          
+        
+
+       <div class="form"*ngIf = "viewAdd == 1" style="height: 100%;margin-left: 5px;margin-right: 5px;">
+         
+          <!-- <ion-grid (click)="uploadPic()">
+              <ion-row >
+       
+                
+                <ion-col>
+            
+                 <ion-icon  name="ios-image-outline" style="font-size: 80px;" ></ion-icon>
+                 
+                </ion-col>
+              
+              </ion-row>
+              <ion-row>
+               
+              </ion-row>
+            </ion-grid> -->
+            
+          
+            <h6 style="text-align: center">Provide Flat Details</h6>
+          <ion-item >
+              <ion-input Name="flatName" [(ngModel)]="flatName" type="text" placeholder="Flat Name"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>description</ion-label>
+
+              <ion-select [(ngModel)]="description"  multiple="false" cancelText="Cancel" okText="Okay!">
+                                                            
+               
+                <ion-option  value="bedroom" selected="true" >1 BedRoom</ion-option>
+                <ion-option  value="bedroom2" selected="true" >2 BedRoom</ion-option>                      
+                                  
+              </ion-select>
+              
+            </ion-item>
+              <ion-list radio-group [(ngModel)]="extra">
+        <ion-label>Room Type</ion-label>
+        <div style="display: flex; flex-direction:row">
+      
+
+            <ion-select >
+                <ion-option value="bed">Double</ion-option>
+                <ion-option value="stove">Single</ion-option>
+
+            </ion-select >
+
+      <!-- <ion-item>
+        <ion-label>Bed</ion-label>            
+        <ion-radio  value="bed" checked="true"  ></ion-radio>
+      </ion-item>
+      
+      
+      <ion-item>
+          <ion-label>Stove</ion-label>
+          <ion-radio value="stove" ></ion-radio>
+      </ion-item>
+       
+        
+        <ion-item>
+            <ion-label>Table</ion-label>
+            <ion-radio value="table" ></ion-radio>
+          </ion-item> -->
+
+          </div>
+
+         
+          
+    </ion-list>
+
+
+
+    <ion-item class="clear">
+        <ion-label floating>Province</ion-label>
+        <ion-select [(ngModel)]="province" >
+          <ion-option value="lim">Limpopo</ion-option>
+          <ion-option value="gau">Gauteng</ion-option>
+          <ion-option value="free">Free State</ion-option>
+          <ion-option value="kwa">Kwazulu Natal</ion-option>
+          <ion-option value="mpu">Mpumalanga</ion-option>
+          <ion-option value="cap">Cape Town</ion-option>
+          <ion-option value="nort">North West</ion-option>
+          <ion-option value="eas">Eastern Cape</ion-option>
+          <ion-option value="wes">Western Cape</ion-option>
+        
+        </ion-select>
+        </ion-item>
+
+
+        <ion-item >
+            <ion-input Name="city" [(ngModel)]="city" type="text" placeholder="Enter Your City"></ion-input>
+          </ion-item>
+
+            <ion-item >
+                <ion-input Name="Address" [(ngModel)]="address" type="text" placeholder="Address"></ion-input>
+              </ion-item>
+      
+      
+              <ion-item>
+                <ion-label>Price</ion-label>
+                <ion-select [(ngModel)]="price"  multiple="false" cancelText="Cancel" okText="Okay!">
+                                                                    
+
+                 
+                  <ion-option value="750" >R750</ion-option>
+                  <ion-option value="850">R850</ion-option>
+                  <ion-option value="950" >R950</ion-option>
+                  <ion-option value="1110">R1100</ion-option>
+                  <ion-option value="1250">R1250</ion-option>
+                  <ion-option value="1350">R1350</ion-option>
+                  <ion-option value="1450">R1450</ion-option>
+                  <ion-option value="1550">1550</ion-option>
+                  <ion-option value="1800">R1800</ion-option>
+                  
+
+                  
+                  
+                </ion-select>
+              </ion-item>
+                <ion-item (click)="takePicture()">
+                  <ion-label >Upload</ion-label>
+                  <button ion-button icon-only (click)="takePicture()">  <ion-icon ios="ios-images" md="md-images"></ion-icon></button>
+                    
+                </ion-item>
+
+                <button ion-button round full (click)="uploadFlatToFirebase()" style = "background:rgb(36, 100, 100)"><ion-icon name = "add">
+                </ion-icon>&nbsp;ADD FLAT</button>
+           
+      </div>
+               
+      </div>
+     
+
+
+      <div *ngIf="slideNo == 3">
+          <ion-card *ngFor="let bookings of bookedFlats" style="background: #f4f4f4; text-align: left;" >
+   
+      
+              <h2 style="color: black;">Name: {{bookings?.flatName}}</h2>
+              
+              <p>Booked By: {{bookings?.clientName}} {{bookings?.clientSurname}}</p>
+              <p>Date Booked: {{bookings?.date}}</p>
+              <p>Time: {{bookings?.time}}</p>
+         
+              
+        </ion-card>
+
+
+
+      </div>
+
+      <div *ngIf="slideNo == 4">
+        
+          <ion-card *ngFor="let bookings of myBookings" style="background: #f4f4f4; text-align: left;" >
+          
+              <h2 style="color: black;">Name: {{bookings?.flatName}}</h2>
+              <h3 style="color: black;">Address: {{bookings?.address}}</h3>
+              <p>Date Booked: {{bookings?.date}}</p>
+              <p>Time: {{bookings?.time}}</p>
+
+              <div *ngIf = "showUpdate == 0">
+                  <button item-end  color = "primary" style = "background: rgb(36, 100, 100); color: white" (click) = "showUpdateBooking()">UPDATE &nbsp;<ion-icon name = "ios-create-outline" end></ion-icon>
+                  </button>
+                  
+          
+    
+              
+                  
+                  <button item-end  color = "secondary" (click)= "deleteBooking(book)"  style = "background: rgb(36, 100, 100); color: white">DELETE &nbsp;<ion-icon name = "ios-trash-outline" end></ion-icon>
                   </button>
 
                 </div>     
@@ -315,7 +699,7 @@
 
 
 
-            <button ion-button (click)="updateProfile()" style="background: #990033;">UPDATE</button>
+            <button ion-button (click)="updateProfile()" style="background:rgb(36, 100, 100);">Update</button>
           </ion-card-content>
 
         </ion-card>
@@ -327,38 +711,11 @@
     </ion-slide>
   </ion-slides>
 
-  <!--!> <ion-header>
-                                <ion-toolbar>
-                                  <ion-segment [(ngModel)]="icons" color="secondary">
-                                   
-                                  </ion-segment>
-                
-                                </ion-toolbar>
-                
-                                <ion-segment [(ngModel)]="relationship" color="primary" (ionChange)="segmentChanged($event)">
-                                  <ion-segment-button value="flats">
-                
-                                         Flats
-                              </ion-segment-button>
-                                  <ion-segment-button value="profile">
-                                        Profile
-                                  </ion-segment-button>
-                                  <ion-segment-button value="bookings">
-                                        Bookings
-                                      </ion-segment-button>
-                                </ion-segment>
-                              </ion-header>
-                              
-                                   <--! Segment in content !-->
 
 
 
 
-
-
-
-
-
+  
 
 
 </ion-content>

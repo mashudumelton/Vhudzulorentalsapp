@@ -5,9 +5,12 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <ion-buttons item-end right>
-        <button navPop ion-button icon-only (click) = "back()" style = "background: #f4f4f4;">
-          <ion-icon color="light" name="arrow-back" style="color: #990033"></ion-icon>
+    
+
+
+    <ion-buttons  left>
+        <button ion-button  (click) = "back()" style = "background-color:rgb(36, 100, 100);">
+         Back
         </button>
       </ion-buttons>
   </ion-header>
@@ -39,7 +42,7 @@
       </ion-item>
 
       <ion-item *ngIf="users.controls.lname.invalid && users.controls.lname.dirty">
-          <p>Please enter valid name</p>
+          <p>Please enter valid surname</p>
       </ion-item>
       
 
@@ -70,7 +73,7 @@
             <p>Your password is too short</p>
         </ion-item>
 
-        <button ion-button  full round (click)="userSignup()" style="background: #990033">SIGN UP</button><br><br><br>
+        <button ion-button  full round (click)="userSignup()" style="background:rgb(36, 100, 100)" [disabled]="users.invalid" >SIGN UP</button><br><br><br>
         <a (click)="loginDirect()">Already have an account?</a>
         
             </ion-list>

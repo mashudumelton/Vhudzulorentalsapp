@@ -60,6 +60,8 @@ export class LandlordPage {
   address;
   price;
   extra;
+  province;
+  city;
 
 
   //Users that booked
@@ -95,7 +97,7 @@ firebase.database().ref('/Flats/' ).on('value', (snapshot) =>
        //Adding Item to itemsList
          
        
-      this.allFlats.push({landID: snap.val().landID,contactNo:snap.val().contactNo,downloadUrl:snap.val().downloadUrl,flatname: snap.val().flatname, description:snap.val().description,address: snap.val().address, price : snap.val().price, key : snap.key});;
+      this.allFlats.push({landID: snap.val().landID,contactNo:snap.val().contactNo,downloadUrl:snap.val().downloadUrl,flatname: snap.val().flatname, description:snap.val().description,address: snap.val().address, price : snap.val().price, key : snap.key, city : snap.val().city, province : snap.val().province});;
       console.log("All Flats: ", this.allFlats);
       
      // firebase.database().ref('/Flats/').push({landID:this.landID,contactNo:this.contactNo,fname:this.fname,downloadUrl: this.fire.downloadUrl,flatname:this.flatName, description:this.description,Address:this.Address, Price: this.Price});
@@ -384,7 +386,7 @@ firebase.database().ref('/Flats/' ).on('value', (snapshot) =>
           console.log(url);
           
           //this.firebaseUploads.push({downloadUrl: url,Admin_Authentication_UID :this.userObj[0].authentication_UID,EventName:this.eventName,eventVenue:this.eventVenue, EventDate: this.eventDate,EventTime: this.eventTime, EventCategory: this.category});
-          firebase.database().ref('/Flats/').push({landID:this.useriD,contactNo:this.contactNum,landlordName:this.firstname,downloadUrl: this.fire.downloadUrl,flatname:this.flatName, description:this.description,address:this.address, price: this.price,extra:this.extra});
+          firebase.database().ref('/Flats/').push({landID:this.useriD,contactNo:this.contactNum,landlordName:this.firstname,downloadUrl: this.fire.downloadUrl,flatname:this.flatName, description:this.description,address:this.address, price: this.price,province:this.province,city: this.city,extra:this.extra});
           
           //this.flatList.push({landID:this.useriD,contactNo:this.contactNum,landlordName:this.firstname,downloadUrl: this.fire.downloadUrl,flatname:this.flatname, description:this.description,address:this.address, price: this.price})
           alert("Flat has successfully been uploaded!")

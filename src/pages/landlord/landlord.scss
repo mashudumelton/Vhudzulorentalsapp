@@ -68,12 +68,12 @@ page-landlord {
 }
 
 ion-header, ion-segment, ion-segment-button{
-    color: #990033 !important;
+    color: rgb(3, 58, 58) !important;
     border-color: #669a2f;
 } 
 
 ion-header, ion-segment, ion-segment-button{
-    color: #990033 !important;
+    color:rgb(3, 58, 58) !important;
     border-color: #669a2f;
 } 
 
@@ -81,5 +81,10 @@ ion-header, ion-segment, ion-segment-button{
     ion-item,ion-input,ion-label{
     background: #f4f4f4;
     }
+    // .mash{
+    //     margin-top: 20%;
+    //     top:0%;
+    //     background-color: rgb(3, 58, 58);
+    //   }
 }
 

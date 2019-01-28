@@ -25,8 +25,6 @@ export class HomePage {
   getStarted(){
     this.navCtrl.setRoot("WelcomePage");
   }
-  next(){
-    this.slides.slideTo(2, 500);
-  }
+
 
 }

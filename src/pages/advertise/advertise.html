@@ -33,6 +33,27 @@
             <ion-item >
               <ion-input Name=" description" [(ngModel)]=" description" type="text" placeholder="Description..."></ion-input>
             </ion-item>
+
+            <ion-item class="clear">
+                <ion-label floating>Province</ion-label>
+                <ion-select >
+                  <ion-option value="lim">Limpopo</ion-option>
+                  <ion-option value="gau">Gauteng</ion-option>
+                  <ion-option value="free">Free State</ion-option>
+                  <ion-option value="kwa">Kwazulu Natal</ion-option>
+                  <ion-option value="mpu">Mpumalanga</ion-option>
+                  <ion-option value="cap">Cape Town</ion-option>
+                  <ion-option value="nort">North West</ion-option>
+                  <ion-option value="eas">Eastern Cape</ion-option>
+                  <ion-option value="wes">Western Cape</ion-option>
+                
+                </ion-select>
+                </ion-item>
+
+                <ion-item class="clear">
+                    <ion-label floating>City</ion-label>
+                    <ion-input ></ion-input>
+                  </ion-item>
             <ion-item >
                 <ion-input Name="Address" [(ngModel)]="Address" type="text" placeholder="Address"></ion-input>
               </ion-item>
