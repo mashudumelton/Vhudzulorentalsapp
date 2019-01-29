@@ -335,4 +335,12 @@ addFlat(){
 // }
 
 
+
+
+Login(){
+  
+this.navCtrl.push("LoginPage");
+
+}
+
 }

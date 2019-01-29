@@ -328,11 +328,7 @@ firebase.database().ref('/Flats/' ).on('value', (snapshot) =>
             console.log('inside toast if')
            }
           });
-      // } else {
-      //   var currentName = imagePath.substr(imagePath.lastIndexOf('/') + 1);
-      //   var correctPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
-      //  // this.copyFileToLocalDir(correctPath, currentName, this.createFileName());
-      // }
+
     }, (err) => {
       let toast = this.toastCtrl.create({
         message: 'Error while selecting image.',

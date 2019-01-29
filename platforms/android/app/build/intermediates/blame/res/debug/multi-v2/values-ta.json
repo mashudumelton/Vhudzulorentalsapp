@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\codeTribe\\Desktop\\AppFlatfinder\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ta\\values-ta.xml",
+            "outputFile": "C:\\Users\\codeTribe\\Desktop\\VHUDZULO RENTALS\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ta\\values-ta.xml",
             "map": [
                 {
                     "source": "C:\\Users\\codeTribe\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.8.0.aar\\47f22635347b0975c00ba40183a17de0\\res\\values-ta\\values.xml",

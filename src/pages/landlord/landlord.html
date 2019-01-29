@@ -15,7 +15,7 @@
                   MY PROFILE
                 </ion-segment-button>
               </ion-segment>
-
+              <ion-icon name = "person"></ion-icon>
         </ion-fab>
 
         <h3 style="color: white; text-align: center;">Vhudzulo Rentals</h3>
@@ -73,11 +73,11 @@
   
         <ion-segment-button value="myBookings">
             MY BOOKINGS
-          </ion-segment-button>
-  <!-- 
+          < </ion-segment-button>
+   
         <ion-segment-button value="profile">
           MY PROFILE
-        </ion-segment-button> -->
+        </ion-segment-button>
       </ion-segment>
     
     
@@ -158,56 +158,43 @@
               </ion-row>
             </ion-grid> -->
             
-          
+        
             <h6 style="text-align: center">Provide Flat Details</h6>
+
           <ion-item >
               <ion-input Name="flatName" [(ngModel)]="flatName" type="text" placeholder="Flat Name"></ion-input>
             </ion-item>
-            <ion-item>
-              <ion-label floating>description</ion-label>
 
-              <ion-select [(ngModel)]="description"  multiple="false" cancelText="Cancel" okText="Okay!">
-                                                            
-               
-                <ion-option  value="bedroom" selected="true" >1 BedRoom</ion-option>
-                <ion-option  value="bedroom2" selected="true" >2 BedRoom</ion-option>                      
-                                  
-              </ion-select>
-              
+            <ion-item >
+              <ion-input  Name="description" [(ngModel)]="description" type="text" placeholder="Description"></ion-input>
+
+  
             </ion-item>
-              <ion-list radio-group [(ngModel)]="extra">
-        <ion-label>Room Type</ion-label>
-        <div style="display: flex; flex-direction:row">
-      
 
+
+
+            <ion-item>
+              <ion-label floating>Room Type</ion-label>
+              <ion-select [(ngModel)]="extra">
+                <ion-option value="bed">Single</ion-option>
+                <ion-option value="stove">Double</ion-option>
+            
+              </ion-select>
+        </ion-item>
+
+<!--               
+        <ion-list [(ngModel)]="extra">
+        <ion-label>Room Type</ion-label>
+   
             <ion-select >
                 <ion-option value="bed">Double</ion-option>
                 <ion-option value="stove">Single</ion-option>
 
             </ion-select >
 
-      <!-- <ion-item>
-        <ion-label>Bed</ion-label>            
-        <ion-radio  value="bed" checked="true"  ></ion-radio>
-      </ion-item>
-      
-      
-      <ion-item>
-          <ion-label>Stove</ion-label>
-          <ion-radio value="stove" ></ion-radio>
-      </ion-item>
-       
-        
-        <ion-item>
-            <ion-label>Table</ion-label>
-            <ion-radio value="table" ></ion-radio>
-          </ion-item> -->
+ 
 
-          </div>
-
-         
-          
-    </ion-list>
+    </ion-list> -->
 
 
 
@@ -238,20 +225,13 @@
       
       
               <ion-item>
-                <ion-label>Price</ion-label>
+                <ion-label>Price Per Month</ion-label>
                 <ion-select [(ngModel)]="price"  multiple="false" cancelText="Cancel" okText="Okay!">
                                                                     
 
                  
                   <ion-option value="750" >R750</ion-option>
-                  <ion-option value="850">R850</ion-option>
-                  <ion-option value="950" >R950</ion-option>
-                  <ion-option value="1110">R1100</ion-option>
-                  <ion-option value="1250">R1250</ion-option>
-                  <ion-option value="1350">R1350</ion-option>
-                  <ion-option value="1450">R1450</ion-option>
-                  <ion-option value="1550">1550</ion-option>
-                  <ion-option value="1800">R1800</ion-option>
+                
                   
 
                   

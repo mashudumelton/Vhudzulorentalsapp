@@ -1,8 +1,6 @@
 
 <ion-header >
-    <!-- <ion-navbar color=toolbar>
-      <ion-title style="color: white; text-align: center;"> Vhudzulo Rentals</ion-title>
-    </ion-navbar> -->
+  
 
     <ion-navbar color=toolbar>
         <ion-fab id="nav">
@@ -10,9 +8,7 @@
             <ion-row>
       
               <ion-col  col-2>
-                <button ion-button icon-only  clear medium (click) ="showCheckboxLogin()">
-                  <ion-icon name = "person"></ion-icon>
-                </button>
+               
               </ion-col>
               <ion-col  col->
                   <ion-searchbar>
@@ -24,9 +20,9 @@
                 </ion-searchbar>
               </ion-col>
               <ion-col  col-2>
-                <!-- <button ion-button icon-only  clear medium (click) ="showCheckbox()">
-                    <ion-icon name="add-circle"></ion-icon>
-                </button> -->
+                <button ion-button icon-only  clear medium (click) ="showCheckbox()">
+                  <ion-icon name = "person"></ion-icon>
+                </button>
               </ion-col>
             </ion-row>
           </ion-fab>
@@ -37,28 +33,6 @@
 
   </ion-header>
  
-<!-- <ion-header >
-
-  <div class = "header">
-    <ion-toolbar color = toolbar>
-        <h3 style="color: white; text-align: center;">Vhudzulo Rentals</h3>
-        <ion-segment [(ngModel)]="icons" color=toolbar>
- 
-        </ion-segment>
-      </ion-toolbar>
- 
-    <ion-segment [(ngModel)]="selectedSegment"   style="color:rgb(36, 100, 100)" (ionChange)="onSegmentChanged($event)">
-        <ion-segment-button (click)="showCheckboxLogin()">
-          <ion-icon name="log-in"></ion-icon>
-        </ion-segment-button>
- 
-        <ion-segment-button (click) ="showCheckbox()">
-          <ion-icon name="add-circle"></ion-icon>
-        </ion-segment-button>
-        </ion-segment>
-        
-      </div>
-</ion-header>  -->
 
 
 
@@ -74,8 +48,7 @@
         </div>
 
         <ion-list>
-      
-        
+<!--       
           
             <ion-card  *ngFor = "let flat of flatList" (click)="getFlatDetails(flat)">
        
@@ -85,32 +58,42 @@
            
           
           <div class="card-title" style = "color: white">{{flat?.flatname}}</div><br>
-          <div class="card-subtitle" style = "color: white">Rate: R{{flat?.price}}</div>
+          <div class="card-subtitle" style = "color: white">Price: R{{flat?.price}}</div>
           
 
-        </ion-card>
+        </ion-card> -->
+
+     
+
+
+        
+          
+        <ion-card  *ngFor = "let flat of flatList" (click)="getFlatDetails(flat)">
+       
+           
+         
+          <img src="{{flat?.downloadUrl}}" >
+       
+      
+      <div class="card-title" style = "color: white">{{flat?.flatname}}</div><br>
+      <!-- <div class="card-subtitle" style = "color: white">Price: R{{flat?.description}}</div> -->
+      <div class="card-subtitle" style = "color: white">Price: R{{flat?.price}}</div>
+      <div class="card-subtitle" style = "color: white">Price: R{{flat?.province}}</div>
+      <!-- <div class="card-subtitle" style = "color: white">Price: R{{flat?.city}}</div> -->
+    </ion-card>
+
+
+
+
     
 
       
       </ion-list>
 
-      <!-- <div  class="mash">
-      <ion-row>
-        <ion-col>
-          <button ion-button icon-only  clear medium (click) ="showCheckboxLogin()">
-            <ion-icon name="log-in"></ion-icon>
-        </button>
-        </ion-col>
-        <ion-col>
-          <button ion-button icon-only  clear medium (click) ="showCheckbox()">
-            <ion-icon name="add-circle"></ion-icon>
-        </button>
-        </ion-col>
-      </ion-row>
-    </div> -->
 
 
-     
+
+<!--      
     <ion-row>
         <ion-col>
           <button ion-button block outline (click) ="showCheckboxLogin()"  style = "background-color:rgb(36, 100, 100);color:azure;">LogIn</button>
@@ -118,12 +101,12 @@
         <ion-col>
           <button ion-button block outline (click) ="showCheckbox()"   style = "background-color:rgb(36, 100, 100); color:azure;">Register</button>
         </ion-col>
-      </ion-row>
+      </ion-row> -->
 </ion-content>
 <ion-footer>
- 
-
-
-     
+  <ion-col>
+    <!-- <button ion-button block outline (click) ="showCheckboxLogin()"  style = "background-color:rgb(36, 100, 100);color:azure;">LogIn</button> -->
+    <button ion-button block outline (click) ="Login()"  style = "background-color:rgb(36, 100, 100);color:azure;">LogIn</button>
+  </ion-col>
 
 </ion-footer>

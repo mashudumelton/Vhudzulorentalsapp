@@ -30884,6 +30884,11 @@ ion-header, ion-segment, ion-segment-button {
   background: #f4f4f4;
 }
 
+page-login .content {
+  margin-top: 0%;
+  top: 20%;
+}
+
 page-login ion-card.card {
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -31037,6 +31042,8 @@ page-reset .scroll-content {
 }
 
 page-signup .content {
+  margin-top: 0%;
+  top: 20%;
   background: white;
   /* For browsers that do not support gradients */
 }
@@ -31456,13 +31463,6 @@ ion-content .ps {
 .card-background-page ion-card {
   position: relative;
   text-align: center;
-  -webkit-margin-after: 5%;
-  margin-block-end: 5%;
-  text-shadow: 0.05em 0 black, 0 0.05em black, -0.05em 0 black, 0 -0.05em black, -0.05em -0.05em black, -0.05em 0.05em black, 0.05em -0.05em black, 0.05em 0.05em black;
-}
-
-.card-background-page img {
-  border-radius: 5%;
 }
 
 .card-background-page .card-title {
@@ -31471,6 +31471,7 @@ ion-content .ps {
   font-size: 2.0em;
   width: 100%;
   font-weight: bold;
+  color: #fff;
 }
 
 .card-background-page .card-subtitle {
@@ -31481,7 +31482,7 @@ ion-content .ps {
   color: #fff;
 }
 
-.card-background-page .mash {
+.mash {
   margin-top: 130%;
   top: 0%;
 }

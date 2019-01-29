@@ -1,4 +1,4 @@
-#Tue Jan 29 10:41:17 CAT 2019
-base.0=C\:\\Users\\codeTribe\\Desktop\\AppFlatfinder\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\9
+#Tue Jan 29 13:02:15 CAT 2019
+base.0=C\:\\Users\\codeTribe\\Desktop\\VHUDZULO RENTALS\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\9
 path.0=classes.dex
 renamed.0=classes.dex

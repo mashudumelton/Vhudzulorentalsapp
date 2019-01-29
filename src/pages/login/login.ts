@@ -234,38 +234,41 @@ console.log("role",this.role);
                       return false;
                     });
                   });
-                                   
-              }else if(this.role === "Client"){
-                firebase.database().ref('/Clients_TBL/').on('value', (snapshot) =>
-                {
+                }
+                
+                
+              // }else 
+              // if(this.role === "Client"){
+              //   firebase.database().ref('/Clients_TBL/').on('value', (snapshot) =>
+              //   {
                    
                   
-                  snapshot.forEach((snap) => 
-                  { 
-                    //Initializing Item;
-                    /*this.item._key = snap.key;
-                    this.item.name = snap.val().c_itemName;*/
-                    //Adding Item to itemsList
+              //     snapshot.forEach((snap) => 
+              //     { 
+              //       //Initializing Item;
+              //       /*this.item._key = snap.key;
+              //       this.item.name = snap.val().c_itemName;*/
+              //       //Adding Item to itemsList
                  
                     
-                   this.TenantList.ContactNo = snap.val().contactNo;
-                   this.TenantList.fname = snap.val().fname;
-                   this.TenantList.lname =snap.val().lname;
-                   this.TenantList.role = snap.val().role;
-                   this.TenantList.userID = snap.val().userID;
-                   // firebase.database().ref('/Flats/').push({landID:this.landID,contactNo:this.contactNo,fname:this.fname,downloadUrl: this.fire.downloadUrl,flatname:this.flatName, description:this.description,Address:this.Address, Price: this.Price});
-                   if(this.ids === this.TenantList.userID){
-                    console.log("the user is a Tenant",this.TenantList.userID);
-                   this.navCtrl.push("ClientPage",{userId:this.ids,role:  this.TenantList.role});
-                 }
+              //      this.TenantList.ContactNo = snap.val().contactNo;
+              //      this.TenantList.fname = snap.val().fname;
+              //      this.TenantList.lname =snap.val().lname;
+              //      this.TenantList.role = snap.val().role;
+              //      this.TenantList.userID = snap.val().userID;
+              //      // firebase.database().ref('/Flats/').push({landID:this.landID,contactNo:this.contactNo,fname:this.fname,downloadUrl: this.fire.downloadUrl,flatname:this.flatName, description:this.description,Address:this.Address, Price: this.Price});
+              //      if(this.ids === this.TenantList.userID){
+              //       console.log("the user is a Tenant",this.TenantList.userID);
+              //      this.navCtrl.push("ClientPage",{userId:this.ids,role:  this.TenantList.role});
+              //    }
                   
                  
-                    return false;
-                  });
+              //       return false;
+              //     });
                   
                  
-                });
-              }
+              //   });
+              // }
                   
          
        

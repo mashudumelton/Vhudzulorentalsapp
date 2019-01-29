@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c90375ff-1fa2-474f-9138-f0995e089715" name="Default" comment="" />
+    <list default="true" id="58af0853-3f42-4776-b8ab-7a9495f4c0e1" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -2985,19 +2985,19 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="ProjectPane" />
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="settings.editor.selected.configurable" value="android.sdk-updates" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="sync.plugin.last.upgrade.timestamp" value="1548751137931" />
-    <property name="device.picker.selection" value="192a9426" />
+    <property name="sync.plugin.last.upgrade.timestamp" value="1548761777025" />
+    <property name="device.picker.selection" value="0123456789ABCDEF" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -3155,11 +3155,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c90375ff-1fa2-474f-9138-f0995e089715" name="Default" comment="" />
-      <created>1548750939388</created>
+      <changelist id="58af0853-3f42-4776-b8ab-7a9495f4c0e1" name="Default" comment="" />
+      <created>1548761742465</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1548750939388</updated>
+      <updated>1548761742465</updated>
     </task>
     <servers />
   </component>
