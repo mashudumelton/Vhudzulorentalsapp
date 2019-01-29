@@ -34,11 +34,11 @@ var map = {
 		14
 	],
 	"../pages/bookings/bookings.module": [
-		274,
+		273,
 		13
 	],
 	"../pages/cancel/cancel.module": [
-		273,
+		274,
 		12
 	],
 	"../pages/client/client.module": [
@@ -168,8 +168,8 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/account/account.module#AccountPageModule', name: 'AccountPage', segment: 'account', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/advertise/advertise.module#AdvertisePageModule', name: 'AdvertisePage', segment: 'advertise', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/booked-users/booked-users.module#BookedUsersPageModule', name: 'BookedUsersPage', segment: 'booked-users', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/cancel/cancel.module#CancelPageModule', name: 'CancelPage', segment: 'cancel', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/bookings/bookings.module#BookingsPageModule', name: 'BookingsPage', segment: 'bookings', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/cancel/cancel.module#CancelPageModule', name: 'CancelPage', segment: 'cancel', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/client/client.module#ClientPageModule', name: 'ClientPage', segment: 'client', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/flat-details/flat-details.module#FlatDetailsPageModule', name: 'FlatDetailsPage', segment: 'flat-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
