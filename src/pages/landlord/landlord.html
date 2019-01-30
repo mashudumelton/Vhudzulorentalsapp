@@ -4,11 +4,9 @@
 
 <ion-header>
     <ion-toolbar color = toolbar>
-
+<!-- 
          <ion-fab top left>
-            <!-- <button ion-button icon-only  clear medium style = "background:white;" (click) ="showCheckboxLogin()">
-                <ion-icon name = "person"></ion-icon>
-              </button> -->
+           
               <ion-segment class="mash" [(ngModel)]="selectedSegment" color="toolbar" (ionChange)="onSegmentChanged($event)">
 
               <ion-segment-button value="profile">
@@ -16,7 +14,7 @@
                 </ion-segment-button>
               </ion-segment>
               <ion-icon name = "person"></ion-icon>
-        </ion-fab>
+        </ion-fab>  -->
 
         <h3 style="color: white; text-align: center;">Vhudzulo Rentals</h3>
 
@@ -60,20 +58,20 @@
 
 <ion-content class="content" padding>
     <ion-segment class="mash" [(ngModel)]="selectedSegment" color="toolbar" (ionChange)="onSegmentChanged($event)">
-        <ion-segment-button value="flats">
+        <!-- <ion-segment-button value="flats">
           FLAT
-        </ion-segment-button>
+        </ion-segment-button> -->
   
         <ion-segment-button value="myFlats">
           ADD FLAT
         </ion-segment-button>
-        <ion-segment-button value="bookings">
+        <!-- <ion-segment-button value="bookings">
           BOOKINGS
-        </ion-segment-button>
+        </ion-segment-button> -->
   
         <ion-segment-button value="myBookings">
-            MY BOOKINGS
-          < </ion-segment-button>
+            VIEW BOOKINGS
+           </ion-segment-button>
    
         <ion-segment-button value="profile">
           MY PROFILE
@@ -92,7 +90,7 @@
 
   <ion-slides #mySlider (ionSlideDidChange)="onSlideChanged($event)">
     <ion-slide *ngFor="let slide of slides">
-      <div *ngIf="slideNo == 1">
+      <!-- <div *ngIf="slideNo == 1">
    
         <ion-item *ngFor="let flat of allFlats" (click)="getFlatDetails(flat)" style="background: #f4f4f4" >
     
@@ -110,7 +108,7 @@
 
         </ion-item>
         
-      </div>
+      </div> -->
 
       <div *ngIf="slideNo == 2">
       <ion-list *ngIf = "appear" (click)="getMyFlats()">
@@ -119,8 +117,8 @@
               <ion-avatar item-start>
                 <img src="{{flat?.downloadUrl}}" height="100" width="100" />
               </ion-avatar>
-              <h2 style="color: black;">{{flat?.flatname}}</h2>
-              <h3 style="color: black;">Rate: R{{flat?.price}} P/M</h3>
+              <h2 style="color: black;">Flat Name{{flat?.flatname}}</h2>
+              <h3 style="color: black;">Price: R{{flat?.price}} P/M</h3>
               <p style="color: black;">Address: {{flat?.address}}</p>
               <p style="color: black;">Province: {{flat?.province}}</p>
               <p style="color: black;">City: {{flat?.city}}</p>
@@ -253,7 +251,7 @@
      
 
 
-      <div *ngIf="slideNo == 3">
+      <!-- <div *ngIf="slideNo == 3">
           <ion-card *ngFor="let bookings of bookedFlats" style="background: #f4f4f4; text-align: left;" >
    
       
@@ -268,7 +266,7 @@
 
 
 
-      </div>
+      </div> -->
 
       <div *ngIf="slideNo == 4">
         

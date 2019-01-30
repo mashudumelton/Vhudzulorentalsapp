@@ -106,31 +106,29 @@ var WelcomePage = /** @class */ (function () {
         console.log("chocolate", this.chocolate);
     };
     WelcomePage.prototype.showCheckbox = function () {
-        var _this = this;
-        var alert = this.alertCtrl.create();
-        alert.setMessage(' ');
-        alert.setTitle('Register As The Following? ');
-        alert.addButton({
-            text: 'Landlord',
-            handler: function (data) {
-                _this.testRadioOpen = false;
-                _this.testRadioResult = data;
-                _this.role = "Landlord";
-                _this.navCtrl.setRoot("SignupPage", { role: _this.role });
-                //this.landLordsignup()
-            }
-        });
-        alert.addButton({
-            text: 'Student',
-            handler: function (data) {
-                _this.testRadioOpen = false;
-                _this.testRadioResult = data;
-                //console.log( this.testRadioResult.value);
-                _this.role = "Client";
-                _this.navCtrl.setRoot("SignupPage", { role: _this.role });
-            }
-        });
-        alert.present();
+        this.navCtrl.push("LandlordPage");
+        // let alert = this.alertCtrl.create();
+        // alert.setMessage(' ');
+        // alert.setTitle('Register As The Following? ');
+        // alert.addButton({
+        //   text: 'Landlord',
+        //   handler: data => {
+        //     this.testRadioOpen = false;
+        //     this.testRadioResult = data;
+        //     this.role = "Landlord";
+        //     this.navCtrl.setRoot("SignupPage", {role: this.role});
+        //    //this.landLordsignup()
+        //   }});
+        // alert.addButton({
+        //   text: 'Student',
+        //   handler: data => {
+        //     this.testRadioOpen = false;
+        //     this.testRadioResult = data;
+        //   //console.log( this.testRadioResult.value);
+        //   this.role = "Client";
+        //     this.navCtrl.setRoot("SignupPage",{role:this.role});
+        //   }});
+        // alert.present();
     };
     WelcomePage.prototype.showCheckboxLogin = function () {
         var _this = this;

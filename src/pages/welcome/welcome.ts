@@ -81,39 +81,40 @@ if(this.role === "Tenants")
     console.log("chocolate",this.chocolate);
   }
   showCheckbox() {
-    let alert = this.alertCtrl.create();
-    alert.setMessage(' ');
-    alert.setTitle('Register As The Following? ');
+    this.navCtrl.push("LandlordPage")
+    // let alert = this.alertCtrl.create();
+    // alert.setMessage(' ');
+    // alert.setTitle('Register As The Following? ');
  
  
  
-    alert.addButton({
+    // alert.addButton({
  
-      text: 'Landlord',
+    //   text: 'Landlord',
  
-      handler: data => {
-        this.testRadioOpen = false;
-        this.testRadioResult = data;
-        this.role = "Landlord";
-        this.navCtrl.setRoot("SignupPage", {role: this.role});
-       //this.landLordsignup()
-      }});
+    //   handler: data => {
+    //     this.testRadioOpen = false;
+    //     this.testRadioResult = data;
+    //     this.role = "Landlord";
+    //     this.navCtrl.setRoot("SignupPage", {role: this.role});
+    //    //this.landLordsignup()
+    //   }});
  
-    alert.addButton({
+    // alert.addButton({
  
-      text: 'Student',
+    //   text: 'Student',
       
  
-      handler: data => {
-        this.testRadioOpen = false;
-        this.testRadioResult = data;
-      //console.log( this.testRadioResult.value);
-      this.role = "Client";
-        this.navCtrl.setRoot("SignupPage",{role:this.role});
+    //   handler: data => {
+    //     this.testRadioOpen = false;
+    //     this.testRadioResult = data;
+    //   //console.log( this.testRadioResult.value);
+    //   this.role = "Client";
+    //     this.navCtrl.setRoot("SignupPage",{role:this.role});
       
-      }});
+    //   }});
  
-    alert.present();
+    // alert.present();
  }
  showCheckboxLogin() {
   let alert = this.alertCtrl.create();

@@ -30825,6 +30825,11 @@ page-home .wrapper-home .bottom-view .button {
   color: white;
 }
 
+page-landlord .content .mash {
+  margin-top: 2%;
+  top: 0%;
+}
+
 page-landlord #profile {
   background: #f4f4f4 !important;
 }

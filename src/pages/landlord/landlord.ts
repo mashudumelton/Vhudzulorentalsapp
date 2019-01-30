@@ -154,19 +154,19 @@ firebase.database().ref('/Flats/' ).on('value', (snapshot) =>
     this.getImage();
 
     this.slides = [
-      {
-        id: "flats",
-        title: "First Slide",
-      },
+      // {
+      //   id: "flats",
+      //   title: "First Slide",
+      // },
       {
         id: "myFlats",
         title: "Second Slide"
       },
-      {
-        id: "bookings",
-        title: "Third Slide"
+      // {
+      //   id: "bookings",
+      //   title: "Third Slide"
 
-      },
+      // },
       {
         id: "myBookings",
         title: "Fourth Slide"
@@ -197,11 +197,12 @@ firebase.database().ref('/Flats/' ).on('value', (snapshot) =>
     const currentSlide = this.slides[slider.getActiveIndex()];
     this.selectedSegment = currentSlide.id;
   
-    if(currentSlide.id == "flats"){
-      this.slideNo = 1;
+    // if(currentSlide.id == "flats"){
+    //   this.slideNo = 1;
 
-      //console.log("This is slide 1");
-    }else if(currentSlide.id == "profile"){
+    //   //console.log("This is slide 1");
+    // }else
+     if(currentSlide.id == "profile"){
       this.slideNo = 5;
   
       this.useriD = firebase.auth().currentUser.uid;
@@ -228,15 +229,15 @@ firebase.database().ref('/Flats/' ).on('value', (snapshot) =>
       //console.log("This is slide 3");
     }else  if(currentSlide.id == "myFlats"){
     this.slideNo = 2;
-    this.appear = 1;
-    this.viewAdd = 0;
+    // this.appear = 1;
+    // this.viewAdd = 0;
     this.getMyFlats();
-    //console.log("This is slide 3");
+    
   }
-  else  if(currentSlide.id == "bookings"){
-    this.slideNo = 3;
-    this.BookingsByMe();
-  }
+  // else  if(currentSlide.id == "bookings"){
+  //   this.slideNo = 3;
+  //   this.BookingsByMe();
+  // }
   
   }
 
@@ -261,7 +262,7 @@ firebase.database().ref('/Flats/' ).on('value', (snapshot) =>
 
 
 
-  //Nathi
+
 
   getImage(){
     //this.count =0;
@@ -285,11 +286,11 @@ firebase.database().ref('/Flats/' ).on('value', (snapshot) =>
 
  
 
-  toAdd(){
-    this.viewAdd = 1;
-    this.appear = 0;
-    console.log(this.viewAdd);
-  }
+  // toAdd(){
+  //   this.viewAdd = 1;
+  //   this.appear = 0;
+  //   console.log(this.viewAdd);
+  // }
 
 
 
@@ -420,7 +421,7 @@ firebase.database().ref('/Flats/' ).on('value', (snapshot) =>
 
          //this.allFlats.push(this.flatList[x]);
 
-         this.myFlats.push({address:this.allFlats[x].address,contactNo:this.allFlats[x].contactNo,description: this.allFlats[x].description, price: this.allFlats[x].price, downloadUrl: this.allFlats[x].downloadUrl, flatname: this.allFlats[x].flatname, key: this.allFlats[x].key});
+         this.myFlats.push({address:this.allFlats[x].address,city:this.allFlats[x].city,province:this.allFlats[x].province,description: this.allFlats[x].description, price: this.allFlats[x].price,description: this.allFlats[x].description, price: this.allFlats[x].price,contactNo:this.allFlats[x].contactNo,description: this.allFlats[x].description, price: this.allFlats[x].price, downloadUrl: this.allFlats[x].downloadUrl, flatname: this.allFlats[x].flatname, key: this.allFlats[x].key});
          console.log("flats",this.myFlats);
           
         }
