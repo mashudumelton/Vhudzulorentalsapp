@@ -147,7 +147,8 @@ console.log("role",this.role);
                 if(this.ids === this.LandLordList.userId)
                 {
                   console.log("the user is a LandLord",this.LandLordList.userId);
-                  this.navCtrl.push("WelcomePage",{userId:this.ids,role: this.LandLordList.role});
+                  // this.navCtrl.push("WelcomePage",{userId:this.ids,role: this.LandLordList.role});
+                  this.navCtrl.push("LandlordPage",{userId:this.ids,role: this.LandLordList.role});
                   console.log("status",status);
                 }
                     

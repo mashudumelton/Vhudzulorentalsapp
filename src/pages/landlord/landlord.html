@@ -19,7 +19,7 @@
         <h3 style="color: white; text-align: center;">Vhudzulo Rentals</h3>
 
       <ion-fab top right>
-          <button ion-button icon-only  clear medium (click)= "signOut()" style = "background:transparent;">
+          <button ion-button icon-only  clear medium (click)= "signOut()" style = "color:white;">
             <ion-icon name = "ios-power-outline"></ion-icon>
          </button>
       </ion-fab>
@@ -115,9 +115,9 @@
           <ion-item *ngFor="let flat of myFlats"   style="background: #f4f4f4">
     
               <ion-avatar item-start>
-                <img src="{{flat?.downloadUrl}}" height="100" width="100" />
+                <img src="{{flat?.downloadUrl}}" />
               </ion-avatar>
-              <h2 style="color: black;">Flat Name{{flat?.flatname}}</h2>
+              <h2 style="color: black;">Flat Name:{{flat?.flatname}}</h2>
               <h3 style="color: black;">Price: R{{flat?.price}} P/M</h3>
               <p style="color: black;">Address: {{flat?.address}}</p>
               <p style="color: black;">Province: {{flat?.province}}</p>

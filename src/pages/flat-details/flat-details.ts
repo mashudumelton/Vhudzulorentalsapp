@@ -121,15 +121,19 @@ export class FlatDetailsPage {
   }
   checkStatus(){
 
-     if(this.userId){
+    //  if(this.userId){
 
-      this.card = 1;
-      this.hideButn = 0;
-     }
-     else{
-    this.navCtrl.push("LoginPage");
+    //   this.card = 1;
+    //   this.hideButn = 0;
+    //  }
+    //  else
+     
+    //  {
+    // this.navCtrl.push("LoginPage");
+  
 
-     }
+    //  }
+    this.navCtrl.push("BookingsPage");
   }
 
   ionViewDidLoad() {

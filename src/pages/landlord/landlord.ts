@@ -421,7 +421,7 @@ firebase.database().ref('/Flats/' ).on('value', (snapshot) =>
 
          //this.allFlats.push(this.flatList[x]);
 
-         this.myFlats.push({address:this.allFlats[x].address,city:this.allFlats[x].city,province:this.allFlats[x].province,description: this.allFlats[x].description, price: this.allFlats[x].price,description: this.allFlats[x].description, price: this.allFlats[x].price,contactNo:this.allFlats[x].contactNo,description: this.allFlats[x].description, price: this.allFlats[x].price, downloadUrl: this.allFlats[x].downloadUrl, flatname: this.allFlats[x].flatname, key: this.allFlats[x].key});
+         this.myFlats.push({address:this.allFlats[x].address,city:this.allFlats[x].city,province:this.allFlats[x].province,description: this.allFlats[x].description, price: this.allFlats[x].price,contactNo:this.allFlats[x].contactNo, downloadUrl: this.allFlats[x].downloadUrl, flatname: this.allFlats[x].flatname, key: this.allFlats[x].key});
          console.log("flats",this.myFlats);
           
         }
