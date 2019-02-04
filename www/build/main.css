@@ -30960,14 +30960,6 @@ page-login .scroll-content {
   text-align: center;
 }
 
-page-reset .content {
-  background-color: white;
-  /* For browsers that do not support gradients */
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(165, 42, 42, 0.5)), to(#f5deb3));
-  background-image: linear-gradient(rgba(165, 42, 42, 0.5), #f5deb3);
-  /* Standard syntax (must be last) */
-}
-
 page-reset ion-card.card {
   -webkit-box-shadow: none;
   box-shadow: none;

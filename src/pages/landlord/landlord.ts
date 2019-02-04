@@ -120,7 +120,7 @@ firebase.database().ref('/Flats/' ).on('value', (snapshot) =>
       this.passWord = snapshot.val().password;
       this.contactNum = snapshot.val().contactNo;
       this.eMail = snapshot.val().email;
-      this.role = snapshot.val().role;
+      // this.role = snapshot.val().role;
       this.landID = snapshot.val().userID;
 
       console.log(this.landID);
@@ -286,11 +286,11 @@ firebase.database().ref('/Flats/' ).on('value', (snapshot) =>
 
  
 
-  // toAdd(){
-  //   this.viewAdd = 1;
-  //   this.appear = 0;
-  //   console.log(this.viewAdd);
-  // }
+  toAdd(){
+    this.viewAdd = 1;
+    this.appear = 0;
+    console.log(this.viewAdd);
+  }
 
 
 

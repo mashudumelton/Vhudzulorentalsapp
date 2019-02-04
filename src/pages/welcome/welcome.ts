@@ -16,6 +16,10 @@ declare var firebase;
   templateUrl: 'welcome.html',
 })
 export class WelcomePage {
+  searchResults = [];
+  searchUrls = [];
+
+
   loginBtn = 1;
   signupBtn = 1;
   chocolate ;
@@ -31,7 +35,9 @@ export class WelcomePage {
    fname = "Not signed in.";
    role;
    userDetails;
-   landID
+   landID;
+
+   myInput;
 
   constructor(public menuCtrl: MenuController,public loadingCtrl: LoadingController,private alertCtrl:AlertController,public navCtrl: NavController, public navParams: NavParams) {
     this.getImage();
@@ -42,12 +48,14 @@ export class WelcomePage {
     this.loginBtn = 0;
     this.signupBtn = 0;
  
-  console.log("userId ======",this.userId);
-  console.log("role:",this.role);
-  console.log("chocoloate",this.chocolate);   
+  // console.log("userId ======",this.userId);
+  // console.log("role:",this.role);
+  // console.log("chocoloate",this.chocolate);   
   
-
+ 
   }
+
+
 
 if(this.role === "Tenants")
 {
@@ -58,8 +66,7 @@ if(this.role === "Tenants")
 
   //console.log(this.navParams.get("user"));
     this.getImage();
-    
-    
+
     
   }
   presentLoading(count:number) {
@@ -116,46 +123,47 @@ if(this.role === "Tenants")
  
     // alert.present();
  }
- showCheckboxLogin() {
-  let alert = this.alertCtrl.create();
-  alert.setTitle('LOG IN ');
+
+//  showCheckboxLogin() {
+//   let alert = this.alertCtrl.create();
+//   alert.setTitle('LOG IN ');
 
 
 
-  alert.addButton({
+//   alert.addButton({
 
-    text: 'Landlord',
+//     text: 'Landlord',
 
-    handler: data => {
-      this.testRadioOpen = false;
-      this.testRadioResult = data;
-      this.role = "Landlord"
-      this.navCtrl.setRoot("LoginPage",{role:this.role});
-     //this.landLordsignup()
-    }});
+//     handler: data => {
+//       this.testRadioOpen = false;
+//       this.testRadioResult = data;
+//       this.role = "Landlord"
+//       this.navCtrl.setRoot("LoginPage",{role:this.role});
+//      //this.landLordsignup()
+//     }});
 
-  alert.addButton({
+//   alert.addButton({
 
-    text: 'Student',
+//     text: 'Student',
 
-    handler: data => {
-      this.testRadioOpen = false;
-      this.testRadioResult = data;
-    //console.log( this.testRadioResult.value);
-      this.navCtrl.setRoot("LoginPage",{role:"Client"});
+//     handler: data => {
+//       this.testRadioOpen = false;
+//       this.testRadioResult = data;
+//     //console.log( this.testRadioResult.value);
+//       this.navCtrl.setRoot("LoginPage",{role:"Client"});
     
-    }});
-  //alert.addButton('Cancel');
-/*  alert.addButton({
-    text: 'OK',
-    handler: data => {
-      this.testRadioOpen = false;
-      this.testRadioResult = data;
-      this.navCtrl.setRoot("SignupPage");
-    }
-  });*/
-  alert.present();
-}
+//     }});
+//   //alert.addButton('Cancel');
+// /*  alert.addButton({
+//     text: 'OK',
+//     handler: data => {
+//       this.testRadioOpen = false;
+//       this.testRadioResult = data;
+//       this.navCtrl.setRoot("SignupPage");
+//     }
+//   });*/
+//   alert.present();
+// }
   Admin(){
 
    
@@ -169,53 +177,55 @@ if(this.role === "Tenants")
 
       
     }
-    client(){
-      this.navCtrl.push("ClientPage");
+    // client(){
+    //   this.navCtrl.push("ClientPage");
 
-    }
+    // }
 
    
     reset(){
       this.navCtrl.push("ResetPage");
     }
     
-    logins(){
-     this.navCtrl.push("LoginPage");
-    }
+    // logins(){
+    //  this.navCtrl.push("LoginPage");
+    // }
+    
     //login
-    showCheckboxlogin() {
-      let alert = this.alertCtrl.create();
-      alert.setMessage('Please choose ');
-      alert.setTitle('Login as ');
-   
-   
-   
-      alert.addButton({
-   
-        text: 'Tenants Login',
-   
-        handler: data => {
-          this.testRadioOpen = false;
-          this.testRadioResult = data;
-         
-          this.navCtrl.setRoot("TenatLoginPage")
-         //this.landLordsignup()
-        }});
-   
-      alert.addButton({
-   
-        text: 'Client Login',
-   
-        handler: data => {
-          this.testRadioOpen = false;
-          this.testRadioResult = data;
-        //console.log( this.testRadioResult.value);
-          this.navCtrl.setRoot("LoginPage")
-        
-        }});
 
-      alert.present();
-   }
+  //   showCheckboxlogin() {
+  //     let alert = this.alertCtrl.create();
+  //     alert.setMessage('Please choose ');
+  //     alert.setTitle('Login as ');
+   
+   
+   
+  //     alert.addButton({
+   
+  //       text: 'Tenants Login',
+   
+  //       handler: data => {
+  //         this.testRadioOpen = false;
+  //         this.testRadioResult = data;
+         
+  //         this.navCtrl.setRoot("TenatLoginPage")
+  //        //this.landLordsignup()
+  //       }});
+   
+  //     alert.addButton({
+   
+  //       text: 'Client Login',
+   
+  //       handler: data => {
+  //         this.testRadioOpen = false;
+  //         this.testRadioResult = data;
+  //       //console.log( this.testRadioResult.value);
+  //         this.navCtrl.setRoot("LoginPage")
+        
+  //       }});
+
+  //     alert.present();
+  //  }
    getImage(){
    //this.count =0;
     firebase.database().ref('/Flats/').on('value', (snapshot) =>
@@ -245,6 +255,7 @@ if(this.role === "Tenants")
     console.log("count = "+this.count);
   });
   }
+
   doRefresh(refresher) {
     console.log('Begin async operation', refresher);
 
@@ -277,6 +288,7 @@ if(this.role === "Tenants")
 closeMenu(){
   this.menuCtrl.close();
 }
+
 addFlat(){
   if(this.userId){
 
@@ -287,53 +299,48 @@ addFlat(){
 }
 
 
-// search($event) {
+search($event) {
         
-//   this.searchResults = [];
-//   this.searchUrls = [];
+  this.searchResults = [];
+  this.searchUrls = [];
   
   
 
-//   //|| this.items[i].bid.merchandise.name.toLowerCase() == this.myInput.toLowerCase()
+  //|| this.items[i].bid.merchandise.name.toLowerCase() == this.myInput.toLowerCase()
 
-//   for(let i = 0 ; i < this.items.length ; i++){
+  for(let i = 0 ; i < this.flatList.length ; i++){
    
-//     if(this.items[i].bid.merchandise.name.toLowerCase() === this.myInput.toLowerCase()  ){
-//       this.searchResults.push(this.items[i]);
+    if(this.flatList[i].flat.merchandise.name.toLowerCase() === this.myInput.toLowerCase()  ){
+      this.searchResults.push(this.flatList[i]);
 
-//       this.searchUrls.push( 
-//         {
-//           imageUri : this.items[i].bid.merchandise.imageUri
-//         }
-//       );        
-//     }
-//   }
+      this.searchUrls.push( 
+        {
+          imageUri : this.flatList[i].flat.merchandise.imageUri
+        }
+      );        
+    }
+  }
 
 
-//   if(this.searchResults.length > 0){
-//     console.log("theres results");
+  if(this.searchResults.length > 0){
+    console.log("theres results");
     
-//     this.items = [];
-//     this.imgObjUri = [];
-//     this.items = this.searchResults;
-//     this.imgObjUri = this.searchUrls;
+    this.flatList = [];
+    // this.imgObjUri = [];
+    this.flatList = this.searchResults;
+    // this.imgObjUri = this.searchUrls;
               
     
-//     this.presentToast("Now showing " +  this.myInput);
-//     this.myInput = "";
-//   }else{
-//     this.presentToast(this.myInput + " not found");
+    // this.presentToast("Now showing " +  this.myInput);
+    this.myInput = "";
+  }
+  // else{
+  //   this.presentToast(this.myInput + " not found" );
 
-//   } 
+  // } 
   
-// }
+}
 
-// onClear($event){
-
-//   console.log("cancel");
-//   this.myInput = "";
-//   this.retrieveData();
-// }
 
 
 
@@ -342,6 +349,13 @@ Login(){
   
 this.navCtrl.push("LoginPage");
 
+}
+
+onClear($event){
+
+  console.log("cancel");
+  this.myInput = "";
+  this.getImage();
 }
 
 }

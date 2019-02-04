@@ -1,6 +1,6 @@
 webpackJsonp([5],{
 
-/***/ 281:
+/***/ 286:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SignupPageModule", function() { return SignupPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signup__ = __webpack_require__(298);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signup__ = __webpack_require__(303);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var SignupPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 298:
+/***/ 303:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -64,18 +64,12 @@ var SignupPage = /** @class */ (function () {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.display = 0;
-        this.role = "";
+        // role = "";
+        this.role = "Landlord";
         this.signup = false;
         this.logins = false;
         this.Bookings = [];
         this.landlord = {
-            fname: "",
-            lname: "",
-            contactNo: "",
-            email: "",
-            password: "",
-        };
-        this.client = {
             fname: "",
             lname: "",
             contactNo: "",
@@ -89,7 +83,7 @@ var SignupPage = /** @class */ (function () {
             lname: ['', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].pattern('[a-zA-Z]*'), __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].maxLength(20)]],
             contactNo: ['', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].maxLength(10)]],
         });
-        this.role = this.navParams.get("role");
+        //  this.role = this.navParams.get("role");
     }
     SignupPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad SignupPage');
@@ -99,38 +93,43 @@ var SignupPage = /** @class */ (function () {
     };
     SignupPage.prototype.userSignup = function () {
         var _this = this;
-        if (this.role == "Landlord") {
-            firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(function (user) {
-                _this.userId = user.user.uid;
-                firebase.database().ref('/Landlords_TBL/' + user.user.uid).set({
-                    userID: _this.userId,
-                    fname: _this.fname,
-                    lname: _this.lname,
-                    contactNo: _this.contactNo,
-                    email: _this.email,
-                    password: _this.password,
-                    role: _this.role,
-                    Bookings: {}
-                });
-                _this.navCtrl.setRoot("AccountPage", { userId: _this.userId, role: _this.role });
-            }).key;
-        }
-        else if (this.role == "Client") {
-            firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(function (user) {
-                _this.userId = user.user.uid;
-                firebase.database().ref('/Clients_TBL/' + user.user.uid).set({
-                    userID: _this.userId,
-                    fname: _this.fname,
-                    lname: _this.lname,
-                    contactNo: _this.contactNo,
-                    email: _this.email,
-                    password: _this.password,
-                    role: _this.role,
-                    Bookings: {}
-                });
-                _this.navCtrl.setRoot("AccountPage", { userId: _this.userId, role: _this.role });
-            }).key;
-        }
+        // if
+        // (this.role == "Landlord"){
+        firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(function (user) {
+            _this.userId = user.user.uid;
+            firebase.database().ref('/Landlords_TBL/' + user.user.uid).set({
+                userID: _this.userId,
+                fname: _this.fname,
+                lname: _this.lname,
+                contactNo: _this.contactNo,
+                email: _this.email,
+                password: _this.password,
+                // role: this.role,
+                Bookings: {}
+            });
+            // this.navCtrl.setRoot("AccountPage",{userId:this.userId,role:this.role});
+            _this.navCtrl.push("LandlordPage", { userId: _this.userId });
+            // this.navCtrl.push("LoginPage",{userId:this.userId,role:this.role});
+        }).key;
+        // }
+        // else if(this.role == "Client"){
+        //       firebase.auth().createUserWithEmailAndPassword(this.email,this.password).then(user => {
+        //         this.userId = user.user.uid;
+        //       firebase.database().ref('/Clients_TBL/' + user.user.uid ).set(
+        //         {
+        //           userID:this.userId,
+        //           fname:this.fname,
+        //           lname:this.lname,
+        //           contactNo:this.contactNo,
+        //           email: this.email,
+        //           password:this.password,
+        //           role: this.role,
+        //           Bookings:{}
+        //         }
+        //       )
+        //       this.navCtrl.setRoot("AccountPage",{userId:this.userId,role:this.role})         
+        //     }).key
+        //     }
     };
     SignupPage.prototype.loginl = function () {
         this.navCtrl.setRoot("LoginPage");

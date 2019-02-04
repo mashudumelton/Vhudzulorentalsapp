@@ -18,8 +18,10 @@ declare var firebase;
 export class SignupPage {
   users: FormGroup;
   display=0;
-  role = "";
 
+  // role = "";
+
+  role = "Landlord";
 
   
   signup:boolean=false;
@@ -42,14 +44,14 @@ export class SignupPage {
     password:"",
   }
 
-  client = {
-    fname:"",
-    lname:"",
-    contactNo:"",
-    email: "",
-    password:"",
+  // client = {
+  //   fname:"",
+  //   lname:"",
+  //   contactNo:"",
+  //   email: "",
+  //   password:"",
 
-  }
+  // }
 
   loginError: string;
 
@@ -62,7 +64,7 @@ export class SignupPage {
       contactNo:['',[Validators.required,Validators.maxLength(10)]],
      })
 
-     this.role = this.navParams.get("role");
+    //  this.role = this.navParams.get("role");
 
     
   }
@@ -79,7 +81,8 @@ export class SignupPage {
 
   userSignup(){
 
-    if(this.role == "Landlord"){
+    // if
+    // (this.role == "Landlord"){
       firebase.auth().createUserWithEmailAndPassword(this.email,this.password).then(user => {
         this.userId = user.user.uid;
      
@@ -92,36 +95,39 @@ export class SignupPage {
           contactNo:this.contactNo,
           email: this.email,
           password:this.password,
-          role: this.role,
+          // role: this.role,
           
   
           Bookings:{}
   
         }
       )
-      this.navCtrl.setRoot("AccountPage",{userId:this.userId,role:this.role});
+      // this.navCtrl.setRoot("AccountPage",{userId:this.userId,role:this.role});
+      this.navCtrl.push("LandlordPage",{userId:this.userId});
+      // this.navCtrl.push("LoginPage",{userId:this.userId,role:this.role});
       }).key 
-    }else if(this.role == "Client"){
-          firebase.auth().createUserWithEmailAndPassword(this.email,this.password).then(user => {
-            this.userId = user.user.uid;
+    // }
+    // else if(this.role == "Client"){
+    //       firebase.auth().createUserWithEmailAndPassword(this.email,this.password).then(user => {
+    //         this.userId = user.user.uid;
             
-          firebase.database().ref('/Clients_TBL/' + user.user.uid ).set(
-            {
+    //       firebase.database().ref('/Clients_TBL/' + user.user.uid ).set(
+    //         {
       
-              userID:this.userId,
-              fname:this.fname,
-              lname:this.lname,
-              contactNo:this.contactNo,
-              email: this.email,
-              password:this.password,
-              role: this.role,
-              Bookings:{}
+    //           userID:this.userId,
+    //           fname:this.fname,
+    //           lname:this.lname,
+    //           contactNo:this.contactNo,
+    //           email: this.email,
+    //           password:this.password,
+    //           role: this.role,
+    //           Bookings:{}
       
-            }
-          )
-          this.navCtrl.setRoot("AccountPage",{userId:this.userId,role:this.role})         
-        }).key
-        }
+    //         }
+    //       )
+    //       this.navCtrl.setRoot("AccountPage",{userId:this.userId,role:this.role})         
+    //     }).key
+    //     }
 
     }
    
@@ -138,8 +144,4 @@ export class SignupPage {
     this.navCtrl.setRoot("WelcomePage");
   }
    
-
-
-   
-
 }

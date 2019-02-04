@@ -30825,6 +30825,11 @@ page-home .wrapper-home .bottom-view .button {
   color: white;
 }
 
+page-landlord .content .mash {
+  margin-top: 2%;
+  top: 0%;
+}
+
 page-landlord #profile {
   background: #f4f4f4 !important;
 }
@@ -30882,6 +30887,11 @@ ion-header, ion-segment, ion-segment-button {
 
 .form ion-item, .form ion-input, .form ion-label {
   background: #f4f4f4;
+}
+
+page-login .content {
+  margin-top: 0%;
+  top: 20%;
 }
 
 page-login ion-card.card {
@@ -30948,14 +30958,6 @@ page-login .scroll-content {
   -ms-flex-pack: center;
   justify-content: center;
   text-align: center;
-}
-
-page-reset .content {
-  background-color: white;
-  /* For browsers that do not support gradients */
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(165, 42, 42, 0.5)), to(#f5deb3));
-  background-image: linear-gradient(rgba(165, 42, 42, 0.5), #f5deb3);
-  /* Standard syntax (must be last) */
 }
 
 page-reset ion-card.card {
@@ -31037,6 +31039,8 @@ page-reset .scroll-content {
 }
 
 page-signup .content {
+  margin-top: 0%;
+  top: 20%;
   background: white;
   /* For browsers that do not support gradients */
 }
@@ -31456,13 +31460,6 @@ ion-content .ps {
 .card-background-page ion-card {
   position: relative;
   text-align: center;
-  -webkit-margin-after: 5%;
-  margin-block-end: 5%;
-  text-shadow: 0.05em 0 black, 0 0.05em black, -0.05em 0 black, 0 -0.05em black, -0.05em -0.05em black, -0.05em 0.05em black, 0.05em -0.05em black, 0.05em 0.05em black;
-}
-
-.card-background-page img {
-  border-radius: 5%;
 }
 
 .card-background-page .card-title {
@@ -31471,6 +31468,7 @@ ion-content .ps {
   font-size: 2.0em;
   width: 100%;
   font-weight: bold;
+  color: #fff;
 }
 
 .card-background-page .card-subtitle {
@@ -31481,7 +31479,7 @@ ion-content .ps {
   color: #fff;
 }
 
-.card-background-page .mash {
+.mash {
   margin-top: 130%;
   top: 0%;
 }

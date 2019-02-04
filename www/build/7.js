@@ -1,6 +1,6 @@
 webpackJsonp([7],{
 
-/***/ 279:
+/***/ 280:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(296);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(297);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var LoginPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 296:
+/***/ 297:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -65,13 +65,14 @@ var LoginPage = /** @class */ (function () {
         this.navParams = navParams;
         this.alertCtrl = alertCtrl;
         this.display = 0;
-        this.TenantList = {
-            ContactNo: "",
-            fname: "",
-            lname: "",
-            role: "",
-            userID: ""
-        };
+        // role;
+        // TenantList = {
+        //   ContactNo:"",
+        //   fname:"",
+        //   lname:"",
+        //   role:"",
+        //   userID:""
+        // };
         this.LandLordList = {
             ContactNo: "",
             fname: "",
@@ -79,8 +80,8 @@ var LoginPage = /** @class */ (function () {
             role: "",
             userId: ""
         };
-        this.role = this.navParams.get("role");
-        console.log("role", this.role);
+        // this.role = this.navParams.get("role");
+        // console.log("role",this.role);
         this.login = this.fb.group({
             email: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].maxLength(70), __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].pattern('^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$'), __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required])],
             password: ['', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].minLength(6)]],
@@ -93,71 +94,73 @@ var LoginPage = /** @class */ (function () {
         this.navCtrl.push("WelcomePage");
     };
     LoginPage.prototype.showCheckbox = function () {
-        var _this = this;
-        var alert = this.alertCtrl.create();
-        alert.setMessage('Please choose one  ');
-        alert.setTitle('What are you looking for?');
-        alert.addButton({
-            text: "ADVERTISE YOUR FLAT?",
-            handler: function (data) {
-                _this.testRadioOpen = false;
-                _this.testRadioResult = data;
-                //this.landLordsignup()
-                _this.role = "Landlord";
-                _this.navCtrl.setRoot("SignupPage", { role: _this.role });
-            }
-        });
-        alert.addButton({
-            text: "NEED A PLACE TO STAY?",
-            handler: function (data) {
-                _this.testRadioOpen = false;
-                _this.testRadioResult = data;
-                //console.log( this.testRadioResult.value);
-                _this.role = "Client";
-                _this.navCtrl.setRoot("SignupPage", { role: _this.role });
-            }
-        });
-        //alert.addButton('Cancel');
-        /*  alert.addButton({
-            text: 'OK',
-            handler: data => {
-              this.testRadioOpen = false;
-              this.testRadioResult = data;
-              this.navCtrl.setRoot("SignupPage");
-            }
-          });*/
-        alert.present();
+        // this.navCtrl.setRoot("SignupPage", {role: this.role})
+        this.navCtrl.setRoot("SignupPage");
     };
+    //    showCheckbox(){
+    //     let alert = this.alertCtrl.create();
+    //     alert.setMessage('Please choose one  ');
+    //     alert.setTitle('What are you looking for?');
+    //     alert.addButton({
+    //       text: "ADVERTISE YOUR FLAT?",
+    //       handler: data => {
+    //         this.testRadioOpen = false;
+    //         this.testRadioResult = data;
+    //        //this.landLordsignup()
+    //        this.role = "Landlord"
+    //        this.navCtrl.setRoot("SignupPage", {role: this.role});
+    //       }});
+    //     alert.addButton({
+    //       text: "NEED A PLACE TO STAY?",
+    //       handler: data => {
+    //         this.testRadioOpen = false;
+    //         this.testRadioResult = data;
+    //       //console.log( this.testRadioResult.value);
+    //         this.role = "Client"
+    //         this.navCtrl.setRoot("SignupPage", {role: this.role})
+    //       }});
+    //     //alert.addButton('Cancel');
+    //   /*  alert.addButton({
+    //       text: 'OK',
+    //       handler: data => {
+    //         this.testRadioOpen = false;
+    //         this.testRadioResult = data;
+    //         this.navCtrl.setRoot("SignupPage");
+    //       }
+    //     });*/
+    //     alert.present();
+    //  }
     LoginPage.prototype.loginWithGoogle = function () {
         var _this = this;
         var provider = new firebase.auth.GoogleAuthProvider();
         firebase.auth().signInWithPopup(provider).then(function (User) {
             _this.ids = User.user.uid;
             var status = false;
-            if (_this.role === "Landlord") {
-                firebase.database().ref('/Landlords_TBL/').on('value', function (snapshot) {
-                    snapshot.forEach(function (snap) {
-                        //Initializing Item;
-                        /* this.item._key = snap.key;
-                           this.item.name = snap.val().c_itemName;*/
-                        //Adding Item to itemsList
-                        _this.LandLordList.ContactNo = snap.val().contactNo;
-                        _this.LandLordList.fname = snap.val().fname;
-                        _this.LandLordList.lname = snap.val().lname;
-                        _this.LandLordList.role = snap.val().role;
-                        _this.LandLordList.userId = snap.val().userID;
-                        // firebase.database().ref('/Flats/').push({landID:this.landID,contactNo:this.contactNo,fname:this.fname,downloadUrl: this.fire.downloadUrl,flatname:this.flatName, description:this.description,Address:this.Address, Price: this.Price});
-                        if (_this.ids === _this.LandLordList.userId) {
-                            console.log("the user is a LandLord", _this.LandLordList.userId);
-                            // this.navCtrl.push("WelcomePage",{userId:this.ids,role: this.LandLordList.role});
-                            _this.navCtrl.push("LandlordPage", { userId: _this.ids, role: _this.LandLordList.role });
-                            console.log("status", status);
-                        }
-                        status = true;
-                        return false;
-                    });
+            // if(this.role==="Landlord"){
+            firebase.database().ref('/Landlords_TBL/').on('value', function (snapshot) {
+                snapshot.forEach(function (snap) {
+                    //Initializing Item;
+                    /* this.item._key = snap.key;
+                       this.item.name = snap.val().c_itemName;*/
+                    //Adding Item to itemsList
+                    _this.LandLordList.ContactNo = snap.val().contactNo;
+                    _this.LandLordList.fname = snap.val().fname;
+                    _this.LandLordList.lname = snap.val().lname;
+                    _this.LandLordList.role = snap.val().role;
+                    _this.LandLordList.userId = snap.val().userID;
+                    // firebase.database().ref('/Flats/').push({landID:this.landID,contactNo:this.contactNo,fname:this.fname,downloadUrl: this.fire.downloadUrl,flatname:this.flatName, description:this.description,Address:this.Address, Price: this.Price});
+                    if (_this.ids === _this.LandLordList.userId) {
+                        console.log("the user is a LandLord", _this.LandLordList.userId);
+                        // this.navCtrl.push("WelcomePage",{userId:this.ids,role: this.LandLordList.role});
+                        // this.navCtrl.push("LandlordPage",{userId:this.ids,role: this.LandLordList.role});
+                        _this.navCtrl.push("LandlordPage", { userId: _this.ids });
+                        console.log("status", status);
+                    }
+                    status = true;
+                    return false;
                 });
-            }
+            });
+            // }
             // else if(this.role === "Client"){
             //   firebase.database().ref('/Clients_TBL/').on('value', (snapshot) =>
             //   {
@@ -188,28 +191,26 @@ var LoginPage = /** @class */ (function () {
         firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(function (user) {
             _this.ids = user.user.uid;
             var status = false;
-            if (_this.role === "Landlord") {
-                firebase.database().ref('/Landlords_TBL/').on('value', function (snapshot) {
-                    snapshot.forEach(function (snap) {
-                        //Initializing Item;
-                        /* this.item._key = snap.key;
-                           this.item.name = snap.val().c_itemName;*/
-                        //Adding Item to itemsList
-                        _this.LandLordList.ContactNo = snap.val().contactNo;
-                        _this.LandLordList.fname = snap.val().fname;
-                        _this.LandLordList.lname = snap.val().lname;
-                        _this.LandLordList.role = snap.val().role;
-                        _this.LandLordList.userId = snap.val().userID;
-                        // firebase.database().ref('/Flats/').push({landID:this.landID,contactNo:this.contactNo,fname:this.fname,downloadUrl: this.fire.downloadUrl,flatname:this.flatName, description:this.description,Address:this.Address, Price: this.Price});
-                        if (_this.ids === _this.LandLordList.userId) {
-                            console.log("the user is a LandLord", _this.LandLordList.userId);
-                            _this.navCtrl.setRoot("LandlordPage", { userId: _this.ids, role: _this.LandLordList.role });
-                        }
-                        status = true;
-                        return false;
-                    });
+            // if(this.role==="Landlord"){
+            firebase.database().ref('/Landlords_TBL/').on('value', function (snapshot) {
+                snapshot.forEach(function (snap) {
+                    _this.LandLordList.ContactNo = snap.val().contactNo;
+                    _this.LandLordList.fname = snap.val().fname;
+                    _this.LandLordList.lname = snap.val().lname;
+                    _this.LandLordList.role = snap.val().role;
+                    _this.LandLordList.userId = snap.val().userID;
+                    // firebase.database().ref('/Flats/').push({landID:this.landID,contactNo:this.contactNo,fname:this.fname,downloadUrl: this.fire.downloadUrl,flatname:this.flatName, description:this.description,Address:this.Address, Price: this.Price});
+                    if (_this.ids === _this.LandLordList.userId) {
+                        console.log("the user is a LandLord", _this.LandLordList.userId);
+                        //  this.navCtrl.setRoot("LandlordPage",{userId:this.ids,role: this.LandLordList.role});
+                        // this.navCtrl.push("LandlordPage",{userId:this.ids,role: this.LandLordList.role});
+                        _this.navCtrl.push("LandlordPage", { userId: _this.ids });
+                    }
+                    status = true;
+                    return false;
                 });
-            }
+            });
+            // }
             // }else 
             // if(this.role === "Client"){
             //   firebase.database().ref('/Clients_TBL/').on('value', (snapshot) =>

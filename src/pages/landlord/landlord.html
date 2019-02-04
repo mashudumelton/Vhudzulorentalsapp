@@ -223,19 +223,13 @@
       
       
               <ion-item>
-                <ion-label>Price Per Month</ion-label>
-                <ion-select [(ngModel)]="price"  multiple="false" cancelText="Cancel" okText="Okay!">
+            
+                <ion-input [(ngModel)]="price" type="number"  placeholder="Price Per Month"></ion-input>
                                                                     
 
-                 
-                  <ion-option value="750" >R750</ion-option>
-                
-                  
-
-                  
-                  
-                </ion-select>
+               
               </ion-item>
+
                 <ion-item (click)="takePicture()">
                   <ion-label >Upload</ion-label>
                   <button ion-button icon-only (click)="takePicture()">  <ion-icon ios="ios-images" md="md-images"></ion-icon></button>

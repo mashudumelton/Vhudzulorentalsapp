@@ -1,6 +1,6 @@
 webpackJsonp([0],{
 
-/***/ 286:
+/***/ 285:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WelcomePageModule", function() { return WelcomePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__welcome__ = __webpack_require__(303);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__welcome__ = __webpack_require__(302);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var WelcomePageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 303:
+/***/ 302:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -64,6 +64,8 @@ var WelcomePage = /** @class */ (function () {
         this.alertCtrl = alertCtrl;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.searchResults = [];
+        this.searchUrls = [];
         this.loginBtn = 1;
         this.signupBtn = 1;
         this.display = 0;
@@ -76,9 +78,9 @@ var WelcomePage = /** @class */ (function () {
         if (this.userId) {
             this.loginBtn = 0;
             this.signupBtn = 0;
-            console.log("userId ======", this.userId);
-            console.log("role:", this.role);
-            console.log("chocoloate", this.chocolate);
+            // console.log("userId ======",this.userId);
+            // console.log("role:",this.role);
+            // console.log("chocoloate",this.chocolate);   
         }
         if (this.role === "Tenants") {
             this.chocolate = 0;
@@ -130,81 +132,75 @@ var WelcomePage = /** @class */ (function () {
         //   }});
         // alert.present();
     };
-    WelcomePage.prototype.showCheckboxLogin = function () {
-        var _this = this;
-        var alert = this.alertCtrl.create();
-        alert.setTitle('LOG IN ');
-        alert.addButton({
-            text: 'Landlord',
-            handler: function (data) {
-                _this.testRadioOpen = false;
-                _this.testRadioResult = data;
-                _this.role = "Landlord";
-                _this.navCtrl.setRoot("LoginPage", { role: _this.role });
-                //this.landLordsignup()
-            }
-        });
-        alert.addButton({
-            text: 'Student',
-            handler: function (data) {
-                _this.testRadioOpen = false;
-                _this.testRadioResult = data;
-                //console.log( this.testRadioResult.value);
-                _this.navCtrl.setRoot("LoginPage", { role: "Client" });
-            }
-        });
-        //alert.addButton('Cancel');
-        /*  alert.addButton({
-            text: 'OK',
-            handler: data => {
-              this.testRadioOpen = false;
-              this.testRadioResult = data;
-              this.navCtrl.setRoot("SignupPage");
-            }
-          });*/
-        alert.present();
-    };
+    //  showCheckboxLogin() {
+    //   let alert = this.alertCtrl.create();
+    //   alert.setTitle('LOG IN ');
+    //   alert.addButton({
+    //     text: 'Landlord',
+    //     handler: data => {
+    //       this.testRadioOpen = false;
+    //       this.testRadioResult = data;
+    //       this.role = "Landlord"
+    //       this.navCtrl.setRoot("LoginPage",{role:this.role});
+    //      //this.landLordsignup()
+    //     }});
+    //   alert.addButton({
+    //     text: 'Student',
+    //     handler: data => {
+    //       this.testRadioOpen = false;
+    //       this.testRadioResult = data;
+    //     //console.log( this.testRadioResult.value);
+    //       this.navCtrl.setRoot("LoginPage",{role:"Client"});
+    //     }});
+    //   //alert.addButton('Cancel');
+    // /*  alert.addButton({
+    //     text: 'OK',
+    //     handler: data => {
+    //       this.testRadioOpen = false;
+    //       this.testRadioResult = data;
+    //       this.navCtrl.setRoot("SignupPage");
+    //     }
+    //   });*/
+    //   alert.present();
+    // }
     WelcomePage.prototype.Admin = function () {
         // firebase.auth().createUserWithEmailAndPassword(this.email,this.password).then(user => {
         //   console.log('sign up page');
         // })
         this.navCtrl.push("SignupPage");
     };
-    WelcomePage.prototype.client = function () {
-        this.navCtrl.push("ClientPage");
-    };
+    // client(){
+    //   this.navCtrl.push("ClientPage");
+    // }
     WelcomePage.prototype.reset = function () {
         this.navCtrl.push("ResetPage");
     };
-    WelcomePage.prototype.logins = function () {
-        this.navCtrl.push("LoginPage");
-    };
+    // logins(){
+    //  this.navCtrl.push("LoginPage");
+    // }
     //login
-    WelcomePage.prototype.showCheckboxlogin = function () {
-        var _this = this;
-        var alert = this.alertCtrl.create();
-        alert.setMessage('Please choose ');
-        alert.setTitle('Login as ');
-        alert.addButton({
-            text: 'Tenants Login',
-            handler: function (data) {
-                _this.testRadioOpen = false;
-                _this.testRadioResult = data;
-                _this.navCtrl.setRoot("TenatLoginPage");
-                //this.landLordsignup()
-            }
-        });
-        alert.addButton({
-            text: 'Client Login',
-            handler: function (data) {
-                _this.testRadioOpen = false;
-                _this.testRadioResult = data;
-                //console.log( this.testRadioResult.value);
-                _this.navCtrl.setRoot("LoginPage");
-            }
-        });
-        alert.present();
-    };
+    //   showCheckboxlogin() {
+    //     let alert = this.alertCtrl.create();
+    //     alert.setMessage('Please choose ');
+    //     alert.setTitle('Login as ');
+    //     alert.addButton({
+    //       text: 'Tenants Login',
+    //       handler: data => {
+    //         this.testRadioOpen = false;
+    //         this.testRadioResult = data;
+    //         this.navCtrl.setRoot("TenatLoginPage")
+    //        //this.landLordsignup()
+    //       }});
+    //     alert.addButton({
+    //       text: 'Client Login',
+    //       handler: data => {
+    //         this.testRadioOpen = false;
+    //         this.testRadioResult = data;
+    //       //console.log( this.testRadioResult.value);
+    //         this.navCtrl.setRoot("LoginPage")
+    //       }});
+    //     alert.present();
+    //  }
     WelcomePage.prototype.getImage = function () {
         var _this = this;
         //this.count =0;
@@ -260,39 +256,38 @@ var WelcomePage = /** @class */ (function () {
             this.navCtrl.push("LoginPage");
         }
     };
-    // search($event) {
-    //   this.searchResults = [];
-    //   this.searchUrls = [];
-    //   //|| this.items[i].bid.merchandise.name.toLowerCase() == this.myInput.toLowerCase()
-    //   for(let i = 0 ; i < this.items.length ; i++){
-    //     if(this.items[i].bid.merchandise.name.toLowerCase() === this.myInput.toLowerCase()  ){
-    //       this.searchResults.push(this.items[i]);
-    //       this.searchUrls.push( 
-    //         {
-    //           imageUri : this.items[i].bid.merchandise.imageUri
-    //         }
-    //       );        
-    //     }
-    //   }
-    //   if(this.searchResults.length > 0){
-    //     console.log("theres results");
-    //     this.items = [];
-    //     this.imgObjUri = [];
-    //     this.items = this.searchResults;
-    //     this.imgObjUri = this.searchUrls;
-    //     this.presentToast("Now showing " +  this.myInput);
-    //     this.myInput = "";
-    //   }else{
-    //     this.presentToast(this.myInput + " not found");
-    //   } 
-    // }
-    // onClear($event){
-    //   console.log("cancel");
-    //   this.myInput = "";
-    //   this.retrieveData();
-    // }
+    WelcomePage.prototype.search = function ($event) {
+        this.searchResults = [];
+        this.searchUrls = [];
+        //|| this.items[i].bid.merchandise.name.toLowerCase() == this.myInput.toLowerCase()
+        for (var i = 0; i < this.flatList.length; i++) {
+            if (this.flatList[i].flat.merchandise.name.toLowerCase() === this.myInput.toLowerCase()) {
+                this.searchResults.push(this.flatList[i]);
+                this.searchUrls.push({
+                    imageUri: this.flatList[i].flat.merchandise.imageUri
+                });
+            }
+        }
+        if (this.searchResults.length > 0) {
+            console.log("theres results");
+            this.flatList = [];
+            // this.imgObjUri = [];
+            this.flatList = this.searchResults;
+            // this.imgObjUri = this.searchUrls;
+            // this.presentToast("Now showing " +  this.myInput);
+            this.myInput = "";
+        }
+        // else{
+        //   this.presentToast(this.myInput + " not found" );
+        // } 
+    };
     WelcomePage.prototype.Login = function () {
         this.navCtrl.push("LoginPage");
+    };
+    WelcomePage.prototype.onClear = function ($event) {
+        console.log("cancel");
+        this.myInput = "";
+        this.getImage();
     };
     WelcomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({

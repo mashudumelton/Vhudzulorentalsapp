@@ -30,15 +30,15 @@ var map = {
 		15
 	],
 	"../pages/booked-users/booked-users.module": [
-		272,
+		274,
 		14
 	],
 	"../pages/bookings/bookings.module": [
-		273,
+		272,
 		13
 	],
 	"../pages/cancel/cancel.module": [
-		274,
+		273,
 		12
 	],
 	"../pages/client/client.module": [
@@ -58,35 +58,35 @@ var map = {
 		8
 	],
 	"../pages/login/login.module": [
-		279,
+		280,
 		7
 	],
 	"../pages/reset/reset.module": [
-		280,
+		284,
 		6
 	],
 	"../pages/signup/signup.module": [
-		281,
+		286,
 		5
 	],
 	"../pages/tenat-login/tenat-login.module": [
-		282,
+		279,
 		4
 	],
 	"../pages/update/update.module": [
-		283,
+		281,
 		3
 	],
 	"../pages/user-is-booking/user-is-booking.module": [
-		284,
+		282,
 		2
 	],
 	"../pages/users/users.module": [
-		285,
+		283,
 		1
 	],
 	"../pages/welcome/welcome.module": [
-		286,
+		285,
 		0
 	]
 };
@@ -167,21 +167,21 @@ var AppModule = /** @class */ (function () {
                     links: [
                         { loadChildren: '../pages/account/account.module#AccountPageModule', name: 'AccountPage', segment: 'account', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/advertise/advertise.module#AdvertisePageModule', name: 'AdvertisePage', segment: 'advertise', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/booked-users/booked-users.module#BookedUsersPageModule', name: 'BookedUsersPage', segment: 'booked-users', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/bookings/bookings.module#BookingsPageModule', name: 'BookingsPage', segment: 'bookings', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/cancel/cancel.module#CancelPageModule', name: 'CancelPage', segment: 'cancel', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/booked-users/booked-users.module#BookedUsersPageModule', name: 'BookedUsersPage', segment: 'booked-users', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/client/client.module#ClientPageModule', name: 'ClientPage', segment: 'client', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/flat-details/flat-details.module#FlatDetailsPageModule', name: 'FlatDetailsPage', segment: 'flat-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/landlord/landlord.module#LandlordPageModule', name: 'LandlordPage', segment: 'landlord', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/reset/reset.module#ResetPageModule', name: 'ResetPage', segment: 'reset', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tenat-login/tenat-login.module#TenatLoginPageModule', name: 'TenatLoginPage', segment: 'tenat-login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/update/update.module#UpdatePageModule', name: 'UpdatePage', segment: 'update', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/user-is-booking/user-is-booking.module#UserIsBookingPageModule', name: 'UserIsBookingPage', segment: 'user-is-booking', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/users/users.module#UsersPageModule', name: 'UsersPage', segment: 'users', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/reset/reset.module#ResetPageModule', name: 'ResetPage', segment: 'reset', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] }
                     ]
                 })
             ],
@@ -226,10 +226,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var MyApp = /** @class */ (function () {
+    // rootPage:any ="WelcomePage";
     //rootPage:any ="AdvertisePage";
     function MyApp(platform, statusBar, splashScreen) {
-        //  rootPage:any ="HomePage";
-        this.rootPage = "WelcomePage";
+        this.rootPage = "HomePage";
         platform.ready().then(function () {
             // Okay, so the platform is ready and our plugins are available.
             // Here you   do any higher level native things you might need.
@@ -240,9 +240,10 @@ var MyApp = /** @class */ (function () {
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\codeTribe\Desktop\VHUDZULO RENTALS\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\codeTribe\Desktop\VHUDZULO RENTALS\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _c || Object])
     ], MyApp);
     return MyApp;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=app.component.js.map
