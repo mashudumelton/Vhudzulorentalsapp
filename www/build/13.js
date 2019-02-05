@@ -1,6 +1,6 @@
 webpackJsonp([13],{
 
-/***/ 280:
+/***/ 276:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BookingsPageModule", function() { return BookingsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bookings__ = __webpack_require__(298);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bookings__ = __webpack_require__(294);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var BookingsPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 298:
+/***/ 294:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -116,7 +116,7 @@ var BookingsPage = /** @class */ (function () {
     };
     BookingsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-bookings',template:/*ion-inline-start:"C:\Users\codeTribe\Desktop\VHUDZULO RENTALS\src\pages\bookings\bookings.html"*/'<!--\n\n  Generated template for the BookingsPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n        <ion-buttons left>\n\n                <button ion-button icon-only  style="color: black" (click)="ViewPage(WelcomePage)">\n\n                    <ion-icon name="arrow-back"></ion-icon>\n\n                </button>\n\n            </ion-buttons>\n\n            \n\n\n\n  </ion-header>\n\n  \n\n  \n\n  <ion-content class="content">\n\n          <ion-list>\n\n          <ion-item>\n\n            <ion-label placeholder="Date" floating>Booking Info</ion-label>\n\n            <ion-input type="date"  [(ngModel)]="bookingDate" value="{{value}}"></ion-input>\n\n          </ion-item>\n\n      \n\n          <ion-item>\n\n            <ion-label floating placeholder="Time">Booking Info</ion-label>\n\n            <ion-input type="time"  [(ngModel)]="time" value="{{value}}"></ion-input>\n\n          </ion-item>\n\n      </ion-list>\n\n      <button ion-button full (click)="update(bookingDate,time)">Update</button>\n\n      </ion-content>'/*ion-inline-end:"C:\Users\codeTribe\Desktop\VHUDZULO RENTALS\src\pages\bookings\bookings.html"*/,
+            selector: 'page-bookings',template:/*ion-inline-start:"C:\Users\Yanga\Desktop\project Vhudzulo\Vhudzulorentalsapp\src\pages\bookings\bookings.html"*/'<!--\n\n  Generated template for the BookingsPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n        <ion-buttons left>\n\n                <button ion-button icon-only  style="color: black" (click)="ViewPage(WelcomePage)">\n\n                    <ion-icon name="arrow-back"></ion-icon>\n\n                </button>\n\n            </ion-buttons>\n\n            \n\n\n\n  </ion-header>\n\n  \n\n  \n\n  <ion-content class="content">\n\n          <ion-list>\n\n          <ion-item>\n\n            <ion-label placeholder="Date" floating>Booking Info</ion-label>\n\n            <ion-input type="date"  [(ngModel)]="bookingDate" value="{{value}}"></ion-input>\n\n          </ion-item>\n\n      \n\n          <ion-item>\n\n            <ion-label floating placeholder="Time">Booking Info</ion-label>\n\n            <ion-input type="time"  [(ngModel)]="time" value="{{value}}"></ion-input>\n\n          </ion-item>\n\n      </ion-list>\n\n      <button ion-button full (click)="update(bookingDate,time)">Update</button>\n\n      </ion-content>'/*ion-inline-end:"C:\Users\Yanga\Desktop\project Vhudzulo\Vhudzulorentalsapp\src\pages\bookings\bookings.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
     ], BookingsPage);

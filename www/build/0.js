@@ -1,6 +1,6 @@
 webpackJsonp([0],{
 
-/***/ 293:
+/***/ 289:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WelcomePageModule", function() { return WelcomePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__welcome__ = __webpack_require__(311);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__welcome__ = __webpack_require__(307);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,13 +38,13 @@ var WelcomePageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 294:
+/***/ 290:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var AsyncAction_1 = __webpack_require__(314);
-var AsyncScheduler_1 = __webpack_require__(316);
+var AsyncAction_1 = __webpack_require__(310);
+var AsyncScheduler_1 = __webpack_require__(312);
 /**
  *
  * Async Scheduler
@@ -92,16 +92,16 @@ exports.async = new AsyncScheduler_1.AsyncScheduler(AsyncAction_1.AsyncAction);
 
 /***/ }),
 
-/***/ 311:
+/***/ 307:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WelcomePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_data_data__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_data_data__ = __webpack_require__(198);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(99);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_debounceTime__ = __webpack_require__(312);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_debounceTime__ = __webpack_require__(308);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_debounceTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_debounceTime__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -286,7 +286,7 @@ var WelcomePage = /** @class */ (function () {
                 //Adding Item to itemsList
                 _this.count += 1000;
                 counter = counter + _this.count;
-                _this.flatList.push({ landID: snap.val().landID, contactNo: snap.val().contactNo, downloadUrl: snap.val().downloadUrl, flatname: snap.val().flatname, description: snap.val().description, address: snap.val().address, price: snap.val().price, _key: snap.val()._key });
+                _this.flatList.push({ landID: snap.val().landID, contactNo: snap.val().contactNo, downloadUrl: snap.val().downloadUrl, flatname: snap.val().flatname, description: snap.val().description, address: snap.val().address, price: snap.val().price, _key: snap.val()._key, province: snap.val().province, city: snap.val().city });
                 // firebase.database().ref('/Flats/').push({landID:this.landID,contactNo:this.contactNo,fname:this.fname,downloadUrl: this.fire.downloadUrl,flatname:this.flatName, description:this.description,Address:this.Address, Price: this.Price});
                 console.log(snap.val().downloadUrl);
                 console.log(_this.flatList);
@@ -367,37 +367,36 @@ var WelcomePage = /** @class */ (function () {
     };
     WelcomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-welcome',template:/*ion-inline-start:"C:\Users\codeTribe\Desktop\VHUDZULO RENTALS\src\pages\welcome\welcome.html"*/'\n\n<ion-header >\n\n  \n\n\n\n    <ion-navbar color=toolbar>\n\n       \n\n            <button ion-fab style="display: none;"></button>\n\n            <ion-row>\n\n      \n\n              <ion-col  col-2>\n\n               \n\n              </ion-col>\n\n              <ion-col  col->\n\n                  <!-- <ion-searchbar>\n\n                  [(ngModel)]="myInput"\n\n                  (onInput)="onInput()"\n\n                  [showCancelButton]="True"\n\n                  (search)="search($event)"\n\n                  (ionClear)="onClear($event)"\n\n                  (ionCancel)="onCancel($event)">\n\n                </ion-searchbar> -->\n\n                \n\n    <ion-searchbar [(ngModel)]="searchTerm"\n\n     (ionInput)="setFilteredItems()" \n\n      [formControl]="searchControl"  \n\n      (ionInput)="onSearchInput()">\n\n    </ion-searchbar>\n\n\n\n    <div *ngIf="searching" class="spinner-container">\n\n      <ion-spinner></ion-spinner>\n\n  </div>\n\n\n\n    <ion-list>\n\n        <ion-item *ngFor="let item of items">\n\n            {{item.title}}\n\n        </ion-item>\n\n    </ion-list>\n\n              </ion-col>\n\n              <ion-col  col-2>\n\n                <button ion-button icon-only  clear medium (click) ="showCheckbox()" style="color:aliceblue;">\n\n                  <ion-icon name = "person"></ion-icon>\n\n                </button>\n\n              </ion-col>\n\n            </ion-row>\n\n         \n\n        </ion-navbar>\n\n\n\n\n\n  \n\n\n\n  </ion-header>\n\n \n\n\n\n\n\n\n\n    <ion-content class="card-background-page">\n\n\n\n      \n\n\n\n  \n\n        <div>\n\n            <ion-refresher (ionRefresh)="doRefresh($event)">\n\n                <ion-refresher-content></ion-refresher-content>\n\n              </ion-refresher>\n\n        </div>\n\n\n\n        <ion-list>\n\n<!--       \n\n          \n\n            <ion-card  *ngFor = "let flat of flatList" (click)="getFlatDetails(flat)">\n\n       \n\n           \n\n         \n\n              <img src="{{flat?.downloadUrl}}" height = "160px" width = "100%">\n\n           \n\n          \n\n          <div class="card-title" style = "color: white">{{flat?.flatname}}</div><br>\n\n          <div class="card-subtitle" style = "color: white">Price: R{{flat?.price}}</div>\n\n          \n\n\n\n        </ion-card> -->\n\n\n\n     \n\n\n\n\n\n        \n\n          \n\n        <ion-card  *ngFor = "let flat of flatList" (click)="getFlatDetails(flat)">\n\n       \n\n           \n\n         \n\n          <img src="{{flat?.downloadUrl}}" >\n\n       \n\n      \n\n      <div class="card-title" style = "color: white">{{flat?.flatname}}</div><br>\n\n      <div class="card-subtitle1" style = "color: white">Price: R{{flat?.description}}</div>\n\n      <div class="card-subtitle" style = "color: white">Price: R{{flat?.price}}</div>\n\n      <!-- <div class="card-subtitle" style = "color: white">Price: R{{flat?.province}}</div> -->\n\n      <!-- <div class="card-subtitle" style = "color: white">Price: R{{flat?.city}}</div> -->\n\n    </ion-card>\n\n\n\n\n\n\n\n\n\n    \n\n\n\n      \n\n      </ion-list>\n\n\n\n\n\n\n\n\n\n<!--      \n\n    <ion-row>\n\n        <ion-col>\n\n          <button ion-button block outline (click) ="showCheckboxLogin()"  style = "background-color:rgb(36, 100, 100);color:azure;">LogIn</button>\n\n        </ion-col>\n\n        <ion-col>\n\n          <button ion-button block outline (click) ="showCheckbox()"   style = "background-color:rgb(36, 100, 100); color:azure;">Register</button>\n\n        </ion-col>\n\n      </ion-row> -->\n\n</ion-content>\n\n<ion-footer>\n\n  <ion-col>\n\n    <!-- <button ion-button block outline (click) ="showCheckboxLogin()"  style = "background-color:rgb(36, 100, 100);color:azure;">LogIn</button> -->\n\n    <button ion-button block outline (click) ="Login()"  style = "background-color:rgb(36, 100, 100);color:azure;">LogIn</button>\n\n  </ion-col>\n\n\n\n</ion-footer>\n\n'/*ion-inline-end:"C:\Users\codeTribe\Desktop\VHUDZULO RENTALS\src\pages\welcome\welcome.html"*/,
+            selector: 'page-welcome',template:/*ion-inline-start:"C:\Users\Yanga\Desktop\project Vhudzulo\Vhudzulorentalsapp\src\pages\welcome\welcome.html"*/'\n\n<ion-header >\n\n  \n\n\n\n    <ion-navbar color=toolbar>\n\n       \n\n            <button ion-fab style="display: none;"></button>\n\n            <ion-row>\n\n      \n\n              <ion-col  col-2>\n\n               \n\n              </ion-col>\n\n              <ion-col  col->\n\n                  <!-- <ion-searchbar>\n\n                  [(ngModel)]="myInput"\n\n                  (onInput)="onInput()"\n\n                  [showCancelButton]="True"\n\n                  (search)="search($event)"\n\n                  (ionClear)="onClear($event)"\n\n                  (ionCancel)="onCancel($event)">\n\n                </ion-searchbar> -->\n\n                \n\n    <ion-searchbar [(ngModel)]="searchTerm"\n\n     (ionInput)="setFilteredItems()" \n\n      [formControl]="searchControl"  \n\n      (ionInput)="onSearchInput()">\n\n    </ion-searchbar>\n\n\n\n    <div *ngIf="searching" class="spinner-container">\n\n      <ion-spinner></ion-spinner>\n\n  </div>\n\n\n\n    <ion-list>\n\n        <ion-item *ngFor="let item of items">\n\n            {{item.title}}\n\n        </ion-item>\n\n    </ion-list>\n\n              </ion-col>\n\n              <ion-col  col-2>\n\n                <button ion-button icon-only  clear medium (click) ="showCheckbox()" style="color:aliceblue;">\n\n                  <ion-icon name = "person"></ion-icon>\n\n                </button>\n\n              </ion-col>\n\n            </ion-row>\n\n         \n\n        </ion-navbar>\n\n\n\n\n\n  \n\n\n\n  </ion-header>\n\n \n\n\n\n\n\n\n\n    <ion-content class="card-background-page">\n\n\n\n      \n\n\n\n  \n\n        <div>\n\n            <ion-refresher (ionRefresh)="doRefresh($event)">\n\n                <ion-refresher-content></ion-refresher-content>\n\n              </ion-refresher>\n\n        </div>\n\n\n\n        <ion-list>\n\n\n\n        <ion-card  *ngFor = "let flat of flatList" (click)="getFlatDetails(flat)">\n\n       \n\n           \n\n         \n\n          <img src="{{flat?.downloadUrl}}" >\n\n       \n\n      \n\n      <div class="card-title" style = "color: white">{{flat?.flatname}}</div><br>\n\n      <div class="card-subtitle1" style = "color: white">Price: R{{flat?.description}}</div>\n\n      <div class="card-subtitle" style = "color: white">Price: R{{flat?.price}}</div>\n\n      <!-- <div class="card-subtitle" style = "color: white">Price: R{{flat?.province}}</div> -->\n\n      <!-- <div class="card-subtitle" style = "color: white">Price: R{{flat?.city}}</div> -->\n\n    </ion-card>\n\n\n\n\n\n\n\n\n\n    \n\n\n\n      \n\n      </ion-list>\n\n\n\n\n\n\n\n\n\n<!--      \n\n    <ion-row>\n\n        <ion-col>\n\n          <button ion-button block outline (click) ="showCheckboxLogin()"  style = "background-color:rgb(36, 100, 100);color:azure;">LogIn</button>\n\n        </ion-col>\n\n        <ion-col>\n\n          <button ion-button block outline (click) ="showCheckbox()"   style = "background-color:rgb(36, 100, 100); color:azure;">Register</button>\n\n        </ion-col>\n\n      </ion-row> -->\n\n</ion-content>\n\n<ion-footer>\n\n  <ion-col>\n\n    <!-- <button ion-button block outline (click) ="showCheckboxLogin()"  style = "background-color:rgb(36, 100, 100);color:azure;">LogIn</button> -->\n\n    <button ion-button block outline (click) ="Login()"  style = "background-color:rgb(36, 100, 100);color:azure;">LogIn</button>\n\n  </ion-col>\n\n\n\n</ion-footer>\n\n'/*ion-inline-end:"C:\Users\Yanga\Desktop\project Vhudzulo\Vhudzulorentalsapp\src\pages\welcome\welcome.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__providers_data_data__["a" /* DataProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__providers_data_data__["a" /* DataProvider */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* MenuController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* MenuController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* LoadingController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* AlertController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */]) === "function" && _f || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__providers_data_data__["a" /* DataProvider */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* MenuController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */]])
     ], WelcomePage);
     return WelcomePage;
-    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=welcome.js.map
 
 /***/ }),
 
-/***/ 312:
+/***/ 308:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(9);
-var debounceTime_1 = __webpack_require__(313);
+var debounceTime_1 = __webpack_require__(309);
 Observable_1.Observable.prototype.debounceTime = debounceTime_1.debounceTime;
 //# sourceMappingURL=debounceTime.js.map
 
 /***/ }),
 
-/***/ 313:
+/***/ 309:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var async_1 = __webpack_require__(294);
-var debounceTime_1 = __webpack_require__(318);
+var async_1 = __webpack_require__(290);
+var debounceTime_1 = __webpack_require__(314);
 /**
  * Emits a value from the source Observable only after a particular time span
  * has passed without another source emission.
@@ -453,7 +452,7 @@ exports.debounceTime = debounceTime;
 
 /***/ }),
 
-/***/ 314:
+/***/ 310:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -463,8 +462,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var root_1 = __webpack_require__(28);
-var Action_1 = __webpack_require__(315);
+var root_1 = __webpack_require__(29);
+var Action_1 = __webpack_require__(311);
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @ignore
@@ -602,7 +601,7 @@ exports.AsyncAction = AsyncAction;
 
 /***/ }),
 
-/***/ 315:
+/***/ 311:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -612,7 +611,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subscription_1 = __webpack_require__(29);
+var Subscription_1 = __webpack_require__(30);
 /**
  * A unit of work to be executed in a {@link Scheduler}. An action is typically
  * created from within a Scheduler and an RxJS user does not need to concern
@@ -653,7 +652,7 @@ exports.Action = Action;
 
 /***/ }),
 
-/***/ 316:
+/***/ 312:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -663,7 +662,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Scheduler_1 = __webpack_require__(317);
+var Scheduler_1 = __webpack_require__(313);
 var AsyncScheduler = (function (_super) {
     __extends(AsyncScheduler, _super);
     function AsyncScheduler() {
@@ -711,7 +710,7 @@ exports.AsyncScheduler = AsyncScheduler;
 
 /***/ }),
 
-/***/ 317:
+/***/ 313:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -767,7 +766,7 @@ exports.Scheduler = Scheduler;
 
 /***/ }),
 
-/***/ 318:
+/***/ 314:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -777,8 +776,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subscriber_1 = __webpack_require__(20);
-var async_1 = __webpack_require__(294);
+var Subscriber_1 = __webpack_require__(24);
+var async_1 = __webpack_require__(290);
 /**
  * Emits a value from the source Observable only after a particular time span
  * has passed without another source emission.

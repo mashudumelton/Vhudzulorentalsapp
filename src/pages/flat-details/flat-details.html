@@ -8,21 +8,23 @@
 
 
 <ion-content class="content">
-      <div class="image">
+  <!-- <div class="wrapper-home">
         <img src="{{flat?.downloadUrl}}" >
-      </div>
-    
+      </div> -->
+      <ion-card >
+        <img src="{{flat?.downloadUrl}}" >
+      </ion-card>
      
               <!-- <p  style="text-align: center;">FLAT NAME: {{flat?.flatname}}</p> -->
-              <p style="text-align: center;">DESCRIPTION: {{flat?.description}}</p>
-              <p style="text-align: center;">ADDRESS: {{flat?.address}}</p>
-              <p style="text-align: center;">PROVINCE: {{flat?.province}}</p>
-              <p style="text-align: center;">CITY: {{flat?.city}}</p>
-              <p style="text-align: center;">PRICE: R{{flat?.price}} P/M</p>
-              <p style="text-align: center;color: white">CONTACT : {{flat?.contactNo}}</p>
+              <p style="text-align: center;font-family: 'Times New Roman', Times, serif;font-style: inherit;font-size: 150%; color: rgb(36, 100, 100);">DESCRIPTION: {{flat?.description}}</p>
+              <p style="text-align: center;font-family: 'Times New Roman', Times, serif;font-style: inherit;font-size: 150%; color: rgb(36, 100, 100);">ADDRESS: {{flat?.address}}</p>
+              <p style="text-align: center;font-family: 'Times New Roman', Times, serif;font-style: inherit;font-size: 150%; color: rgb(36, 100, 100);">PROVINCE: {{flat?.province}}</p>
+              <p style="text-align: center;font-family: 'Times New Roman', Times, serif;font-style: inherit;font-size: 150%; color: rgb(36, 100, 100);">CITY: {{flat?.city}}</p>
+              <p style="text-align: center;font-family: 'Times New Roman', Times, serif;font-style: inherit;font-size: 150%; color: rgb(36, 100, 100);">PRICE: R{{flat?.price}} P/M</p>
+              <p style="text-align: center;font-family: 'Times New Roman', Times, serif;font-style: inherit;font-size: 150%; color: rgb(36, 100, 100);">CONTACT : {{flat?.contactNo}}</p>
               
         
-          <button *ngIf="hideButn" ion-button  style = "color: white; background: #990033" (click)="checkStatus()" full>BOOK</button> 
+          <button *ngIf="hideButn" ion-button  style = "color: white; background: rgb(36, 100, 100)" (click)="checkStatus()" full>BOOK</button> 
           <ion-card *ngIf="card">
             <ion-card-content>
           <ion-list>

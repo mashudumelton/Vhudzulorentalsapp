@@ -42,6 +42,9 @@ export class WelcomePage {
    landID;
 
 
+city;
+province;
+
 
 
    searchControl: FormControl;
@@ -266,7 +269,7 @@ if(this.role === "Tenants")
       this.count+=1000;
       counter = counter+this.count;
      
-     this.flatList.push({landID:snap.val().landID,contactNo:snap.val().contactNo,downloadUrl:snap.val().downloadUrl,flatname: snap.val().flatname, description:snap.val().description,address: snap.val().address, price : snap.val().price,_key : snap.val()._key});
+     this.flatList.push({landID:snap.val().landID,contactNo:snap.val().contactNo,downloadUrl:snap.val().downloadUrl,flatname: snap.val().flatname, description:snap.val().description,address: snap.val().address, price : snap.val().price,_key : snap.val()._key, province : snap.val().province, city : snap.val().city});
     // firebase.database().ref('/Flats/').push({landID:this.landID,contactNo:this.contactNo,fname:this.fname,downloadUrl: this.fire.downloadUrl,flatname:this.flatName, description:this.description,Address:this.Address, Price: this.Price});
 
     console.log(snap.val().downloadUrl);
