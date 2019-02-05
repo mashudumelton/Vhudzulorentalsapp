@@ -30803,7 +30803,6 @@ ion-header, ion-segment, ion-segment-button {
 page-home .wrapper-home {
   background-image: url(../../assets/imgs/Capture.PNG);
   background-size: cover;
-  background-repeat: no-repeat;
   margin-left: auto;
   margin-right: auto;
   display: grid;
@@ -31465,6 +31464,14 @@ ion-content .ps {
 .card-background-page .card-title {
   position: absolute;
   top: 36%;
+  font-size: 2.0em;
+  width: 100%;
+  font-weight: bold;
+  color: #fff;
+}
+
+.card-background-page .card-2 {
+  top: 40%;
   font-size: 2.0em;
   width: 100%;
   font-weight: bold;

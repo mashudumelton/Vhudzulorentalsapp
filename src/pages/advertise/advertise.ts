@@ -54,6 +54,7 @@ export class AdvertisePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AdvertisePage');
   }
+  
   uploadPic(){
     this.takePicture();
   }
@@ -70,6 +71,7 @@ export class AdvertisePage {
       console.log(error);
     });
   }
+
   saveImgToFireStorage(){
     //loading bar
     let loading = this.loadingCtrl.create({
@@ -130,6 +132,7 @@ export class AdvertisePage {
               this.navCtrl.setRoot("AdvertisePage");
     }
   }
+  
 public takePicture(/*sourceType*/) {
     // Create options for the Camera Dialog
     //console.log("--------------> "+sourceType);

@@ -78,7 +78,7 @@ var AccountPage = /** @class */ (function () {
     };
     AccountPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-account',template:/*ion-inline-start:"C:\Users\codeTribe\Desktop\VHUDZULO RENTALS\src\pages\account\account.html"*/'<!--\n\n  Generated template for the AccountPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n\n\n\n\n<ion-content class="content">\n\n  <p style="color: white;">Congratulations you have now been registered on our app... <a (click) = "goTologin()">Click here to Log In</a></p>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\codeTribe\Desktop\VHUDZULO RENTALS\src\pages\account\account.html"*/,
+            selector: 'page-account',template:/*ion-inline-start:"C:\Users\codeTribe\Desktop\VHUDZULO RENTALS\src\pages\account\account.html"*/'\n\n\n\n\n\n\n\n<ion-content class="content">\n\n  <p style="color: white;">Congratulations you have now been registered on our app... <a (click) = "goTologin()">Click here to Log In</a></p>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\codeTribe\Desktop\VHUDZULO RENTALS\src\pages\account\account.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
     ], AccountPage);

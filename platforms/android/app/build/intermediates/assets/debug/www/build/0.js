@@ -64,6 +64,8 @@ var WelcomePage = /** @class */ (function () {
         this.alertCtrl = alertCtrl;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.searchResults = [];
+        this.searchUrls = [];
         this.loginBtn = 1;
         this.signupBtn = 1;
         this.display = 0;
@@ -76,9 +78,9 @@ var WelcomePage = /** @class */ (function () {
         if (this.userId) {
             this.loginBtn = 0;
             this.signupBtn = 0;
-            console.log("userId ======", this.userId);
-            console.log("role:", this.role);
-            console.log("chocoloate", this.chocolate);
+            // console.log("userId ======",this.userId);
+            // console.log("role:",this.role);
+            // console.log("chocoloate",this.chocolate);   
         }
         if (this.role === "Tenants") {
             this.chocolate = 0;
@@ -130,81 +132,75 @@ var WelcomePage = /** @class */ (function () {
         //   }});
         // alert.present();
     };
-    WelcomePage.prototype.showCheckboxLogin = function () {
-        var _this = this;
-        var alert = this.alertCtrl.create();
-        alert.setTitle('LOG IN ');
-        alert.addButton({
-            text: 'Landlord',
-            handler: function (data) {
-                _this.testRadioOpen = false;
-                _this.testRadioResult = data;
-                _this.role = "Landlord";
-                _this.navCtrl.setRoot("LoginPage", { role: _this.role });
-                //this.landLordsignup()
-            }
-        });
-        alert.addButton({
-            text: 'Student',
-            handler: function (data) {
-                _this.testRadioOpen = false;
-                _this.testRadioResult = data;
-                //console.log( this.testRadioResult.value);
-                _this.navCtrl.setRoot("LoginPage", { role: "Client" });
-            }
-        });
-        //alert.addButton('Cancel');
-        /*  alert.addButton({
-            text: 'OK',
-            handler: data => {
-              this.testRadioOpen = false;
-              this.testRadioResult = data;
-              this.navCtrl.setRoot("SignupPage");
-            }
-          });*/
-        alert.present();
-    };
+    //  showCheckboxLogin() {
+    //   let alert = this.alertCtrl.create();
+    //   alert.setTitle('LOG IN ');
+    //   alert.addButton({
+    //     text: 'Landlord',
+    //     handler: data => {
+    //       this.testRadioOpen = false;
+    //       this.testRadioResult = data;
+    //       this.role = "Landlord"
+    //       this.navCtrl.setRoot("LoginPage",{role:this.role});
+    //      //this.landLordsignup()
+    //     }});
+    //   alert.addButton({
+    //     text: 'Student',
+    //     handler: data => {
+    //       this.testRadioOpen = false;
+    //       this.testRadioResult = data;
+    //     //console.log( this.testRadioResult.value);
+    //       this.navCtrl.setRoot("LoginPage",{role:"Client"});
+    //     }});
+    //   //alert.addButton('Cancel');
+    // /*  alert.addButton({
+    //     text: 'OK',
+    //     handler: data => {
+    //       this.testRadioOpen = false;
+    //       this.testRadioResult = data;
+    //       this.navCtrl.setRoot("SignupPage");
+    //     }
+    //   });*/
+    //   alert.present();
+    // }
     WelcomePage.prototype.Admin = function () {
         // firebase.auth().createUserWithEmailAndPassword(this.email,this.password).then(user => {
         //   console.log('sign up page');
         // })
         this.navCtrl.push("SignupPage");
     };
-    WelcomePage.prototype.client = function () {
-        this.navCtrl.push("ClientPage");
-    };
+    // client(){
+    //   this.navCtrl.push("ClientPage");
+    // }
     WelcomePage.prototype.reset = function () {
         this.navCtrl.push("ResetPage");
     };
-    WelcomePage.prototype.logins = function () {
-        this.navCtrl.push("LoginPage");
-    };
+    // logins(){
+    //  this.navCtrl.push("LoginPage");
+    // }
     //login
-    WelcomePage.prototype.showCheckboxlogin = function () {
-        var _this = this;
-        var alert = this.alertCtrl.create();
-        alert.setMessage('Please choose ');
-        alert.setTitle('Login as ');
-        alert.addButton({
-            text: 'Tenants Login',
-            handler: function (data) {
-                _this.testRadioOpen = false;
-                _this.testRadioResult = data;
-                _this.navCtrl.setRoot("TenatLoginPage");
-                //this.landLordsignup()
-            }
-        });
-        alert.addButton({
-            text: 'Client Login',
-            handler: function (data) {
-                _this.testRadioOpen = false;
-                _this.testRadioResult = data;
-                //console.log( this.testRadioResult.value);
-                _this.navCtrl.setRoot("LoginPage");
-            }
-        });
-        alert.present();
-    };
+    //   showCheckboxlogin() {
+    //     let alert = this.alertCtrl.create();
+    //     alert.setMessage('Please choose ');
+    //     alert.setTitle('Login as ');
+    //     alert.addButton({
+    //       text: 'Tenants Login',
+    //       handler: data => {
+    //         this.testRadioOpen = false;
+    //         this.testRadioResult = data;
+    //         this.navCtrl.setRoot("TenatLoginPage")
+    //        //this.landLordsignup()
+    //       }});
+    //     alert.addButton({
+    //       text: 'Client Login',
+    //       handler: data => {
+    //         this.testRadioOpen = false;
+    //         this.testRadioResult = data;
+    //       //console.log( this.testRadioResult.value);
+    //         this.navCtrl.setRoot("LoginPage")
+    //       }});
+    //     alert.present();
+    //  }
     WelcomePage.prototype.getImage = function () {
         var _this = this;
         //this.count =0;
@@ -260,43 +256,42 @@ var WelcomePage = /** @class */ (function () {
             this.navCtrl.push("LoginPage");
         }
     };
-    // search($event) {
-    //   this.searchResults = [];
-    //   this.searchUrls = [];
-    //   //|| this.items[i].bid.merchandise.name.toLowerCase() == this.myInput.toLowerCase()
-    //   for(let i = 0 ; i < this.items.length ; i++){
-    //     if(this.items[i].bid.merchandise.name.toLowerCase() === this.myInput.toLowerCase()  ){
-    //       this.searchResults.push(this.items[i]);
-    //       this.searchUrls.push( 
-    //         {
-    //           imageUri : this.items[i].bid.merchandise.imageUri
-    //         }
-    //       );        
-    //     }
-    //   }
-    //   if(this.searchResults.length > 0){
-    //     console.log("theres results");
-    //     this.items = [];
-    //     this.imgObjUri = [];
-    //     this.items = this.searchResults;
-    //     this.imgObjUri = this.searchUrls;
-    //     this.presentToast("Now showing " +  this.myInput);
-    //     this.myInput = "";
-    //   }else{
-    //     this.presentToast(this.myInput + " not found");
-    //   } 
-    // }
-    // onClear($event){
-    //   console.log("cancel");
-    //   this.myInput = "";
-    //   this.retrieveData();
-    // }
+    WelcomePage.prototype.search = function ($event) {
+        this.searchResults = [];
+        this.searchUrls = [];
+        //|| this.items[i].bid.merchandise.name.toLowerCase() == this.myInput.toLowerCase()
+        for (var i = 0; i < this.flatList.length; i++) {
+            if (this.flatList[i].flat.merchandise.name.toLowerCase() === this.myInput.toLowerCase()) {
+                this.searchResults.push(this.flatList[i]);
+                this.searchUrls.push({
+                    imageUri: this.flatList[i].flat.merchandise.imageUri
+                });
+            }
+        }
+        if (this.searchResults.length > 0) {
+            console.log("theres results");
+            this.flatList = [];
+            // this.imgObjUri = [];
+            this.flatList = this.searchResults;
+            // this.imgObjUri = this.searchUrls;
+            // this.presentToast("Now showing " +  this.myInput);
+            this.myInput = "";
+        }
+        // else{
+        //   this.presentToast(this.myInput + " not found" );
+        // } 
+    };
     WelcomePage.prototype.Login = function () {
         this.navCtrl.push("LoginPage");
     };
+    WelcomePage.prototype.onClear = function ($event) {
+        console.log("cancel");
+        this.myInput = "";
+        this.getImage();
+    };
     WelcomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-welcome',template:/*ion-inline-start:"C:\Users\codeTribe\Desktop\VHUDZULO RENTALS\src\pages\welcome\welcome.html"*/'\n\n<ion-header >\n\n  \n\n\n\n    <ion-navbar color=toolbar>\n\n        <ion-fab id="nav">\n\n            <button ion-fab style="display: none;"></button>\n\n            <ion-row>\n\n      \n\n              <ion-col  col-2>\n\n               \n\n              </ion-col>\n\n              <ion-col  col->\n\n                  <ion-searchbar>\n\n                  [(ngModel)]="myInput"\n\n                  [showCancelButton]="True"\n\n                  (search)="search($event)"\n\n                  (ionClear)="onClear($event)"\n\n                  (ionCancel)="onCancel($event)">\n\n                </ion-searchbar>\n\n              </ion-col>\n\n              <ion-col  col-2>\n\n                <button ion-button icon-only  clear medium (click) ="showCheckbox()">\n\n                  <ion-icon name = "person"></ion-icon>\n\n                </button>\n\n              </ion-col>\n\n            </ion-row>\n\n          </ion-fab>\n\n        </ion-navbar>\n\n\n\n\n\n  \n\n\n\n  </ion-header>\n\n \n\n\n\n\n\n\n\n    <ion-content class="card-background-page">\n\n\n\n      \n\n\n\n  \n\n        <div>\n\n            <ion-refresher (ionRefresh)="doRefresh($event)">\n\n                <ion-refresher-content></ion-refresher-content>\n\n              </ion-refresher>\n\n        </div>\n\n\n\n        <ion-list>\n\n<!--       \n\n          \n\n            <ion-card  *ngFor = "let flat of flatList" (click)="getFlatDetails(flat)">\n\n       \n\n           \n\n         \n\n              <img src="{{flat?.downloadUrl}}" height = "160px" width = "100%">\n\n           \n\n          \n\n          <div class="card-title" style = "color: white">{{flat?.flatname}}</div><br>\n\n          <div class="card-subtitle" style = "color: white">Price: R{{flat?.price}}</div>\n\n          \n\n\n\n        </ion-card> -->\n\n\n\n     \n\n\n\n\n\n        \n\n          \n\n        <ion-card  *ngFor = "let flat of flatList" (click)="getFlatDetails(flat)">\n\n       \n\n           \n\n         \n\n          <img src="{{flat?.downloadUrl}}" >\n\n       \n\n      \n\n      <div class="card-title" style = "color: white">{{flat?.flatname}}</div><br>\n\n      <!-- <div class="card-subtitle" style = "color: white">Price: R{{flat?.description}}</div> -->\n\n      <div class="card-subtitle" style = "color: white">Price: R{{flat?.price}}</div>\n\n      <!-- <div class="card-subtitle" style = "color: white">Price: R{{flat?.province}}</div> -->\n\n      <!-- <div class="card-subtitle" style = "color: white">Price: R{{flat?.city}}</div> -->\n\n    </ion-card>\n\n\n\n\n\n\n\n\n\n    \n\n\n\n      \n\n      </ion-list>\n\n\n\n\n\n\n\n\n\n<!--      \n\n    <ion-row>\n\n        <ion-col>\n\n          <button ion-button block outline (click) ="showCheckboxLogin()"  style = "background-color:rgb(36, 100, 100);color:azure;">LogIn</button>\n\n        </ion-col>\n\n        <ion-col>\n\n          <button ion-button block outline (click) ="showCheckbox()"   style = "background-color:rgb(36, 100, 100); color:azure;">Register</button>\n\n        </ion-col>\n\n      </ion-row> -->\n\n</ion-content>\n\n<ion-footer>\n\n  <ion-col>\n\n    <!-- <button ion-button block outline (click) ="showCheckboxLogin()"  style = "background-color:rgb(36, 100, 100);color:azure;">LogIn</button> -->\n\n    <button ion-button block outline (click) ="Login()"  style = "background-color:rgb(36, 100, 100);color:azure;">LogIn</button>\n\n  </ion-col>\n\n\n\n</ion-footer>\n\n'/*ion-inline-end:"C:\Users\codeTribe\Desktop\VHUDZULO RENTALS\src\pages\welcome\welcome.html"*/,
+            selector: 'page-welcome',template:/*ion-inline-start:"C:\Users\codeTribe\Desktop\VHUDZULO RENTALS\src\pages\welcome\welcome.html"*/'\n\n<ion-header >\n\n  \n\n\n\n    <ion-navbar color=toolbar>\n\n       \n\n            <button ion-fab style="display: none;"></button>\n\n            <ion-row>\n\n      \n\n              <ion-col  col-2>\n\n               \n\n              </ion-col>\n\n              <ion-col  col->\n\n                  <ion-searchbar>\n\n                  [(ngModel)]="myInput"\n\n                  [showCancelButton]="True"\n\n                  (search)="search($event)"\n\n                  (ionClear)="onClear($event)"\n\n                  (ionCancel)="onCancel($event)">\n\n                </ion-searchbar>\n\n              </ion-col>\n\n              <ion-col  col-2>\n\n                <button ion-button icon-only  clear medium (click) ="showCheckbox()">\n\n                  <ion-icon name = "person"></ion-icon>\n\n                </button>\n\n              </ion-col>\n\n            </ion-row>\n\n         \n\n        </ion-navbar>\n\n\n\n\n\n  \n\n\n\n  </ion-header>\n\n \n\n\n\n\n\n\n\n    <ion-content class="card-background-page">\n\n\n\n      \n\n\n\n  \n\n        <div>\n\n            <ion-refresher (ionRefresh)="doRefresh($event)">\n\n                <ion-refresher-content></ion-refresher-content>\n\n              </ion-refresher>\n\n        </div>\n\n\n\n        <ion-list>\n\n<!--       \n\n          \n\n            <ion-card  *ngFor = "let flat of flatList" (click)="getFlatDetails(flat)">\n\n       \n\n           \n\n         \n\n              <img src="{{flat?.downloadUrl}}" height = "160px" width = "100%">\n\n           \n\n          \n\n          <div class="card-title" style = "color: white">{{flat?.flatname}}</div><br>\n\n          <div class="card-subtitle" style = "color: white">Price: R{{flat?.price}}</div>\n\n          \n\n\n\n        </ion-card> -->\n\n\n\n     \n\n\n\n\n\n        \n\n          \n\n        <ion-card  *ngFor = "let flat of flatList" (click)="getFlatDetails(flat)">\n\n       \n\n           \n\n         \n\n          <img src="{{flat?.downloadUrl}}" >\n\n       \n\n      \n\n      <div class="card-title" style = "color: white">{{flat?.flatname}}</div><br>\n\n      <div class="card-subtitle1" style = "color: white">Price: R{{flat?.description}}</div>\n\n      <div class="card-subtitle" style = "color: white">Price: R{{flat?.price}}</div>\n\n      <!-- <div class="card-subtitle" style = "color: white">Price: R{{flat?.province}}</div> -->\n\n      <!-- <div class="card-subtitle" style = "color: white">Price: R{{flat?.city}}</div> -->\n\n    </ion-card>\n\n\n\n\n\n\n\n\n\n    \n\n\n\n      \n\n      </ion-list>\n\n\n\n\n\n\n\n\n\n<!--      \n\n    <ion-row>\n\n        <ion-col>\n\n          <button ion-button block outline (click) ="showCheckboxLogin()"  style = "background-color:rgb(36, 100, 100);color:azure;">LogIn</button>\n\n        </ion-col>\n\n        <ion-col>\n\n          <button ion-button block outline (click) ="showCheckbox()"   style = "background-color:rgb(36, 100, 100); color:azure;">Register</button>\n\n        </ion-col>\n\n      </ion-row> -->\n\n</ion-content>\n\n<ion-footer>\n\n  <ion-col>\n\n    <!-- <button ion-button block outline (click) ="showCheckboxLogin()"  style = "background-color:rgb(36, 100, 100);color:azure;">LogIn</button> -->\n\n    <button ion-button block outline (click) ="Login()"  style = "background-color:rgb(36, 100, 100);color:azure;">LogIn</button>\n\n  </ion-col>\n\n\n\n</ion-footer>\n\n'/*ion-inline-end:"C:\Users\codeTribe\Desktop\VHUDZULO RENTALS\src\pages\welcome\welcome.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* MenuController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
     ], WelcomePage);

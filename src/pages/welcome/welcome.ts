@@ -1,7 +1,9 @@
+import { DataProvider } from './../../providers/data/data';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController ,MenuController} from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
-
+import { FormControl } from '@angular/forms';
+import 'rxjs/add/operator/debounceTime';
 
 /**
  * Generated class for the WelcomePage page.
@@ -16,6 +18,8 @@ declare var firebase;
   templateUrl: 'welcome.html',
 })
 export class WelcomePage {
+  flat:any;
+
   searchResults = [];
   searchUrls = [];
 
@@ -37,9 +41,18 @@ export class WelcomePage {
    userDetails;
    landID;
 
-   myInput;
 
-  constructor(public menuCtrl: MenuController,public loadingCtrl: LoadingController,private alertCtrl:AlertController,public navCtrl: NavController, public navParams: NavParams) {
+
+
+   searchControl: FormControl;
+    searchTerm: string = '';
+    items: any;
+    searching: any = false;
+  constructor( public dataService: DataProvider,public menuCtrl: MenuController,public loadingCtrl: LoadingController,private alertCtrl:AlertController,public navCtrl: NavController, public navParams: NavParams) {
+    this.searchControl = new FormControl();
+
+    this.flat = this.navParams.get('flat');
+
     this.getImage();
   this.userId = this.navParams.get("userId");
   this.role = this.navParams.get("role");
@@ -77,7 +90,17 @@ if(this.role === "Tenants")
     });
     loader.present();
   }
+
   ionViewDidLoad() {
+    this.setFilteredItems();
+
+    this.searchControl.valueChanges.debounceTime(700).subscribe(search => {
+      this.searching = false;
+        this.setFilteredItems();
+
+    });
+
+
     console.log('ionViewDidLoad WelcomePage');
     this.userId = this.navParams.get("userId");
     if( this.userId){
@@ -274,7 +297,7 @@ if(this.role === "Tenants")
     this.chocolate =1;
   }
   
-  getFlatDetails(flat:any){
+  getFlatDetails(flat){
    console.log(flat.fname);
     this.landID = flat.landID;
     this.navCtrl.push("FlatDetailsPage",{flat:flat,landID:this.landID,userId:this.userId});
@@ -299,51 +322,47 @@ addFlat(){
 }
 
 
-search($event) {
+// search($event) {
         
-  this.searchResults = [];
-  this.searchUrls = [];
+//   this.searchResults = [];
+//   this.searchUrls = [];
   
   
 
-  //|| this.items[i].bid.merchandise.name.toLowerCase() == this.myInput.toLowerCase()
 
-  for(let i = 0 ; i < this.flatList.length ; i++){
+//   for(let f = 0 ; f < this.flatList.length ; f++){
    
-    if(this.flatList[i].flat.merchandise.name.toLowerCase() === this.myInput.toLowerCase()  ){
-      this.searchResults.push(this.flatList[i]);
+//     if(this.flatList[f].flat.merchandise.name.toLowerCase() === this.myInput.toLowerCase()  ){
+//       this.searchResults.push(this.flatList[f]);
 
-      this.searchUrls.push( 
-        {
-          imageUri : this.flatList[i].flat.merchandise.imageUri
-        }
-      );        
-    }
-  }
+//       this.searchUrls.push( 
+//         {
+//           imageUri : this.flatList[f].flat.merchandise.imageUri
+//         }
+//       );        
+//     }
+//   }
 
 
-  if(this.searchResults.length > 0){
-    console.log("theres results");
+//   if(this.searchResults.length > 0){
+//     console.log("theres results");
     
-    this.flatList = [];
-    // this.imgObjUri = [];
-    this.flatList = this.searchResults;
-    // this.imgObjUri = this.searchUrls;
-              
+//     this.flatList = [];
+//     // this.imgObjUri = [];
+//        this.imageUri = [];
+//     this.flatList = this.searchResults;
+//     // this.imgObjUri = this.searchUrls;
+//     this.imageUri = this.searchUrls;       
     
-    // this.presentToast("Now showing " +  this.myInput);
-    this.myInput = "";
-  }
-  // else{
-  //   this.presentToast(this.myInput + " not found" );
+//     // this.presentToast("Now showing " +  this.myInput);
+//     this.myInput = "";
+//   }
+//   // else{
+//   //   this.presentToast(this.myInput + " not found" );
 
-  // } 
+//   // } 
   
-}
-
-
-
-
+// }
 
 Login(){
   
@@ -351,11 +370,12 @@ this.navCtrl.push("LoginPage");
 
 }
 
-onClear($event){
+    setFilteredItems() {
 
-  console.log("cancel");
-  this.myInput = "";
-  this.getImage();
-}
+        this.items = this.dataService.filterItems(this.searchTerm);
 
+    }
+    onSearchInput(){
+      this.searching = true;
+  }
 }

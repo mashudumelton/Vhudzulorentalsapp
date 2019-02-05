@@ -9,15 +9,17 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { File } from '@ionic-native/file';
 
 import { MyApp } from './app.component';
+ import { DataProvider } from '../providers/data/data';
 
-
-
+ import { HttpModule } from '@angular/http';
+ 
 @NgModule({
   declarations: [
     MyApp,
     
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     IonicModule.forRoot(MyApp,{
       scrollPadding: false,
@@ -33,7 +35,9 @@ import { MyApp } from './app.component';
   providers: [
     StatusBar,
     SplashScreen,Camera,File,FilePath,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DataProvider,
+
   ]
 })
 export class AppModule {}

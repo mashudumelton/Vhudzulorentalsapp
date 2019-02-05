@@ -1,6 +1,6 @@
 webpackJsonp([10],{
 
-/***/ 276:
+/***/ 277:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FlatDetailsPageModule", function() { return FlatDetailsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__flat_details__ = __webpack_require__(293);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__flat_details__ = __webpack_require__(294);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var FlatDetailsPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 293:
+/***/ 294:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -82,15 +82,15 @@ var FlatDetailsPage = /** @class */ (function () {
         this.landID = this.flat.landID;
         this.role = this.navParams.get("role");
         firebase.database().ref('/Landlords_TBL/' + this.landID).on('value', function (snapshot) {
-            _this.landlordName = snapshot.val().fname;
+            console.log(snapshot.lname);
+            // this.landlordName = snapshot.val().fname;
             _this.landlordSurname = snapshot.val().lname;
             _this.landlordContactNo = snapshot.val().contactNo;
             _this.landlordEmail = snapshot.val().email;
             //this.bookings.push({})
-            console.log("EMAIL:", _this.landlordEmail);
         });
         firebase.database().ref('/Clients_TBL/' + this.userId).on('value', function (snapshot) {
-            _this.clientName = snapshot.val().fname;
+            _this.clientName = snapshot.val().flatname;
             _this.clientSurname = snapshot.val().lname;
             _this.clientContact = snapshot.val().contactNo;
             _this.clientEmail = snapshot.val().email;
@@ -168,7 +168,7 @@ var FlatDetailsPage = /** @class */ (function () {
     };
     FlatDetailsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-flat-details',template:/*ion-inline-start:"C:\Users\codeTribe\Desktop\VHUDZULO RENTALS\src\pages\flat-details\flat-details.html"*/'\n\n<ion-header>\n\n\n\n\n\n\n\n</ion-header>\n\n\n\n\n\n\n\n<ion-content class="content">\n\n      <div class="image">\n\n        <img src="{{flat?.downloadUrl}}" >\n\n      </div>\n\n    \n\n     \n\n              <p  style="text-align: center;">FLAT NAME: {{flat?.flatname}}</p>\n\n              <p style="text-align: center;">DESCRIPTION: {{flat?.description}}</p>\n\n              <p style="text-align: center;">ADDRESS: {{flat?.address}}</p>\n\n              <p style="text-align: center;">PROVINCE: {{flat?.province}}</p>\n\n              <p style="text-align: center;">CITY: {{flat?.city}}</p>\n\n              <p style="text-align: center;">PRICE: R{{flat?.price}} P/M</p>\n\n              <p style="text-align: center;color: white">CONTACT : {{flat?.contactNo}}</p>\n\n              \n\n        \n\n          <button *ngIf="hideButn" ion-button  style = "color: white; background: #990033" (click)="checkStatus()" full>BOOK</button> \n\n          <ion-card *ngIf="card">\n\n            <ion-card-content>\n\n          <ion-list>\n\n\n\n            <ion-item>\n\n              <ion-input type="date" [(ngModel)]="bookingDate"  placeholder="Date"></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-input type="time" [(ngModel)]="time"  placeholder="Time"></ion-input>\n\n\n\n        </ion-item>\n\n        <button ion-button block (click)="writeBooking()">\n\n            Book\n\n          </button>\n\n          \n\n        \n\n          <button ion-button block color="danger" (click) = "removeBookings(booking)">\n\n            <ion-icon name="trash"></ion-icon>\n\n            Cancel</button>\n\n          </ion-list>\n\n          </ion-card-content>\n\n          </ion-card>\n\n          \n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\codeTribe\Desktop\VHUDZULO RENTALS\src\pages\flat-details\flat-details.html"*/,
+            selector: 'page-flat-details',template:/*ion-inline-start:"C:\Users\codeTribe\Desktop\VHUDZULO RENTALS\src\pages\flat-details\flat-details.html"*/'\n\n<ion-header>\n\n\n\n\n\n\n\n</ion-header>\n\n\n\n\n\n\n\n<ion-content class="content">\n\n      <div class="image">\n\n        <img src="{{flat?.downloadUrl}}" >\n\n      </div>\n\n    \n\n     \n\n              <!-- <p  style="text-align: center;">FLAT NAME: {{flat?.flatname}}</p> -->\n\n              <p style="text-align: center;">DESCRIPTION: {{flat?.description}}</p>\n\n              <p style="text-align: center;">ADDRESS: {{flat?.address}}</p>\n\n              <p style="text-align: center;">PROVINCE: {{flat?.province}}</p>\n\n              <p style="text-align: center;">CITY: {{flat?.city}}</p>\n\n              <p style="text-align: center;">PRICE: R{{flat?.price}} P/M</p>\n\n              <p style="text-align: center;color: white">CONTACT : {{flat?.contactNo}}</p>\n\n              \n\n        \n\n          <button *ngIf="hideButn" ion-button  style = "color: white; background: #990033" (click)="checkStatus()" full>BOOK</button> \n\n          <ion-card *ngIf="card">\n\n            <ion-card-content>\n\n          <ion-list>\n\n\n\n            <ion-item>\n\n              <ion-input type="date" [(ngModel)]="bookingDate"  placeholder="Date"></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-input type="time" [(ngModel)]="time"  placeholder="Time"></ion-input>\n\n\n\n        </ion-item>\n\n        <button ion-button block (click)="writeBooking()">\n\n            Book\n\n          </button>\n\n          \n\n        \n\n          <button ion-button block color="danger" (click) = "removeBookings(booking)">\n\n            <ion-icon name="trash"></ion-icon>\n\n            Cancel</button>\n\n          </ion-list>\n\n          </ion-card-content>\n\n          </ion-card>\n\n          \n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\codeTribe\Desktop\VHUDZULO RENTALS\src\pages\flat-details\flat-details.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */]])
     ], FlatDetailsPage);

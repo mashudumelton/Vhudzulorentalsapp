@@ -54,11 +54,11 @@ export class FlatDetailsPage {
   landlordEmail;
   role;
 
-  clientName;
-  clientSurname;
-  clientContact;
-  clientEmail;
-  clientID;
+  // clientName;
+  // clientSurname;
+  // clientContact;
+  // clientEmail;
+  // clientID;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
     this.hideButn =1;
@@ -75,8 +75,12 @@ export class FlatDetailsPage {
 
     firebase.database().ref('/Landlords_TBL/' + this.landID).on('value', (snapshot) =>
     {
+
+
+      console.log(snapshot.lname);
+
       
-      this.landlordName = snapshot.val().fname;
+      // this.landlordName = snapshot.val().fname;
       this.landlordSurname = snapshot.val().lname;
       
       this.landlordContactNo = snapshot.val().contactNo;
@@ -87,31 +91,30 @@ export class FlatDetailsPage {
       
 
 
-      
-      console.log("EMAIL:", this.landlordEmail);
+   
       
 
     }) 
 
-    firebase.database().ref('/Clients_TBL/' + this.userId).on('value', (snapshot) =>
-    {
+    // firebase.database().ref('/Clients_TBL/' + this.userId).on('value', (snapshot) =>
+    // {
       
-      this.clientName = snapshot.val().fname;
-      this.clientSurname = snapshot.val().lname;
+    //   this.clientName = snapshot.val().flatname;
+    //   this.clientSurname = snapshot.val().lname;
       
-      this.clientContact = snapshot.val().contactNo;
-      this.clientEmail = snapshot.val().email;
-      this.clientID = snapshot.key
+    //   this.clientContact = snapshot.val().contactNo;
+    //   this.clientEmail = snapshot.val().email;
+    //   this.clientID = snapshot.key
 
 
-      //this.bookings.push({})
-      this.clientDetails.push({clientName: this.clientName,clientSurname: this.clientSurname,clientContact: this.clientContact,clientEmail: this.clientEmail, clientID : this.clientID});
+    //   //this.bookings.push({})
+    //   this.clientDetails.push({clientName: this.clientName,clientSurname: this.clientSurname,clientContact: this.clientContact,clientEmail: this.clientEmail, clientID : this.clientID});
 
 
       
-      console.log("EMAIL:", this.landlordEmail);
+    //   console.log("EMAIL:", this.landlordEmail);
       
-    })
+    // })
     
 
     console.log(" Landlord ID  =",this.flat.landID);
@@ -140,41 +143,43 @@ export class FlatDetailsPage {
     console.log('ionViewDidLoad FlatDetailsPage');
   }
 
- 
   writeBooking(){
-    //console.log(this.fname,this.lname,this.contactNo,this.email,this.bookingDate,this.time);
-  if(this.userId){
+  // writeBooking(){
+  //   //console.log(this.fname,this.lname,this.contactNo,this.email,this.bookingDate,this.time);
+  // if(this.userId){
 
-    var database = firebase.database();
-
-    this.bookings.push({tenantID:this.userId,time:this.time,date:this.bookingDate,landID: this.flat.landID,landlordName: this.landlordName, landlordSurname: this.landlordSurname, landLordContactNo: this.landlordContactNo, landlordEmail: this.landlordEmail, flatName: this.flat.flatName, address: this.flat.address,clientName: this.clientName,clientSurname: this.clientSurname,clientContact: this.clientContact,clientEmail: this.clientEmail, clientID : this.clientID});    
-    console.log(this.bookings);
-    database.ref('/Bookings_TBL/').push({tenantID:this.userId,time:this.time,date:this.bookingDate,landID: this.flat.landID,landlordName: this.landlordName, landlordSurname: this.landlordSurname, landLordContactNo: this.landlordContactNo, landlordEmail: this.landlordEmail, flatName: this.flat.flatname, address: this.flat.address, clientName: this.clientName,clientSurname: this.clientSurname,clientContact: this.clientContact,clientEmail: this.clientEmail, clientID : this.clientID});
-    let toast = this.toastCtrl.create({
-      message: 'Your Booking has successfully been placed!',
-      duration: 3000,
-      position: 'bottom'
-    });
+  //   var database = firebase.database();
+  var database = firebase.database();
+  //   this.bookings.push({tenantID:this.userId,time:this.time,date:this.bookingDate,landID: this.flat.landID,landlordName: this.landlordName, landlordSurname: this.landlordSurname, landLordContactNo: this.landlordContactNo, landlordEmail: this.landlordEmail, flatName: this.flat.flatName, address: this.flat.address,clientName: this.clientName,clientSurname: this.clientSurname,clientContact: this.clientContact,clientEmail: this.clientEmail, clientID : this.clientID});    
+  //   console.log(this.bookings);
+  //   database.ref('/Bookings_TBL/').push({tenantID:this.userId,time:this.time,date:this.bookingDate,landID: this.flat.landID,landlordName: this.landlordName, landlordSurname: this.landlordSurname, landLordContactNo: this.landlordContactNo, landlordEmail: this.landlordEmail, flatName: this.flat.flatname, address: this.flat.address, clientName: this.clientName,clientSurname: this.clientSurname,clientContact: this.clientContact,clientEmail: this.clientEmail, clientID : this.clientID});
+  database.ref('/Bookings_TBL/').push({time:this.time,date:this.bookingDate,landID: this.flat.landID,landlordName: this.landlordName, landlordSurname: this.landlordSurname, landLordContactNo: this.landlordContactNo, landlordEmail: this.landlordEmail, flatName: this.flat.flatname, address: this.flat.address});
+  //   let toast = this.toastCtrl.create({
+  //     message: 'Your Booking has successfully been placed!',
+  //     duration: 3000,
+  //     position: 'bottom'
+  //   });
   
-    toast.onDidDismiss(() => {
-      if(this.role == "Landlord"){
+  //   toast.onDidDismiss(() => {
+  //     if(this.role == "Landlord"){
 
       
 
-   this.navCtrl.setRoot("LandlordPage",{userId:this.userId});
-  }else{
-    this.navCtrl.setRoot("ClientPage",{userId:this.userId});
-  }
-    });
+  //  this.navCtrl.setRoot("LandlordPage",{userId:this.userId});
+  // }else{
+  //   this.navCtrl.setRoot("ClientPage",{userId:this.userId});
+  // }
+  //   });
   
-    toast.present();
+  //   toast.present();
 
-  }else{
+  // }else{
 
-    this.navCtrl.push("LoginPage");
+  //   this.navCtrl.push("LoginPage");
 
-  }
+  // }
   
+  // }
   }
   
   removeBookings(booking){

@@ -46,11 +46,11 @@ var map = {
 		11
 	],
 	"../pages/flat-details/flat-details.module": [
-		276,
+		277,
 		10
 	],
 	"../pages/home/home.module": [
-		277,
+		276,
 		9
 	],
 	"../pages/landlord/landlord.module": [
@@ -58,11 +58,11 @@ var map = {
 		8
 	],
 	"../pages/login/login.module": [
-		279,
+		280,
 		7
 	],
 	"../pages/reset/reset.module": [
-		280,
+		279,
 		6
 	],
 	"../pages/signup/signup.module": [
@@ -171,11 +171,11 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/bookings/bookings.module#BookingsPageModule', name: 'BookingsPage', segment: 'bookings', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/cancel/cancel.module#CancelPageModule', name: 'CancelPage', segment: 'cancel', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/client/client.module#ClientPageModule', name: 'ClientPage', segment: 'client', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/flat-details/flat-details.module#FlatDetailsPageModule', name: 'FlatDetailsPage', segment: 'flat-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/flat-details/flat-details.module#FlatDetailsPageModule', name: 'FlatDetailsPage', segment: 'flat-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/landlord/landlord.module#LandlordPageModule', name: 'LandlordPage', segment: 'landlord', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/reset/reset.module#ResetPageModule', name: 'ResetPage', segment: 'reset', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tenat-login/tenat-login.module#TenatLoginPageModule', name: 'TenatLoginPage', segment: 'tenat-login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/update/update.module#UpdatePageModule', name: 'UpdatePage', segment: 'update', priority: 'low', defaultHistory: [] },
@@ -226,10 +226,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var MyApp = /** @class */ (function () {
+    // rootPage:any ="WelcomePage";
     //rootPage:any ="AdvertisePage";
     function MyApp(platform, statusBar, splashScreen) {
-        //  rootPage:any ="HomePage";
-        this.rootPage = "WelcomePage";
+        this.rootPage = "HomePage";
         platform.ready().then(function () {
             // Okay, so the platform is ready and our plugins are available.
             // Here you   do any higher level native things you might need.
