@@ -70,15 +70,15 @@ var map = {
 		5
 	],
 	"../pages/tenat-login/tenat-login.module": [
-		285,
+		287,
 		4
 	],
 	"../pages/update/update.module": [
-		286,
+		285,
 		3
 	],
 	"../pages/user-is-booking/user-is-booking.module": [
-		287,
+		286,
 		2
 	],
 	"../pages/users/users.module": [
@@ -243,9 +243,9 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/reset/reset.module#ResetPageModule', name: 'ResetPage', segment: 'reset', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/tenat-login/tenat-login.module#TenatLoginPageModule', name: 'TenatLoginPage', segment: 'tenat-login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/update/update.module#UpdatePageModule', name: 'UpdatePage', segment: 'update', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/user-is-booking/user-is-booking.module#UserIsBookingPageModule', name: 'UserIsBookingPage', segment: 'user-is-booking', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/tenat-login/tenat-login.module#TenatLoginPageModule', name: 'TenatLoginPage', segment: 'tenat-login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/users/users.module#UsersPageModule', name: 'UsersPage', segment: 'users', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] }
                     ]
@@ -305,7 +305,7 @@ var MyApp = /** @class */ (function () {
         });
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\Yanga\Desktop\project Vhudzulo\Vhudzulorentalsapp\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\Yanga\Desktop\project Vhudzulo\Vhudzulorentalsapp\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\codeTribe\Desktop\Vhudzulo REntals updated\Vhudzulorentalsapp\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\codeTribe\Desktop\Vhudzulo REntals updated\Vhudzulorentalsapp\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);

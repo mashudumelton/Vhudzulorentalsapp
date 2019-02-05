@@ -114,7 +114,24 @@ if(this.role === "Tenants")
     console.log("chocolate",this.chocolate);
   }
   showCheckbox() {
-    this.navCtrl.push("LandlordPage")
+    let alert = this.alertCtrl.create();
+    alert.setMessage('If You Dont Have An Accout Please Click On The Login Button To Register');
+    
+    // alert.setTitle('Register As The Following?');
+ 
+ 
+ 
+    alert.addButton({
+ 
+      text: 'Landlord',
+ 
+      handler: data => {
+        this.testRadioOpen = false;
+        this.testRadioResult = data;
+        // this.role = "Landlord";
+        // this.navCtrl.setRoot("SignupPage", {role: this.role});
+        this.navCtrl.push("LandlordPage")
+      }});
     // let alert = this.alertCtrl.create();
     // alert.setMessage(' ');
     // alert.setTitle('Register As The Following? ');
@@ -147,7 +164,7 @@ if(this.role === "Tenants")
       
     //   }});
  
-    // alert.present();
+     alert.present();
  }
 
 //  showCheckboxLogin() {
