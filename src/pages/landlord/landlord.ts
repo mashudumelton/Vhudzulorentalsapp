@@ -132,19 +132,31 @@ firebase.database().ref('/Flats/' ).on('value', (snapshot) =>
 
 
     //Retrieve all Bookings
-    firebase.database().ref('/Bookings_TBL/').on('value', (snapshot) =>
-    {
+    // firebase.database().ref('/Bookings_TBL/').on('value', (snapshot) =>
+    // {
 
-      snapshot.forEach((snap) => 
-      { 
-      this.bookings.push({address: snap.val().address,date:snap.val().date,flatName:snap.val().flatName,tenantID:snap.val().tenantID,landLordContactNo:snap.val().landLordContactNo,landlordEmail:snap.val().landlordEmail,landlordName:snap.val().landlordName,landlordSurname:snap.val().landlordSurname, landID:snap.val().landID,time: snap.val().time, clientName: snap.val().clientName,clientSurname: snap.val().clientSurname,clientContact: snap.val().clientContact,clientEmail: snap.val().clientEmail, clientID : snap.val().clientID})
-      console.log("Bookings: ", this.bookings)
-      })
+    //   snapshot.forEach((snap) => 
+    //   { 
+    //   this.bookings.push({address: snap.val().address,date:snap.val().date,flatName:snap.val().flatName,tenantID:snap.val().tenantID,landLordContactNo:snap.val().landLordContactNo,landlordEmail:snap.val().landlordEmail,landlordName:snap.val().landlordName,landlordSurname:snap.val().landlordSurname, landID:snap.val().landID,time: snap.val().time, clientName: snap.val().clientName,clientSurname: snap.val().clientSurname,clientContact: snap.val().clientContact,clientEmail: snap.val().clientEmail, clientID : snap.val().clientID})
+    //   console.log("Bookings: ", this.bookings)
+    //   })
 
     
       
 
-    }) 
+    // }) 
+    
+
+    firebase.database().ref('/mybookingInfo/').on("value",(snapshot)=>{
+      // this.bookings=[];
+      snapshot.forEach((snap)=>{
+    
+     console.log(snap.val());
+      console.log(snap.val().bookingDate + ' key ' + snap.key)
+        this.bookings.push({surname:snap.val().surname,fullname:snap.val().fullname,bookingDate:snap.val().bookingDate, key:snap.key,time:snap.val().time,email:snap.val().email,contact:snap.val().contact});
+        return false;
+          });
+          });
 
 
 
@@ -234,10 +246,10 @@ firebase.database().ref('/Flats/' ).on('value', (snapshot) =>
     this.getMyFlats();
     
   }
-  // else  if(currentSlide.id == "bookings"){
-  //   this.slideNo = 3;
-  //   this.BookingsByMe();
-  // }
+  else  if(currentSlide.id == "bookings"){
+    this.slideNo = 3;
+    // this.BookingsByMe();
+  }
   
   }
 
@@ -500,6 +512,12 @@ firebase.database().ref('/Flats/' ).on('value', (snapshot) =>
      
    }
 
+
+   deleteBooking(booking){
+    firebase.database().ref('/mybookingInfo/' + booking.key).remove();
+    this.navCtrl.setRoot("LandlordPage");
+   }
+
    BookedFlats(){
     this.bookedFlats = [];
 
@@ -548,5 +566,5 @@ firebase.database().ref('/Flats/' ).on('value', (snapshot) =>
 
 
 
-
+ 
 

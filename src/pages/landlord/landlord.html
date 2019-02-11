@@ -122,7 +122,7 @@
               <p style="color: black;">Address: {{flat?.address}}</p>
               <p style="color: black;">Province: {{flat?.province}}</p>
               <p style="color: black;">City: {{flat?.city}}</p>
-              <button ion-button clear item-end (click)="removeFlat(flat)" style="color: #990033">DELETE</button>
+              <button ion-button clear item-end (click)="removeFlat(flat)" style="background-color: rgb(36, 100, 100);color:white">DELETE</button>
             </ion-item>
 
             
@@ -130,7 +130,7 @@
 
             
             <ion-fab bottom right *ngIf = "viewAdd == 0" >
-              <button ion-fab round color = "secondary" (click)= "toAdd()" style = "background: #990033; color: white"><ion-icon name = "add"></ion-icon>
+              <button ion-fab round color = "secondary" (click)= "toAdd()" style = "background:rgb(36, 100, 100); color: white"><ion-icon name = "add"></ion-icon>
              </button>
             </ion-fab>
         
@@ -180,34 +180,21 @@
               </ion-select>
         </ion-item>
 
-<!--               
-        <ion-list [(ngModel)]="extra">
-        <ion-label>Room Type</ion-label>
-   
-            <ion-select >
-                <ion-option value="bed">Double</ion-option>
-                <ion-option value="stove">Single</ion-option>
-
-            </ion-select >
-
- 
-
-    </ion-list> -->
 
 
 
     <ion-item class="clear">
         <ion-label floating>Province</ion-label>
         <ion-select [(ngModel)]="province" >
-          <ion-option value="lim">Limpopo</ion-option>
-          <ion-option value="gau">Gauteng</ion-option>
-          <ion-option value="free">Free State</ion-option>
-          <ion-option value="kwa">Kwazulu Natal</ion-option>
-          <ion-option value="mpu">Mpumalanga</ion-option>
-          <ion-option value="cap">Cape Town</ion-option>
-          <ion-option value="nort">North West</ion-option>
-          <ion-option value="eas">Eastern Cape</ion-option>
-          <ion-option value="wes">Western Cape</ion-option>
+          <ion-option value="Limpopo">Limpopo</ion-option>
+          <ion-option value="Gauteng">Gauteng</ion-option>
+          <ion-option value="Free State">Free State</ion-option>
+          <ion-option value="Kwazulu Natal">Kwazulu Natal</ion-option>
+          <ion-option value="Mpumalanga">Mpumalanga</ion-option>
+          <ion-option value="Cape Town">Cape Town</ion-option>
+          <ion-option value="North West">North West</ion-option>
+          <ion-option value="Eastern Cape">Eastern Cape</ion-option>
+          <ion-option value="Western Cape">Western Cape</ion-option>
         
         </ion-select>
         </ion-item>
@@ -262,7 +249,28 @@
 
       </div> -->
 
-      <div *ngIf="slideNo == 4">
+      <div *ngIf="slideNo == 3">
+          <ion-card *ngFor="let booking of bookings" style="background: #f4f4f4; text-align: left;" >
+   
+      
+              
+               <p>Booked By: {{booking?.fullname}} {{booking?.surname}}</p>
+               
+              <p>Booker Contact: {{ booking?.contact }</p>
+              <p>Booker Email: {{ booking?.contact }</p>
+              <p>Date Booked:  {{ booking?.bookingDate }}</p>
+              <p>Time: {{booking?.time}}</p>
+         
+              
+        </ion-card>
+
+
+
+      </div>
+
+
+
+      <!-- <div *ngIf="slideNo == 4">
         
           <ion-card *ngFor="let bookings of myBookings" style="background: #f4f4f4; text-align: left;" >
           
@@ -287,7 +295,54 @@
             </ion-card>
           
     
-        </div>
+        </div>  -->
+
+
+
+        <div *ngIf="slideNo == 4">
+        
+          <ion-card *ngFor="let booking of bookings" style="background: #f4f4f4; text-align: left;" >
+          
+              
+            <p style="color: black;">Booked By: {{booking?.fullname}} {{booking?.surname}}</p>
+               
+            <p style="color: black;">Booker Contact: {{ booking?.contact}}</p>
+            <p style="color: black;">Booker Email: {{ booking?.email}}</p>
+            <p style="color: black;">Date Booked:  {{ booking?.bookingDate }}</p>
+            <p style="color: black;">Time: {{booking?.time}}</p>
+
+              <!-- <div *ngIf = "showUpdate == 0">
+                  <button item-end  color = "primary" style = "background: rgb(36, 100, 100); color: white" (click) = "showUpdateBooking()">UPDATE &nbsp;<ion-icon name = "ios-create-outline" end></ion-icon>
+                  </button>
+                  
+          
+    
+              
+                  
+                  <button item-end  color = "secondary" (click)= "deleteBooking(book)"  style = "background: rgb(36, 100, 100); color: white">DELETE &nbsp;<ion-icon name = "ios-trash-outline" end></ion-icon>
+                  </button>
+
+                </div>      -->
+
+
+  
+                  <!-- <button item-end  style = "background: rgb(36, 100, 100); color: white" (click) = "showUpdateBooking()">UPDATE &nbsp;<ion-icon name = "ios-create-outline" end></ion-icon>
+                  </button>
+                  
+           -->
+    
+              
+                  
+                  <button item-end   (click)= "deleteBooking(booking)"  style = "background: rgb(36, 100, 100); color: white">DELETE &nbsp;<ion-icon name = "ios-trash-outline" end></ion-icon>
+                  </button>
+
+          
+
+           
+            </ion-card>
+          
+    
+        </div> 
 
 
       <div *ngIf="slideNo == 5">

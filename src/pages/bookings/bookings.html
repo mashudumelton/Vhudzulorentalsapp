@@ -4,7 +4,7 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<!-- <ion-header>
 
         <ion-buttons left>
                 <button ion-button icon-only  style="color: black" (click)="ViewPage(WelcomePage)">
@@ -29,4 +29,68 @@
           </ion-item>
       </ion-list>
       <button ion-button full (click)="update(bookingDate,time)">Update</button>
-      </ion-content>
+      </ion-content> -->
+
+
+
+      <!-- <ion-header>
+
+        <ion-buttons left>
+                <button ion-button icon-only  style="color: black" (click)="ViewPage(WelcomePage)">
+                    <ion-icon name="arrow-back"></ion-icon>
+                </button>
+            </ion-buttons>
+            
+
+  </ion-header> -->
+  
+  
+  <ion-content class="content">
+
+
+
+ 
+    <ion-list>
+        <ion-item>
+            <ion-label >Enter Your Name</ion-label>
+          <ion-input type="text"  [(ngModel)]="fullname" ></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label >Enter Your Surname</ion-label>
+          <ion-input type="text"  [(ngModel)]="surname" ></ion-input>
+        </ion-item>
+      <ion-item>
+          <ion-label >Enter Your Contact</ion-label>
+        <ion-input type="number"  [(ngModel)]="contact" ></ion-input>
+      </ion-item>
+      
+      <ion-item>
+          <ion-label  >Enter Your Email</ion-label>
+        <ion-input type="email"  [(ngModel)]="email"></ion-input>
+      </ion-item>
+      
+
+
+          <ion-item>
+            <ion-label placeholder="Date" floating>Booking Date</ion-label>
+            <ion-input type="date"  [(ngModel)]="bookingDate" ></ion-input>
+          </ion-item>
+      
+          <ion-item>
+            <ion-label floating placeholder="Time">Booking time</ion-label>
+            <ion-input type="time"  [(ngModel)]="time" ></ion-input>
+          </ion-item>
+      </ion-list>
+       <!-- <button ion-button full style="color:rgb(36, 100, 100);"(click)="update(bookingDate,time)">Submit</button>  -->
+       <button ion-button full style="background-color:rgb(36, 100, 100);"(click)="bookingDetails()">Submit</button> 
+       
+       <!-- <ion-item-sliding *ngFor = "let booking of bookings">
+          <ion-item>{{ booking?.name }}</ion-item>
+          <ion-item>{{ booking?.surname }}</ion-item>
+         <ion-item>{{ booking?.time }}</ion-item>
+  
+     <ion-item>  {{ booking?.bookingDate }}</ion-item> 
+        <ion-item>{{ booking?.email }}</ion-item>
+       <ion-item> {{ booking?.contact }}</ion-item>
+       </ion-item-sliding> -->
+      </ion-content> 

@@ -1,6 +1,6 @@
 webpackJsonp([10],{
 
-/***/ 277:
+/***/ 279:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FlatDetailsPageModule", function() { return FlatDetailsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__flat_details__ = __webpack_require__(294);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__flat_details__ = __webpack_require__(297);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var FlatDetailsPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 294:
+/***/ 297:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -57,6 +57,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var FlatDetailsPage = /** @class */ (function () {
+    // clientName;
+    // clientSurname;
+    // clientContact;
+    // clientEmail;
+    // clientID;
     function FlatDetailsPage(navCtrl, navParams, toastCtrl) {
         var _this = this;
         this.navCtrl = navCtrl;
@@ -89,16 +94,17 @@ var FlatDetailsPage = /** @class */ (function () {
             _this.landlordEmail = snapshot.val().email;
             //this.bookings.push({})
         });
-        firebase.database().ref('/Clients_TBL/' + this.userId).on('value', function (snapshot) {
-            _this.clientName = snapshot.val().flatname;
-            _this.clientSurname = snapshot.val().lname;
-            _this.clientContact = snapshot.val().contactNo;
-            _this.clientEmail = snapshot.val().email;
-            _this.clientID = snapshot.key;
-            //this.bookings.push({})
-            _this.clientDetails.push({ clientName: _this.clientName, clientSurname: _this.clientSurname, clientContact: _this.clientContact, clientEmail: _this.clientEmail, clientID: _this.clientID });
-            console.log("EMAIL:", _this.landlordEmail);
-        });
+        // firebase.database().ref('/Clients_TBL/' + this.userId).on('value', (snapshot) =>
+        // {
+        //   this.clientName = snapshot.val().flatname;
+        //   this.clientSurname = snapshot.val().lname;
+        //   this.clientContact = snapshot.val().contactNo;
+        //   this.clientEmail = snapshot.val().email;
+        //   this.clientID = snapshot.key
+        //   //this.bookings.push({})
+        //   this.clientDetails.push({clientName: this.clientName,clientSurname: this.clientSurname,clientContact: this.clientContact,clientEmail: this.clientEmail, clientID : this.clientID});
+        //   console.log("EMAIL:", this.landlordEmail);
+        // })
         console.log(" Landlord ID  =", this.flat.landID);
         console.log(" Tenant/User =", this.userId);
     }
@@ -117,31 +123,32 @@ var FlatDetailsPage = /** @class */ (function () {
         console.log('ionViewDidLoad FlatDetailsPage');
     };
     FlatDetailsPage.prototype.writeBooking = function () {
-        var _this = this;
-        //console.log(this.fname,this.lname,this.contactNo,this.email,this.bookingDate,this.time);
-        if (this.userId) {
-            var database = firebase.database();
-            this.bookings.push({ tenantID: this.userId, time: this.time, date: this.bookingDate, landID: this.flat.landID, landlordName: this.landlordName, landlordSurname: this.landlordSurname, landLordContactNo: this.landlordContactNo, landlordEmail: this.landlordEmail, flatName: this.flat.flatName, address: this.flat.address, clientName: this.clientName, clientSurname: this.clientSurname, clientContact: this.clientContact, clientEmail: this.clientEmail, clientID: this.clientID });
-            console.log(this.bookings);
-            database.ref('/Bookings_TBL/').push({ tenantID: this.userId, time: this.time, date: this.bookingDate, landID: this.flat.landID, landlordName: this.landlordName, landlordSurname: this.landlordSurname, landLordContactNo: this.landlordContactNo, landlordEmail: this.landlordEmail, flatName: this.flat.flatname, address: this.flat.address, clientName: this.clientName, clientSurname: this.clientSurname, clientContact: this.clientContact, clientEmail: this.clientEmail, clientID: this.clientID });
-            var toast = this.toastCtrl.create({
-                message: 'Your Booking has successfully been placed!',
-                duration: 3000,
-                position: 'bottom'
-            });
-            toast.onDidDismiss(function () {
-                if (_this.role == "Landlord") {
-                    _this.navCtrl.setRoot("LandlordPage", { userId: _this.userId });
-                }
-                else {
-                    _this.navCtrl.setRoot("ClientPage", { userId: _this.userId });
-                }
-            });
-            toast.present();
-        }
-        else {
-            this.navCtrl.push("LoginPage");
-        }
+        // writeBooking(){
+        //   //console.log(this.fname,this.lname,this.contactNo,this.email,this.bookingDate,this.time);
+        // if(this.userId){
+        //   var database = firebase.database();
+        var database = firebase.database();
+        //   this.bookings.push({tenantID:this.userId,time:this.time,date:this.bookingDate,landID: this.flat.landID,landlordName: this.landlordName, landlordSurname: this.landlordSurname, landLordContactNo: this.landlordContactNo, landlordEmail: this.landlordEmail, flatName: this.flat.flatName, address: this.flat.address,clientName: this.clientName,clientSurname: this.clientSurname,clientContact: this.clientContact,clientEmail: this.clientEmail, clientID : this.clientID});    
+        //   console.log(this.bookings);
+        //   database.ref('/Bookings_TBL/').push({tenantID:this.userId,time:this.time,date:this.bookingDate,landID: this.flat.landID,landlordName: this.landlordName, landlordSurname: this.landlordSurname, landLordContactNo: this.landlordContactNo, landlordEmail: this.landlordEmail, flatName: this.flat.flatname, address: this.flat.address, clientName: this.clientName,clientSurname: this.clientSurname,clientContact: this.clientContact,clientEmail: this.clientEmail, clientID : this.clientID});
+        database.ref('/Bookings_TBL/').push({ time: this.time, date: this.bookingDate, landID: this.flat.landID, landlordName: this.landlordName, landlordSurname: this.landlordSurname, landLordContactNo: this.landlordContactNo, landlordEmail: this.landlordEmail, flatName: this.flat.flatname, address: this.flat.address });
+        //   let toast = this.toastCtrl.create({
+        //     message: 'Your Booking has successfully been placed!',
+        //     duration: 3000,
+        //     position: 'bottom'
+        //   });
+        //   toast.onDidDismiss(() => {
+        //     if(this.role == "Landlord"){
+        //  this.navCtrl.setRoot("LandlordPage",{userId:this.userId});
+        // }else{
+        //   this.navCtrl.setRoot("ClientPage",{userId:this.userId});
+        // }
+        //   });
+        //   toast.present();
+        // }else{
+        //   this.navCtrl.push("LoginPage");
+        // }
+        // }
     };
     FlatDetailsPage.prototype.removeBookings = function (booking) {
         var database = firebase.database();
@@ -168,7 +175,7 @@ var FlatDetailsPage = /** @class */ (function () {
     };
     FlatDetailsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-flat-details',template:/*ion-inline-start:"C:\Users\codeTribe\Desktop\VHUDZULO RENTALS\src\pages\flat-details\flat-details.html"*/'\n\n<ion-header>\n\n\n\n\n\n\n\n</ion-header>\n\n\n\n\n\n\n\n<ion-content class="content">\n\n      <div class="image">\n\n        <img src="{{flat?.downloadUrl}}" >\n\n      </div>\n\n    \n\n     \n\n              <!-- <p  style="text-align: center;">FLAT NAME: {{flat?.flatname}}</p> -->\n\n              <p style="text-align: center;">DESCRIPTION: {{flat?.description}}</p>\n\n              <p style="text-align: center;">ADDRESS: {{flat?.address}}</p>\n\n              <p style="text-align: center;">PROVINCE: {{flat?.province}}</p>\n\n              <p style="text-align: center;">CITY: {{flat?.city}}</p>\n\n              <p style="text-align: center;">PRICE: R{{flat?.price}} P/M</p>\n\n              <p style="text-align: center;color: white">CONTACT : {{flat?.contactNo}}</p>\n\n              \n\n        \n\n          <button *ngIf="hideButn" ion-button  style = "color: white; background: #990033" (click)="checkStatus()" full>BOOK</button> \n\n          <ion-card *ngIf="card">\n\n            <ion-card-content>\n\n          <ion-list>\n\n\n\n            <ion-item>\n\n              <ion-input type="date" [(ngModel)]="bookingDate"  placeholder="Date"></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-input type="time" [(ngModel)]="time"  placeholder="Time"></ion-input>\n\n\n\n        </ion-item>\n\n        <button ion-button block (click)="writeBooking()">\n\n            Book\n\n          </button>\n\n          \n\n        \n\n          <button ion-button block color="danger" (click) = "removeBookings(booking)">\n\n            <ion-icon name="trash"></ion-icon>\n\n            Cancel</button>\n\n          </ion-list>\n\n          </ion-card-content>\n\n          </ion-card>\n\n          \n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\codeTribe\Desktop\VHUDZULO RENTALS\src\pages\flat-details\flat-details.html"*/,
+            selector: 'page-flat-details',template:/*ion-inline-start:"C:\Users\codeTribe\Desktop\Vhudzulorentalsapp\src\pages\flat-details\flat-details.html"*/'\n\n<ion-header>\n\n\n\n\n\n\n\n</ion-header>\n\n\n\n\n\n\n\n<ion-content class="content">\n\n  <!-- <div class="wrapper-home">\n\n        <img src="{{flat?.downloadUrl}}" >\n\n      </div> -->\n\n      <ion-card >\n\n        <img src="{{flat?.downloadUrl}}" >\n\n      </ion-card>\n\n     \n\n              <!-- <p  style="text-align: center;">FLAT NAME: {{flat?.flatname}}</p> -->\n\n              <p style="text-align: center;font-family: \'Times New Roman\', Times, serif;font-style: inherit;font-size: 150%; color: rgb(36, 100, 100);">DESCRIPTION: {{flat?.description}}</p>\n\n              <p style="text-align: center;font-family: \'Times New Roman\', Times, serif;font-style: inherit;font-size: 150%; color: rgb(36, 100, 100);">ADDRESS: {{flat?.address}}</p>\n\n              <p style="text-align: center;font-family: \'Times New Roman\', Times, serif;font-style: inherit;font-size: 150%; color: rgb(36, 100, 100);">PROVINCE: {{flat?.province}}</p>\n\n              <p style="text-align: center;font-family: \'Times New Roman\', Times, serif;font-style: inherit;font-size: 150%; color: rgb(36, 100, 100);">CITY: {{flat?.city}}</p>\n\n              <p style="text-align: center;font-family: \'Times New Roman\', Times, serif;font-style: inherit;font-size: 150%; color: rgb(36, 100, 100);">PRICE: R{{flat?.price}} P/M</p>\n\n              <p style="text-align: center;font-family: \'Times New Roman\', Times, serif;font-style: inherit;font-size: 150%; color: rgb(36, 100, 100);">CONTACT : {{flat?.contactNo}}</p>\n\n              \n\n        \n\n          <button *ngIf="hideButn" ion-button  style = "color: white; background: rgb(36, 100, 100)" (click)="checkStatus()" full>BOOK</button> \n\n          <ion-card *ngIf="card">\n\n            <ion-card-content>\n\n          <ion-list>\n\n\n\n            <ion-item>\n\n              <ion-input type="date" [(ngModel)]="bookingDate"  placeholder="Date"></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-input type="time" [(ngModel)]="time"  placeholder="Time"></ion-input>\n\n\n\n        </ion-item>\n\n        <button ion-button block (click)="writeBooking()">\n\n            Book\n\n          </button>\n\n          \n\n        \n\n          <button ion-button block color="danger" (click) = "removeBookings(booking)">\n\n            <ion-icon name="trash"></ion-icon>\n\n            Cancel</button>\n\n          </ion-list>\n\n          </ion-card-content>\n\n          </ion-card>\n\n          \n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\codeTribe\Desktop\Vhudzulorentalsapp\src\pages\flat-details\flat-details.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */]])
     ], FlatDetailsPage);

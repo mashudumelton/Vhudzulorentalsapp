@@ -30611,71 +30611,6 @@ page-booked-users button .btn {
   margin-right: 10px;
 }
 
-page-bookings .background {
-  background-image: url(../../assets/imgs/52392_1478584515.jpeg);
-}
-
-page-bookings ion-card.card {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 5px;
-}
-
-page-bookings a, page-bookings p,
-page-bookings ion-card-header.card-header {
-  color: #fff !important;
-}
-
-page-bookings .list > .item-block:first-child {
-  border: medium none;
-}
-
-page-bookings .item {
-  margin-bottom: 10px;
-  background: rgba(255, 255, 255, 0.5);
-  border: medium none;
-}
-
-page-bookings .item .text-input {
-  color: #fff;
-}
-
-page-bookings .item input::-moz-placeholder {
-  color: #fff !important;
-}
-
-page-bookings .item input:-moz-placeholder {
-  color: #fff !important;
-}
-
-page-bookings .item *::-webkit-input-placeholder {
-  color: #fff !important;
-}
-
-page-bookings .item *:-ms-input-placeholder {
-  color: #fff !important;
-}
-
-page-bookings .item *:-moz-placeholder {
-  color: #fff !important;
-}
-
-page-bookings .item label {
-  margin-bottom: 10px;
-  background: rgba(255, 255, 255, 0.5);
-  border: medium none;
-}
-
-page-bookings .item label .text-input {
-  color: #fff;
-}
-
-page-bookings button .btn {
-  margin-top: 10px;
-  margin-right: 10px;
-}
-
 page-cancel .background {
   background-image: url(../../assets/imgs/52392_1478584515.jpeg);
 }
@@ -30796,6 +30731,11 @@ ion-header, ion-segment, ion-segment-button {
   border-color: #669a2f;
 }
 
+page-flat-details ion-card {
+  position: relative;
+  text-align: center;
+}
+
 .content p {
   color: black;
 }
@@ -30805,6 +30745,7 @@ page-home .wrapper-home {
   background-size: cover;
   margin-left: auto;
   margin-right: auto;
+  position: absolute;
   display: grid;
   height: 100%;
   grid-template-rows: 75% auto;

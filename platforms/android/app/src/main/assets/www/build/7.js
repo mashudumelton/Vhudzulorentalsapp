@@ -1,6 +1,6 @@
 webpackJsonp([7],{
 
-/***/ 280:
+/***/ 282:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(297);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(300);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var LoginPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 297:
+/***/ 300:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -83,8 +83,8 @@ var LoginPage = /** @class */ (function () {
         // this.role = this.navParams.get("role");
         // console.log("role",this.role);
         this.login = this.fb.group({
-            email: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].maxLength(70), __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].pattern('^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$'), __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required])],
-            password: ['', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].minLength(6)]],
+            email: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].maxLength(70), __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].pattern('^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$'), __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required])],
+            password: ['', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].minLength(6)]],
         });
     }
     LoginPage.prototype.reset = function () {
@@ -239,7 +239,7 @@ var LoginPage = /** @class */ (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"C:\Users\codeTribe\Desktop\VHUDZULO RENTALS\src\pages\login\login.html"*/'<!--\n\n  Generated template for the LoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n    \n\n        <!-- <ion-buttons left>\n\n                <button style="background-color: rgb(36, 100, 100)"\n\n                ion-button  (click)="ViewPage(ViewPage)">\n\n                    Back\n\n                </button>\n\n            </ion-buttons> -->\n\n\n\n\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content class="content">\n\n    <!--<form  [formGroup]="login" (ngSignUp)="logins()">-->\n\n        \n\n        <form  [formGroup]="login" (ngSignUp)="login(login)">\n\n\n\n        \n\n                    <ion-card>\n\n                    <ion-card-content>\n\n                  <ion-item>\n\n                    <ion-label><ion-icon name = "mail">&nbsp;Email</ion-icon></ion-label>\n\n                      <ion-input formControlName="email" type="email" [(ngModel)] = "email"></ion-input>\n\n            \n\n                    </ion-item>\n\n                  \n\n                  <ion-item *ngIf="login.controls.email.invalid && login.controls.email.dirty">\n\n                      <p>incorrect email</p>\n\n                      \n\n                      </ion-item>\n\n                    <ion-item>\n\n                        <ion-label><ion-icon name = "lock" >&nbsp; Password</ion-icon></ion-label>\n\n                        <ion-input formControlName="password"  type="password" [(ngModel)] = "password"></ion-input>\n\n                    </ion-item>\n\n                    <ion-item *ngIf="login.controls.password.invalid && login.controls.password.dirty">\n\n                        <p>please enter a valid password</p>\n\n                        \n\n              \n\n                      </ion-item>\n\n\n\n                      <button ion-button round full  color="toolbar" (click)="logins()" [disabled]="login.invalid"  >LOGIN</button>\n\n                  <button ion-button round full  color= google (click)="loginWithGoogle()" > <ion-icon name="logo-google">&nbsp;&nbsp;LOG IN WITH GOOGLE</ion-icon></button><br>\n\n                  <a (click)="reset()" style = "color:black">Forgot Password?</a><br>\n\n                  <a (click) = "showCheckbox()" style = "color:black">Don\'t have an account?</a>\n\n                    </ion-card-content>\n\n                    </ion-card>\n\n                \n\n                 \n\n        \n\n            \n\n          \n\n    \n\n    \n\n    \n\n    </form>  \n\n    \n\n    \n\n<!--</form>  -->\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\codeTribe\Desktop\VHUDZULO RENTALS\src\pages\login\login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"C:\Users\codeTribe\Desktop\Vhudzulorentalsapp\src\pages\login\login.html"*/'<!--\n\n  Generated template for the LoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n    \n\n        <!-- <ion-buttons left>\n\n                <button style="background-color: rgb(36, 100, 100)"\n\n                ion-button  (click)="ViewPage(ViewPage)">\n\n                    Back\n\n                </button>\n\n            </ion-buttons> -->\n\n\n\n\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content class="content">\n\n    <!--<form  [formGroup]="login" (ngSignUp)="logins()">-->\n\n        \n\n        <form  [formGroup]="login" (ngSignUp)="login(login)">\n\n\n\n        \n\n                    <ion-card>\n\n                    <ion-card-content>\n\n                  <ion-item>\n\n                    <ion-label><ion-icon name = "mail">&nbsp;Email</ion-icon></ion-label>\n\n                      <ion-input formControlName="email" type="email" [(ngModel)] = "email"></ion-input>\n\n            \n\n                    </ion-item>\n\n                  \n\n                  <ion-item *ngIf="login.controls.email.invalid && login.controls.email.dirty">\n\n                      <p>incorrect email</p>\n\n                      \n\n                      </ion-item>\n\n                    <ion-item>\n\n                        <ion-label><ion-icon name = "lock" >&nbsp; Password</ion-icon></ion-label>\n\n                        <ion-input formControlName="password"  type="password" [(ngModel)] = "password"></ion-input>\n\n                    </ion-item>\n\n                    <ion-item *ngIf="login.controls.password.invalid && login.controls.password.dirty">\n\n                        <p>please enter a valid password</p>\n\n                        \n\n              \n\n                      </ion-item>\n\n\n\n                      <button ion-button round full  color="toolbar" (click)="logins()" [disabled]="login.invalid"  >LOGIN</button>\n\n                  <button ion-button round full  color= google (click)="loginWithGoogle()" > <ion-icon name="logo-google">&nbsp;&nbsp;LOG IN WITH GOOGLE</ion-icon></button><br>\n\n                  <a (click)="reset()" style = "color:black">Forgot Password?</a><br>\n\n                  <a (click) = "showCheckbox()" style = "color:black">Don\'t have an account?</a>\n\n                    </ion-card-content>\n\n                    </ion-card>\n\n                \n\n                 \n\n        \n\n            \n\n          \n\n    \n\n    \n\n    \n\n    </form>  \n\n    \n\n    \n\n<!--</form>  -->\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\codeTribe\Desktop\Vhudzulorentalsapp\src\pages\login\login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
     ], LoginPage);

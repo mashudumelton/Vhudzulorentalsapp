@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\codeTribe\\Desktop\\VHUDZULO RENTALS\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-kk-rKZ\\values-kk-rKZ.xml",
+            "outputFile": "C:\\Users\\codeTribe\\Desktop\\Vhudzulorentalsapp\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-kk-rKZ\\values-kk-rKZ.xml",
             "map": [
                 {
                     "source": "C:\\Users\\codeTribe\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.4.0.aar\\baded2adb3fab9a81c8055fcdc3e74a9\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
