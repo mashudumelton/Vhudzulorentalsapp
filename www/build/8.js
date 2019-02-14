@@ -148,10 +148,10 @@ var LandlordPage = /** @class */ (function () {
                 id: "myFlats",
                 title: "Second Slide"
             },
-            {
-                id: "bookings",
-                title: "Third Slide"
-            },
+            // {
+            //   id: "bookings",
+            //   title: "Third Slide"
+            // },
             {
                 id: "myBookings",
                 title: "Fourth Slide"
@@ -390,6 +390,10 @@ var LandlordPage = /** @class */ (function () {
         //this.BookingsByMe();
         this.navCtrl.setRoot("LandlordPage");
         //this.slideNo == 3;
+    };
+    LandlordPage.prototype.deleteBooking = function (booking) {
+        firebase.database().ref('/mybookingInfo/' + booking.key).remove();
+        this.navCtrl.setRoot("LandlordPage");
     };
     LandlordPage.prototype.BookedFlats = function () {
         this.bookedFlats = [];

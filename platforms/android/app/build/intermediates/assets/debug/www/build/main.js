@@ -22,31 +22,31 @@ webpackEmptyAsyncContext.id = 109;
 
 var map = {
 	"../pages/account/account.module": [
-		273,
+		279,
 		16
 	],
 	"../pages/advertise/advertise.module": [
-		274,
+		275,
 		15
 	],
 	"../pages/booked-users/booked-users.module": [
-		275,
+		273,
 		14
 	],
 	"../pages/bookings/bookings.module": [
-		276,
+		274,
 		13
 	],
 	"../pages/cancel/cancel.module": [
-		277,
+		278,
 		12
 	],
 	"../pages/client/client.module": [
-		278,
+		276,
 		11
 	],
 	"../pages/flat-details/flat-details.module": [
-		279,
+		277,
 		10
 	],
 	"../pages/home/home.module": [
@@ -54,39 +54,39 @@ var map = {
 		9
 	],
 	"../pages/landlord/landlord.module": [
-		281,
+		285,
 		8
 	],
 	"../pages/login/login.module": [
-		282,
+		284,
 		7
 	],
 	"../pages/reset/reset.module": [
-		283,
+		281,
 		6
 	],
 	"../pages/signup/signup.module": [
-		284,
+		282,
 		5
 	],
 	"../pages/tenat-login/tenat-login.module": [
-		285,
+		283,
 		4
 	],
 	"../pages/update/update.module": [
-		286,
+		287,
 		3
 	],
 	"../pages/user-is-booking/user-is-booking.module": [
-		287,
+		288,
 		2
 	],
 	"../pages/users/users.module": [
-		288,
+		289,
 		1
 	],
 	"../pages/welcome/welcome.module": [
-		289,
+		286,
 		0
 	]
 };
@@ -231,23 +231,23 @@ var AppModule = /** @class */ (function () {
                     autoFocusAssist: false
                 }, {
                     links: [
-                        { loadChildren: '../pages/account/account.module#AccountPageModule', name: 'AccountPage', segment: 'account', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/advertise/advertise.module#AdvertisePageModule', name: 'AdvertisePage', segment: 'advertise', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/booked-users/booked-users.module#BookedUsersPageModule', name: 'BookedUsersPage', segment: 'booked-users', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/bookings/bookings.module#BookingsPageModule', name: 'BookingsPage', segment: 'bookings', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/cancel/cancel.module#CancelPageModule', name: 'CancelPage', segment: 'cancel', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/advertise/advertise.module#AdvertisePageModule', name: 'AdvertisePage', segment: 'advertise', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/client/client.module#ClientPageModule', name: 'ClientPage', segment: 'client', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/flat-details/flat-details.module#FlatDetailsPageModule', name: 'FlatDetailsPage', segment: 'flat-details', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/cancel/cancel.module#CancelPageModule', name: 'CancelPage', segment: 'cancel', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/account/account.module#AccountPageModule', name: 'AccountPage', segment: 'account', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/landlord/landlord.module#LandlordPageModule', name: 'LandlordPage', segment: 'landlord', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/reset/reset.module#ResetPageModule', name: 'ResetPage', segment: 'reset', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tenat-login/tenat-login.module#TenatLoginPageModule', name: 'TenatLoginPage', segment: 'tenat-login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/landlord/landlord.module#LandlordPageModule', name: 'LandlordPage', segment: 'landlord', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/update/update.module#UpdatePageModule', name: 'UpdatePage', segment: 'update', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/user-is-booking/user-is-booking.module#UserIsBookingPageModule', name: 'UserIsBookingPage', segment: 'user-is-booking', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/users/users.module#UsersPageModule', name: 'UsersPage', segment: 'users', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/users/users.module#UsersPageModule', name: 'UsersPage', segment: 'users', priority: 'low', defaultHistory: [] }
                     ]
                 })
             ],

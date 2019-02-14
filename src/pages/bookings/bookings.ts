@@ -153,7 +153,7 @@ bookingDetails(){
    this.navCtrl.push("WelcomePage")
 
   let toast = this.toastCtrl.create({
-        message: 'Booking successfully uploaded.',
+        message: 'Booking successfully uploaded.The landlord will be in touch with about your',
         duration: 3000,
         position: 'middle'
       });

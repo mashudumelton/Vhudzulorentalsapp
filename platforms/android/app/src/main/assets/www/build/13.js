@@ -157,7 +157,7 @@ var BookingsPage = /** @class */ (function () {
         database.ref('/mybookingInfo').push(this.mybookingInfo);
         this.navCtrl.push("WelcomePage");
         var toast = this.toastCtrl.create({
-            message: 'Booking successfully uploaded.',
+            message: 'Booking successfully uploaded.The landlord will be in touch with about your',
             duration: 3000,
             position: 'middle'
         });
